@@ -1,0 +1,491 @@
+/*
+ * Copyright 2023 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+ 
+ body {
+    margin: 0
+}
+
+html {
+    height: 100%
+}
+
+.spectrum_b37d53 {
+    -webkit-tap-highlight-color: #0000
+}
+
+
+.spectrum-Icon_368b34:not(:root),
+.spectrum-UIIcon_368b34:not(:root) {
+    overflow: hidden
+}
+
+.spectrum-Button_e2d99e:after,
+.spectrum-ActionButton_e2d99e:after,
+.spectrum-LogicButton_e2d99e:after,
+.spectrum-FieldButton_e2d99e:after,
+.spectrum-ClearButton_e2d99e:after {
+    border-radius: calc(var(--spectrum-focus-ring-border-radius) + var(--spectrum-focus-ring-gap));
+    content: "";
+    margin: calc(-1*var(--spectrum-focus-ring-border-size));
+    pointer-events: none;
+    transition: box-shadow var(--spectrum-global-animation-duration-100, .13s) ease-out, margin var(--spectrum-global-animation-duration-100, .13s) ease-out;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+
+.spectrum-ActionButton_e2d99e {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -ms-touch-action: none
+}
+
+button.spectrum-ActionButton_e2d99e {
+    -webkit-appearance: button
+}
+
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-Icon_e2d99e:only-child,
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-ActionButton-hold_e2d99e+.spectrum-Icon_e2d99e:last-child {
+    padding-right: var(--spectrum-actionbutton-icon-padding-x, var(--spectrum-global-dimension-size-85))
+}
+
+.spectrum-Button_e2d99e:after,
+.spectrum-ActionButton_e2d99e:after,
+.spectrum-LogicButton_e2d99e:after,
+.spectrum-FieldButton_e2d99e:after,
+.spectrum-ClearButton_e2d99e:after {
+    border-radius: calc(var(--spectrum-focus-ring-border-radius) + var(--spectrum-focus-ring-gap));
+    content: "";
+    margin: calc(-1*var(--spectrum-focus-ring-border-size));
+    pointer-events: none;
+    transition: box-shadow var(--spectrum-global-animation-duration-100, .13s) ease-out, margin var(--spectrum-global-animation-duration-100, .13s) ease-out;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+
+.spectrum-ActionButton_e2d99e {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -ms-touch-action: none
+}
+
+button.spectrum-ActionButton_e2d99e {
+    -webkit-appearance: button
+}
+
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-Icon_e2d99e:only-child,
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-ActionButton-hold_e2d99e+.spectrum-Icon_e2d99e:last-child {
+    padding-right: var(--spectrum-actionbutton-icon-padding-x, var(--spectrum-global-dimension-size-85))
+}
+
+.spectrum-Modal-wrapper_38efea.react-spectrum-Modal-wrapper_38efea {
+    visibility: visible
+}
+
+.spectrum-Modal_f81956.is-open_f81956 {
+    visibility: visible;
+    opacity: .9999;
+    pointer-events: auto;
+    transition-delay: 0s
+}
+
+.spectrum-Modal-wrapper_f81956 {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+    transition: visibility 0s linear var(--spectrum-global-animation-duration-100, .13s);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0
+}
+
+.spectrum-Modal_f81956 {
+    z-index: 2;
+    max-height: calc(var(--spectrum-visual-viewport-height)*.9);
+    max-width: 90vw;
+    min-width: var(--spectrum-dialog-min-width, var(--spectrum-global-dimension-static-size-3600));
+    border-radius: var(--spectrum-dialog-border-radius, var(--spectrum-global-dimension-size-50));
+    outline: none
+}
+
+.spectrum-Modal_f81956.is-open_f81956 {
+    transition: transform var(--spectrum-dialog-entry-animation-duration, var(--spectrum-global-animation-duration-500)) cubic-bezier(0, 0, .4, 1) var(--spectrum-dialog-entry-animation-delay, var(--spectrum-global-animation-duration-200)), opacity var(--spectrum-dialog-entry-animation-duration, var(--spectrum-global-animation-duration-500)) cubic-bezier(0, 0, .4, 1) var(--spectrum-dialog-entry-animation-delay, var(--spectrum-global-animation-duration-200));
+    transform: translateY(0)
+}
+
+.spectrum-Modal_f81956 {
+    background: var(--spectrum-dialog-background-color, var(--spectrum-alias-background-color-default))
+}
+
+.spectrum-Button_e2d99e:after,
+.spectrum-ActionButton_e2d99e:after,
+.spectrum-LogicButton_e2d99e:after,
+.spectrum-FieldButton_e2d99e:after,
+.spectrum-ClearButton_e2d99e:after {
+    border-radius: calc(var(--spectrum-focus-ring-border-radius) + var(--spectrum-focus-ring-gap));
+    content: "";
+    margin: calc(-1*var(--spectrum-focus-ring-border-size));
+    pointer-events: none;
+    transition: box-shadow var(--spectrum-global-animation-duration-100, .13s) ease-out, margin var(--spectrum-global-animation-duration-100, .13s) ease-out;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+
+.spectrum-ActionButton_e2d99e {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
+    -ms-touch-action: none
+}
+
+button.spectrum-ActionButton_e2d99e {
+    -webkit-appearance: button
+}
+
+
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-Icon_e2d99e:only-child,
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-ActionButton-hold_e2d99e+.spectrum-Icon_e2d99e:last-child {
+    padding-right: var(--spectrum-actionbutton-icon-padding-x, var(--spectrum-global-dimension-size-85))
+}
+
+.spectrum-Dialog_6d8b48 {
+    width: -moz-fit-content;
+    width: -moz-fit-content
+}
+
+.spectrum-Dialog_6d8b48 .spectrum-Dialog-grid_6d8b48 {
+    display: -ms-grid;
+    -ms-grid-columns: var(--spectrum-dialog-padding-x) auto 1fr auto minmax(0, auto) var(--spectrum-dialog-padding-x);
+    -ms-grid-rows: auto var(--spectrum-dialog-padding-y) auto auto 1fr auto var(--spectrum-dialog-padding-y)
+}
+
+.spectrum-Dialog-content_6d8b48 {
+    -webkit-overflow-scrolling: touch
+}
+
+.spectrum-Dialog_6d8b48.spectrum-Dialog--dismissable_6d8b48 .spectrum-Dialog-grid_6d8b48 {
+    -ms-grid-columns: var(--spectrum-dialog-padding-x) auto 1fr auto minmax(0, auto) minmax(0, var(--spectrum-global-dimension-size-400)) var(--spectrum-dialog-padding-x);
+    -ms-grid-rows: auto var(--spectrum-dialog-padding-y) auto auto 1fr auto var(--spectrum-dialog-padding-y)
+}
+
+[dir=ltr] .spectrum-Rule_612bb8 {
+    margin-left: 0
+}
+
+[dir=ltr] .spectrum-Rule_612bb8 {
+    margin-right: 0
+}
+
+.spectrum-Rule_612bb8 {
+    border: none;
+    border-width: var(--spectrum-rule-medium-height, var(--spectrum-global-dimension-static-size-25));
+    -ms-grid-row-align: stretch;
+    align-self: stretch;
+    margin: 0;
+    overflow: visible
+}
+
+.spectrum-Rule--medium_612bb8 {
+    border-radius: var(--spectrum-rule-medium-border-radius, var(--spectrum-global-dimension-static-size-10))
+}
+
+.spectrum-Rule--horizontal_612bb8.spectrum-Rule--medium_612bb8 {
+    height: var(--spectrum-rule-medium-height, var(--spectrum-global-dimension-static-size-25))
+}
+
+.spectrum-Rule--medium_612bb8 {
+    background-color: var(--spectrum-rule-medium-background-color, var(--spectrum-global-color-gray-300))
+}
+
+@media (forced-colors:none) {
+    :root {
+        --spectrum-slider-handle-border-color-key-focus: var(--spectrum-global-color-gray-800)
+    }
+}
+
+.spectrum_b37d53 {
+    background-color: var(--spectrum-alias-background-color-default, var(--spectrum-global-color-gray-100));
+    -webkit-tap-highlight-color: #0000
+}
+
+.spectrum_2a241c {
+    font-family: adobe-clean-ux, adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif
+}
+
+
+.spectrum_2a241c {
+    color: var(--spectrum-global-color-gray-800)
+}
+
+.spectrum_2a241c {
+    font-size: var(--spectrum-body-4-text-size, var(--spectrum-alias-font-size-default));
+    font-weight: var(--spectrum-body-4-text-font-weight, var(--spectrum-alias-body-text-font-weight));
+    line-height: var(--spectrum-body-4-text-line-height, var(--spectrum-alias-body-text-line-height));
+    font-style: var(--spectrum-body-4-text-font-style, var(--spectrum-global-font-style-regular))
+}
+
+.spectrum-ActionButton_e2d99e {
+    font-family: adobe-clean-ux, adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif
+}
+
+.spectrum-ActionButton_e2d99e {
+    --spectrum-focus-ring-color: var(--spectrum-high-contrast-focus-ring-color, var(--spectrum-alias-focus-ring-color, var(--spectrum-alias-focus-color)))
+}
+
+.spectrum-Button_e2d99e:after,
+.spectrum-ActionButton_e2d99e:after,
+.spectrum-LogicButton_e2d99e:after,
+.spectrum-FieldButton_e2d99e:after,
+.spectrum-ClearButton_e2d99e:after {
+    border-radius: calc(var(--spectrum-focus-ring-border-radius) + var(--spectrum-focus-ring-gap));
+    content: "";
+    margin: calc(-1*var(--spectrum-focus-ring-border-size));
+    pointer-events: none;
+    transition: box-shadow var(--spectrum-global-animation-duration-100, .13s) ease-out, margin var(--spectrum-global-animation-duration-100, .13s) ease-out;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+
+.spectrum-ActionButton_e2d99e {
+    box-sizing: border-box;
+    border-style: solid;
+    --spectrum-focus-ring-border-radius: var(--spectrum-button-border-radius);
+    --spectrum-focus-ring-border-size: var(--spectrum-button-border-width);
+    --spectrum-focus-ring-gap: var(--spectrum-alias-focus-ring-gap, var(--spectrum-global-dimension-static-size-25));
+    --spectrum-focus-ring-size: var(--spectrum-button-primary-focus-ring-size-key-focus, var(--spectrum-alias-focus-ring-size));
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: top;
+    transition: background var(--spectrum-global-animation-duration-100, .13s) ease-out, border-color var(--spectrum-global-animation-duration-100, .13s) ease-out, color var(--spectrum-global-animation-duration-100, .13s) ease-out, box-shadow var(--spectrum-global-animation-duration-100, .13s) ease-out;
+    -webkit-user-select: none;
+    user-select: none;
+    -ms-touch-action: none;
+    touch-action: none;
+    cursor: default;
+    isolation: isolate;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    line-height: 1.3;
+    text-decoration: none;
+    display: inline-flex;
+    overflow: visible
+}
+
+button.spectrum-ActionButton_e2d99e {
+    -webkit-appearance: button
+}
+
+
+.spectrum-ActionButton_e2d99e .spectrum-Icon_e2d99e {
+    max-height: 100%;
+    transition: background var(--spectrum-global-animation-duration-100, .13s) ease-out, fill var(--spectrum-global-animation-duration-100, .13s) ease-out;
+    box-sizing: initial;
+    flex-shrink: 0;
+    order: 0
+}
+
+.spectrum-ActionButton_e2d99e {
+    height: var(--spectrum-actionbutton-height, var(--spectrum-alias-single-line-height));
+    min-width: var(--spectrum-actionbutton-min-width, var(--spectrum-global-dimension-size-400));
+    --spectrum-button-border-radius: var(--spectrum-actionbutton-border-radius, var(--spectrum-alias-border-radius-regular));
+    --spectrum-button-border-width: var(--spectrum-actionbutton-border-size, var(--spectrum-alias-border-size-thin));
+    padding: 0;
+    position: relative
+}
+
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-Icon_e2d99e {
+    padding-left: var(--spectrum-actionbutton-icon-padding-x, var(--spectrum-global-dimension-size-85))
+}
+
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-Icon_e2d99e:only-child,
+[dir=ltr] .spectrum-ActionButton_e2d99e .spectrum-ActionButton-hold_e2d99e+.spectrum-Icon_e2d99e:last-child {
+    padding-right: var(--spectrum-actionbutton-icon-padding-x, var(--spectrum-global-dimension-size-85))
+}
+
+.spectrum-ActionButton--quiet_e2d99e {
+    border-width: var(--spectrum-actionbutton-quiet-border-size, var(--spectrum-alias-border-size-thin));
+    border-radius: var(--spectrum-actionbutton-quiet-border-radius, var(--spectrum-alias-border-radius-regular));
+    font-size: var(--spectrum-actionbutton-quiet-text-size, var(--spectrum-alias-font-size-default));
+    font-weight: var(--spectrum-actionbutton-quiet-text-font-weight, var(--spectrum-alias-body-text-font-weight))
+}
+
+.spectrum-ActionButton_e2d99e .spectrum-Icon_e2d99e {
+    fill: var(--spectrum-high-contrast-button-text, var(--spectrum-actionbutton-icon-color, var(--spectrum-alias-icon-color)))
+}
+
+
+.spectrum-ActionButton--quiet_e2d99e {
+    background-color: var(--spectrum-high-contrast-button-face, var(--spectrum-actionbutton-quiet-background-color, var(--spectrum-alias-background-color-transparent)));
+    border-color: var(--spectrum-high-contrast-button-face, var(--spectrum-actionbutton-quiet-border-color, var(--spectrum-alias-border-color-transparent)));
+    color: var(--spectrum-high-contrast-button-text, var(--spectrum-actionbutton-quiet-text-color, var(--spectrum-alias-text-color)))
+}
+
+.spectrum-Icon_368b34 {
+    color: inherit;
+    fill: currentColor;
+    pointer-events: none;
+    display: inline-block
+}
+
+.spectrum-Icon_368b34:not(:root),
+.spectrum-UIIcon_368b34:not(:root) {
+    overflow: hidden
+}
+
+
+.spectrum-UIIcon-CrossLarge_368b34 {
+    width: var(--spectrum-icon-cross-large-width);
+    height: var(--spectrum-icon-cross-large-height)
+}
+
+.spectrum-Dialog_6d8b48 {
+    box-sizing: border-box;
+    width: -moz-fit-content;
+    width: -moz-fit-content;
+    min-width: var(--spectrum-dialog-min-width, var(--spectrum-global-dimension-static-size-3600));
+    max-width: 100%;
+    max-height: inherit;
+    --spectrum-dialog-padding-x: var(--spectrum-dialog-padding);
+    --spectrum-dialog-padding-y: var(--spectrum-dialog-padding);
+    --spectrum-dialog-border-radius: var(--spectrum-alias-border-radius-regular, var(--spectrum-global-dimension-size-50));
+    outline: none;
+    display: flex
+}
+
+.spectrum-Dialog--large_6d8b48 {
+    width: 640px
+}
+
+.spectrum-Dialog_6d8b48 .spectrum-Dialog-grid_6d8b48 {
+    display: -ms-grid;
+    -ms-grid-columns: var(--spectrum-dialog-padding-x) auto 1fr auto minmax(0, auto) var(--spectrum-dialog-padding-x);
+    -ms-grid-rows: auto var(--spectrum-dialog-padding-y) auto auto 1fr auto var(--spectrum-dialog-padding-y);
+    width: 100%
+}
+
+.spectrum-Dialog-heading_6d8b48 {
+    font-size: var(--spectrum-dialog-title-text-size);
+    font-weight: var(--spectrum-dialog-title-text-font-weight, var(--spectrum-global-font-weight-bold));
+    line-height: var(--spectrum-dialog-title-text-line-height, var(--spectrum-alias-heading-text-line-height));
+    outline: none;
+    margin: 0
+}
+
+[dir=ltr] .spectrum-Dialog-heading_6d8b48.spectrum-Dialog-heading--noHeader_6d8b48.spectrum-Dialog-heading--noTypeIcon_6d8b48 {
+    padding-right: 0
+}
+
+.spectrum-Dialog-heading_6d8b48.spectrum-Dialog-heading--noHeader_6d8b48.spectrum-Dialog-heading--noTypeIcon_6d8b48 {
+    grid-area: heading-start/heading-start/typeIcon-end/typeIcon-end
+}
+
+.spectrum-Dialog_6d8b48 .spectrum-Dialog-divider_6d8b48 {
+    width: 100%;
+    margin-top: var(--spectrum-dialog-rule-margin-top, var(--spectrum-global-dimension-static-size-150));
+    margin-bottom: var(--spectrum-dialog-rule-margin-bottom, var(--spectrum-global-dimension-static-size-200));
+    grid-area: divider
+}
+
+.spectrum-Dialog-content_6d8b48 {
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    font-size: var(--spectrum-dialog-content-text-size);
+    font-weight: var(--spectrum-dialog-content-text-font-weight, var(--spectrum-global-font-weight-regular));
+    line-height: var(--spectrum-dialog-content-text-line-height, var(--spectrum-alias-body-text-line-height));
+    padding: calc(var(--spectrum-global-dimension-size-25)*2);
+    margin: calc(var(--spectrum-global-dimension-size-25)*-2);
+    min-height: var(--spectrum-alias-single-line-height, var(--spectrum-global-dimension-size-400));
+    outline: none;
+    grid-area: content;
+    overflow-y: auto
+}
+
+.spectrum-Dialog_6d8b48.spectrum-Dialog--dismissable_6d8b48 .spectrum-Dialog-grid_6d8b48 {
+    -ms-grid-columns: var(--spectrum-dialog-padding-x) auto 1fr auto minmax(0, auto) minmax(0, var(--spectrum-global-dimension-size-400)) var(--spectrum-dialog-padding-x);
+    grid-template-columns: var(--spectrum-dialog-padding-x) auto 1fr auto minmax(0, auto) minmax(0, var(--spectrum-global-dimension-size-400)) var(--spectrum-dialog-padding-x);
+    -ms-grid-rows: auto var(--spectrum-dialog-padding-y) auto auto 1fr auto var(--spectrum-dialog-padding-y);
+    grid-template-rows: auto var(--spectrum-dialog-padding-y) auto auto 1fr auto var(--spectrum-dialog-padding-y);
+    grid-template-areas: "hero hero hero hero hero hero hero" ". . . . .closeButton closeButton" ".heading header header typeIcon closeButton closeButton" ".divider divider divider divider divider." ".content content content content content." ".footer footer buttonGroup buttonGroup buttonGroup." ". . . . . . ."
+}
+
+[dir=ltr] .spectrum-Dialog_6d8b48.spectrum-Dialog--dismissable_6d8b48 .spectrum-Dialog-closeButton_6d8b48 {
+    margin-right: calc(26px - var(--spectrum-global-dimension-size-175))
+}
+
+.spectrum-Dialog_6d8b48.spectrum-Dialog--dismissable_6d8b48 .spectrum-Dialog-closeButton_6d8b48 {
+    margin-top: calc(26px - var(--spectrum-global-dimension-size-175));
+    grid-area: closeButton;
+    place-self: flex-start end
+}
+
+.spectrum-Dialog-heading_6d8b48 {
+    color: var(--spectrum-dialog-title-text-color, var(--spectrum-global-color-gray-900))
+}
+
+.spectrum-Dialog-content_6d8b48 {
+    color: var(--spectrum-dialog-content-text-color, var(--spectrum-global-color-gray-800))
+}
+
+
+.gXIUqQ {
+    position: absolute;
+    top: 0.5em;
+    right: 0.75em;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background: rgb(40, 42, 54);
+    margin-top: 0.15rem;
+    border-radius: 0.25rem;
+    max-height: 2rem;
+    max-width: 2rem;
+    padding: 0.25rem
+}
+
+.gXIUqQ .icon {
+    width: 1rem;
+    height: 1rem
+}
+
+.jMRVRq {
+    position: relative;
+    background: rgb(40, 42, 54);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem 0.25rem 0.25rem
+}

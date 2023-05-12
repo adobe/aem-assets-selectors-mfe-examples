@@ -1,0 +1,117 @@
+/*
+ * Copyright 2023 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: #f3f3f3;
+}
+h3 {
+    margin-top: 0;
+}
+.asset-selectors {
+    padding: 20px;
+}
+#asset-selector-dialog {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    /* width: 100%; */
+    height: 80%;
+    border: 0;
+    border-radius: 4px;
+    background-color: white;
+    z-index: 99999;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#destination-selector-dialog {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 640px;
+    height: 700px;
+    border: 0;
+    border-radius: 4px;
+    background-color: white;
+    z-index: 99999;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#asset-selector-dialog::backdrop,
+#destination-selector-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.asset-selectors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background: #f2f2f2;
+}
+.asset-selectors > div {
+    margin-bottom: 20px;
+}
+.asset-selectors > div > button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    background: #f2f2f2;
+    border: 2px solid #000;
+}
+.asset-selectors > div > button:hover {
+    background: #000;
+    color: #fff;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.asset-selectors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.asset-selector-rail {
+    height: 75vh;
+    border-right: 1px solid #DDD;
+    overflow-y: auto;
+    overflow-x:hidden;
+    width:30vh;
+}
+
+.dropzone {
+    height: 75vh;
+    background-color: aliceblue;
+    display:none;
+    text-align: center;
+    list-style: inside;
+    border: solid;
+    flex-direction: column;
+    justify-content: center;
+}
