@@ -16,8 +16,8 @@ The _AssetSelector_ component allows you to select and retrieve assets, while th
   - [PureJSSelectors.`renderDestinationSelectorWithAuthFlow` or `<DestinationSelectorWithAuthFlow />`](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-)
 - [Examples](#examples)
   - [JavaScript - UMD](#example---javascript)
-  - [JavaScript - ESM](#example---importmaps-via-esm-cdn)
-  - [React](#example---react-with-importmaps-via-esm-cdn)
+  - [JavaScript - ESM](#example---importmap-via-esm-cdn)
+  - [React](#example---react-with-importmap-via-esm-cdn)
   - [Angular](#example---angular)
 - Supported Properties
   - [AssetSelector Props](./docs/AssetSelectorProps.md)
@@ -194,7 +194,7 @@ PureJSSelectors.renderAssetSelectorWithAuthFlow(document.getElementById('asset-s
 <div id="asset-selector-container"></div>
 ```
 
-### Example - importMaps via ESM CDN
+### Example - importMap via ESM CDN
 
 Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As well as React JSX components for Asset Selector and Destination Selector [APIs](#apis). It takes advantage of the browser's new [importMap][import-maps-wiki] feature. This feature allows you to define a mapping of import names to URLs. This is similar to how you would use a package manager like npm or yarn, but without the need for a build step.
 
@@ -236,7 +236,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
 </script>
 ```
 
-### Example - React with importMaps via ESM CDN
+### Example - React with importMap via ESM CDN
 
 Assets Selectors ESM CDN version also exposes `AssetSelector`, `AssetSelectorWithAuthFlow`, `DestinationSelector`, `DestinationSelectorWithAuthFlow` and `registerAssetsSelectorsAuthService` React JSX components.
 
