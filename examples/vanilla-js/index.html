@@ -1,15 +1,3 @@
-<!--
-Copyright 2023 Adobe. All rights reserved.
-This file is licensed to you under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License. You may obtain a copy
-of the License at http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under
-the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
-OF ANY KIND, either express or implied. See the License for the specific language
-governing permissions and limitations under the License.
--->
-
 <!DOCTYPE html>
 <html>
 
@@ -19,12 +7,18 @@ governing permissions and limitations under the License.
 	<title>Asset Selectors</title>
     <link rel="stylesheet" href="index.css">
 
+    <!-- NOTE: replace this src to prod/qa link as you see fit.
+	PROD: https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js
+	STAGE: https://experience-stage.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js
+	QA: https://experience-qa.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js (You must be connected to adobe VPN to access this link)
+	LOCAL: ../../lib/umd/assets-selectors.js (if you are running this example locally)
+	-->
     <script id="asset-selectors-umd-src" src="https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js"></script>
 
     <script>
 		let imsInstance = null;
 
-        const imsAuthProps = {
+        const imsProps = {
             imsClientId: "exc_app",
             imsScope: "additional_info.projectedProductContext,openid",
             redirectUrl: window.location.href,
@@ -61,23 +55,23 @@ governing permissions and limitations under the License.
          *
          * It is recommended that you call `registerAssetsSelectorsAuthService` on page load.
          *
-         * @function registerIMSTokenService
+         * @function load
          */
-        function registerIMSTokenService() {
+        function registerImsAuthService() {
             // Register the IMS token service with PureJSSelectors.
-            const registeredTokenService = PureJSSelectors.registerAssetsSelectorsAuthService(imsAuthProps);
+            const registeredTokenService = PureJSSelectors.registerAssetsSelectorsAuthService(imsProps);
 
             // Store the token service instance in `imsInstance` for use outside of the asset selector.
             // Some helpful functions:
             // - registeredTokenService.getAccessToken() - to get the current access token
-            // - registeredTokenService.triggerAuthFlow() or registeredTokenService.signIn() - to trigger the sign-in flow based on the imsAuthProps modalMode setting (true/false);
+            // - registeredTokenService.triggerAuthFlow() or registeredTokenService.signIn() - to trigger the sign-in flow based on the imsProps modalMode setting (true/false);
             // - registeredTokenService.signOut() - to sign out the user and remove the token
             // - registeredTokenService.refreshToken() - to refresh the existing token
             imsInstance = registeredTokenService;
         };
 
-		// Must register token service before the Asset Selectors are rendered.
-		registerIMSTokenService();
+		// Must be register token service before the selectors are rendered.
+		registerImsAuthService();
 
         /**
          * Closes the Asset Selector dialog when it is called.
@@ -106,24 +100,30 @@ governing permissions and limitations under the License.
          * Renders an asset selector user interface using the PureJSSelectors library.
          * When the asset selector is ready to be displayed, it will be shown in a dialog box.
          *
+         * @async
          * @function renderAssetSelectorWithImsFlow
          * @returns {Promise<void>}
          */
-        function renderAssetSelectorWithImsFlow() {
+        async function renderAssetSelectorWithImsFlow() {
+
             /**
              * Props for the asset selector UI.
              *
              * @typedef {Object} AssetSelectorProps
+             * @property {string} discoveryURL - The URL for the AEM Discovery service.
              * @property {string} imsOrg - The IMS organization ID for the user.
+             * @property {string} apiKey - The API key for the AEM Assets backend.
              * @property {Function} onClose - A callback function to be called when the asset selector dialog is closed.
              * @property {Function} handleSelection - A callback function to be called when an asset is selected.
+             * @property {Function} handleNavigateToAsset - A callback function to be called when the user clicks on an asset to navigate to it.
+             * @property {string} env - The environment where the asset selector is being used.
              */
 
             /** @type {AssetSelectorProps} */
             const assetSelectorProps = {
                 "onClose": onClose,
                 "handleSelection": handleSelection,
-                "imsOrg": "9D0725C05E44FE1A0A49411C@AdobeOrg",
+                imsOrg:"9D0725C05E44FE1A0A49411C@AdobeOrg"
             }
 
             // Get the container element where the asset selector will be rendered.
@@ -146,14 +146,15 @@ governing permissions and limitations under the License.
         /**
          * Renders a Destination Selector UI with IMS authentication.
          * The UI will use the registered IMS instance (created in registerAssetsSelectorsAuthService) to get the required tokens.
-         * If a valid token is not present, the sign-in flow will be triggered in either pop-up or full page reload mode based on the configurations set in the imsAuthProps.
+         * If a valid token is not present, the sign-in flow will be triggered in either pop-up or full page reload mode based on the configurations set in the imsProps.
          * Note that registerAssetsSelectorsAuthService must be called before triggering this flow.
          * For best user experience, it is recommended that registerAssetsSelectorsAuthService is called on page load prior to calling this function.
          *
+         * @async
          * @function renderDestinationSelectorWithImsFlow
          * @returns {Promise<void>}
          */
-        function renderDestinationSelectorWithImsFlow() {
+        async function renderDestinationSelectorWithImsFlow() {
             /**
              * Props for the Destination Selector UI.
              *
@@ -161,6 +162,7 @@ governing permissions and limitations under the License.
              * @property {string} imsOrg - The IMS organization ID for the user.
              * @property {Function} onClose - A callback function to be called when the Destination Selector dialog is closed.
              * @property {Function} handleSelection - A callback function to be called when a destination is selected.
+             * @property {string} env - The environment where the Destination Selector is being used.
              */
 
             /** @type {DestinationSelectorProps} */

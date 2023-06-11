@@ -1,6 +1,6 @@
 # Selected Asset Type
 
-Selected Asset Type is an array of objects that contains the asset information when using the `handleSelection`, `handleAssetSelection`, and `onDrop` functions. The following table describes some of the important properties of the Selected Asset object.
+Selected Asset Type is an array of objects that contains the asset information when using the `handleSelection`, `handleAssetSelection`, or `onDrop` functions. The following table describes some of the important properties of the Selected Asset object.
 
 > You can find an example of the complete list of properties in [Selected Asset Type data file][asset-type-data-example].
 

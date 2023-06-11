@@ -9,9 +9,10 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
- 
+
 body{
   margin: 0;
+  height: 100%;
 }
 
 .no-bullets{
@@ -31,4 +32,5 @@ html {
 
 .content-padding{
   padding: -2px;
+  height: 100%;
 }

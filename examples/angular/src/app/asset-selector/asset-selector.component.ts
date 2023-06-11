@@ -18,7 +18,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class AssetSelectorComponent implements OnInit, AfterViewInit {
   ngOnInit() {
-      // 2. Register the Assets Selectors Auth Service on component load
+      // 1. Register the Assets Selectors Auth Service on component load
       // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderAssetSelectorWithAuthFlow
 
       const imsAuthProps = {
@@ -36,7 +36,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-      // 3. Render the AssetSelector component with built in auth flow
+      // 2. Render the AssetSelector component with built in auth flow
       const props = {
           imsOrg: "9D0725C05E44FE1A0A49411C@AdobeOrg",
           handleSelection: this.handleSelection,

@@ -1,187 +1,110 @@
-<!--
-Copyright 2023 Adobe. All rights reserved.
-This file is licensed to you under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License. You may obtain a copy
-of the License at http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software distributed under
-the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
-OF ANY KIND, either express or implied. See the License for the specific language
-governing permissions and limitations under the License.
--->
-
-<!DOCTYPE html>
-<html lang=en>
-
-<head>
-    <meta charset=utf-8>
-    <meta name=viewport content="width=device-width, initial-scale=1.0">
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
     <title>Assets Selectors Consumer Example</title>
-    <link rel=stylesheet href=./integration.css>
-    <script id="asset-selectors-umd-src"
-        src="https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js"></script>
-    <script src=./integration.js></script>
+    <link rel="stylesheet" href="./integration.css">
+    <!-- NOTE: replace this src to prod/qa link as you see fit.
+	PROD: https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js
+	STAGE: https://experience-stage.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js
+	QA: https://experience-qa.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js (You must be connected to adobe VPN to access this link)
+	LOCAL: ../../lib/umd/assets-selectors.js (if you are running this example locally)
+	-->
+    <script src="https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js"></script>
+    <script src="./integration.js"></script>
 </head>
 
-<body>
-    <div class="spectrum_b37d53 spectrum_2a241c spectrum--light_a40724 spectrum--medium_4b172c spectrum_9e130c spectrum--medium_9e130c spectrum--large_9e130c spectrum--darkest_9e130c spectrum--dark_9e130c spectrum--light_9e130c spectrum--lightest_9e130c"
-        lang=en-US dir=ltr style=isolation:isolate;height:100%;color-scheme:light>
-        <div class=content-padding>
-            <div class=flex_e15493 style=flex-direction:column>
-                <div
-                    style=padding:var(--spectrum-global-dimension-size-125,var(--spectrum-alias-size-125));border-bottom-color:var(--spectrum-alias-border-color-gray-300,var(--spectrum-legacy-color-gray-300,var(--spectrum-global-color-gray-300,var(--spectrum-semantic-gray-300-color-border))));border-bottom-width:var(--spectrum-alias-border-size-thick);border-bottom-style:solid;box-sizing:border-box>
-                    <div class=flex_e15493 style=justify-content:space-between;align-items:center;flex-direction:row>
-                        <div class=flex_e15493
-                            style=margin-bottom:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200));flex-direction:row;align-items:center>
-                            <svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeM_368b34"
-                                focusable=false aria-hidden=true role=img>
-                                <path fill-rule=evenodd
-                                    d=M12,18v0a1.988,1.988,0,0,0,.585,1.409l7.983,7.98a2,2,0,1,0,2.871-2.772l-.049-.049L16.819,18l6.572-6.57a2,2,0,0,0-2.773-2.87l-.049.049-7.983,7.98A1.988,1.988,0,0,0,12,18Z
-                                    id=S_MillerColumnsChevronPrevious></path>
+<body data-new-gr-c-s-check-loaded="14.1112.0" data-gr-ext-installed="">
+    <div class="spectrum_b37d53 spectrum_2a241c spectrum--light_a40724 spectrum--medium_4b172c spectrum_9e130c spectrum--medium_9e130c spectrum--large_9e130c spectrum--darkest_9e130c spectrum--dark_9e130c spectrum--light_9e130c spectrum--lightest_9e130c" lang="en-US" dir="ltr" style="isolation:isolate;height:100%;color-scheme:light">
+        <div class="content-padding">
+            <div class="flex_e15493" style="flex-direction:column">
+                <div style="padding:var(--spectrum-global-dimension-size-125,var(--spectrum-alias-size-125));border-bottom-color:var(--spectrum-alias-border-color-gray-300,var(--spectrum-legacy-color-gray-300,var(--spectrum-global-color-gray-300,var(--spectrum-semantic-gray-300-color-border))));border-bottom-width:var(--spectrum-alias-border-size-thick);border-bottom-style:solid;box-sizing:border-box">
+                    <div class="flex_e15493" style="justify-content:space-between;align-items:center;flex-direction:row">
+                        <div class="flex_e15493" style="margin-bottom:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200));flex-direction:row;align-items:center">
+                            <svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeM_368b34" focusable="false" aria-hidden="true" role="img">
+                                <path fill-rule="evenodd" d="M12,18v0a1.988,1.988,0,0,0,.585,1.409l7.983,7.98a2,2,0,1,0,2.871-2.772l-.049-.049L16.819,18l6.572-6.57a2,2,0,0,0-2.773-2.87l-.049.049-7.983,7.98A1.988,1.988,0,0,0,12,18Z" id="S_MillerColumnsChevronPrevious"></path>
                             </svg>
-                            <header
-                                style=margin-left:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100));margin-right:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))>
-                                <h3 style=margin-top:0px;margin-bottom:5px>Assets Selectors from Adobe Experience
+                            <header style="margin-left:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100));margin-right:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))">
+                                <h3 style="margin-top:0px;margin-bottom:5px">Assets Selectors from Adobe Experience
                                     Manager</h3><span>Elevate Your Users Experience with Assets Selectors</span>
                             </header>
                         </div>
-                        <div class=flex_e15493><span data-focus-scope-start=true hidden class=sf-hidden></span>
-                            <div class=flex-container_7684cb>
-                                <div role=toolbar aria-orientation=horizontal
-                                    class="flex-gap_7684cb spectrum-ActionGroup_7684cb spectrum-ActionGroup--compact_7684cb">
-                                    <button class="spectrum-ActionButton_e2d99e spectrum-ActionGroup-item_7684cb"
-                                        type=button tabindex=0 aria-label="Desktop icon"><svg viewBox="0 0 36 36"
-                                            class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                            focusable=false aria-hidden=true role=img>
-                                            <path fill-rule=evenodd
-                                                d=M35,2H1A1,1,0,0,0,0,3V27a1,1,0,0,0,1,1H14v3a1,1,0,0,1-1,1H11a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H25a1,1,0,0,0,1-1V33a1,1,0,0,0-1-1H23a1,1,0,0,1-1-1V28H35a1,1,0,0,0,1-1V3A1,1,0,0,0,35,2ZM32,24H4V6H32Z>
+                        <div class="flex_e15493"><span data-focus-scope-start="true" hidden="" class="sf-hidden"></span>
+                            <div class="flex-container_7684cb">
+                                <div role="toolbar" aria-orientation="horizontal" class="flex-gap_7684cb spectrum-ActionGroup_7684cb spectrum-ActionGroup--compact_7684cb">
+                                    <button class="spectrum-ActionButton_e2d99e spectrum-ActionGroup-item_7684cb" type="button" tabindex="0" aria-label="Desktop icon"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img">
+                                            <path fill-rule="evenodd" d="M35,2H1A1,1,0,0,0,0,3V27a1,1,0,0,0,1,1H14v3a1,1,0,0,1-1,1H11a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H25a1,1,0,0,0,1-1V33a1,1,0,0,0-1-1H23a1,1,0,0,1-1-1V28H35a1,1,0,0,0,1-1V3A1,1,0,0,0,35,2ZM32,24H4V6H32Z">
                                             </path>
-                                        </svg></button><button
-                                        class="spectrum-ActionButton_e2d99e spectrum-ActionGroup-item_7684cb"
-                                        type=button tabindex=0 aria-label="Mobile icon"><svg viewBox="0 0 36 36"
-                                            class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                            focusable=false aria-hidden=true role=img>
-                                            <path fill-rule=evenodd
-                                                d=M26,0H10A2,2,0,0,0,8,2V34a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V2A2,2,0,0,0,26,0ZM17,2h2a1.041,1.041,0,0,1,1,1,1.04,1.04,0,0,1-1,1H17a1.023,1.023,0,0,1-1-1A1.024,1.024,0,0,1,17,2Zm1,33.1A2.1,2.1,0,1,1,20.1,33,2.1,2.1,0,0,1,18,35.1ZM26,30H10V6H26Z
-                                                transform="translate(0 0)"></path>
-                                        </svg></button><button
-                                        class="spectrum-ActionButton_e2d99e spectrum-ActionGroup-item_7684cb"
-                                        type=button tabindex=0 aria-label="Text icon"><svg viewBox="0 0 36 36"
-                                            class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                            focusable=false aria-hidden=true role=img>
-                                            <path fill-rule=evenodd
-                                                d=M1,4A1,1,0,0,0,0,5v6a1,1,0,0,0,1,1H3a1,1,0,0,0,1-1V8h8V28H9a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H25a1,1,0,0,0,1-1V29a1,1,0,0,0-1-1H22V8h8v3a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1Z>
+                                        </svg></button><button class="spectrum-ActionButton_e2d99e spectrum-ActionGroup-item_7684cb" type="button" tabindex="0" aria-label="Mobile icon"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img">
+                                            <path fill-rule="evenodd" d="M26,0H10A2,2,0,0,0,8,2V34a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V2A2,2,0,0,0,26,0ZM17,2h2a1.041,1.041,0,0,1,1,1,1.04,1.04,0,0,1-1,1H17a1.023,1.023,0,0,1-1-1A1.024,1.024,0,0,1,17,2Zm1,33.1A2.1,2.1,0,1,1,20.1,33,2.1,2.1,0,0,1,18,35.1ZM26,30H10V6H26Z" transform="translate(0 0)"></path>
+                                        </svg></button><button class="spectrum-ActionButton_e2d99e spectrum-ActionGroup-item_7684cb" type="button" tabindex="0" aria-label="Text icon"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img">
+                                            <path fill-rule="evenodd" d="M1,4A1,1,0,0,0,0,5v6a1,1,0,0,0,1,1H3a1,1,0,0,0,1-1V8h8V28H9a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H25a1,1,0,0,0,1-1V29a1,1,0,0,0-1-1H22V8h8v3a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1Z">
                                             </path>
-                                        </svg></button><button
-                                        class="spectrum-ActionButton_e2d99e spectrum-ActionGroup-item_7684cb"
-                                        type=button tabindex=0 aria-label="Visibility icon"><svg viewBox="0 0 36 36"
-                                            class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                            focusable=false aria-hidden=true role=img>
-                                            <path fill-rule=evenodd
-                                                d=M24.613,8.58A14.972,14.972,0,0,0,18,6.937c-8.664,0-15.75,8.625-15.75,11.423,0,3,7.458,10.7,15.686,10.7,8.3,0,15.814-7.706,15.814-10.7C33.75,16,29.536,11.019,24.613,8.58ZM18,27.225A9.225,9.225,0,1,1,27.225,18,9.225,9.225,0,0,1,18,27.225Z>
+                                        </svg></button><button class="spectrum-ActionButton_e2d99e spectrum-ActionGroup-item_7684cb" type="button" tabindex="0" aria-label="Visibility icon"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img">
+                                            <path fill-rule="evenodd" d="M24.613,8.58A14.972,14.972,0,0,0,18,6.937c-8.664,0-15.75,8.625-15.75,11.423,0,3,7.458,10.7,15.686,10.7,8.3,0,15.814-7.706,15.814-10.7C33.75,16,29.536,11.019,24.613,8.58ZM18,27.225A9.225,9.225,0,1,1,27.225,18,9.225,9.225,0,0,1,18,27.225Z">
                                             </path>
-                                            <path fill-rule=evenodd
-                                                d=M20.667,18.083A2.667,2.667,0,0,1,18,15.417a2.632,2.632,0,0,1,1.35-2.27A4.939,4.939,0,0,0,18,12.938,5.063,5.063,0,1,0,23.063,18a4.713,4.713,0,0,0-.175-1.2A2.625,2.625,0,0,1,20.667,18.083Z>
+                                            <path fill-rule="evenodd" d="M20.667,18.083A2.667,2.667,0,0,1,18,15.417a2.632,2.632,0,0,1,1.35-2.27A4.939,4.939,0,0,0,18,12.938,5.063,5.063,0,1,0,23.063,18a4.713,4.713,0,0,0-.175-1.2A2.625,2.625,0,0,1,20.667,18.083Z">
                                             </path>
                                         </svg></button>
                                 </div>
-                            </div><span data-focus-scope-end=true hidden class=sf-hidden></span><button
-                                class="spectrum-ActionButton_e2d99e is-disabled_e2d99e" type=button disabled
-                                style=margin-left:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200));margin-right:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200))><svg
-                                    viewBox="0 0 36 36"
-                                    class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                    focusable=false aria-hidden=true role=img
-                                    style=color:var(--spectrum-semantic-positive-color-icon)>
-                                    <path fill-rule=evenodd
-                                        d=M27,18.1A8.9,8.9,0,1,0,35.9,27,8.9,8.9,0,0,0,27,18.1ZM24.662,32.412l-4.128-4.128a.5.5,0,0,1,0-.707l1.036-1.036a.5.5,0,0,1,.707,0l2.731,2.731,6.106-6.106a.5.5,0,0,1,.707,0l1.043,1.043a.5.5,0,0,1,0,.707l-7.5,7.5A.5.5,0,0,1,24.662,32.412Z>
+                            </div><span data-focus-scope-end="true" hidden="" class="sf-hidden"></span><button class="spectrum-ActionButton_e2d99e is-disabled_e2d99e" type="button" disabled="" style="margin-left:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200));margin-right:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200))"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img" style="color:var(--spectrum-semantic-positive-color-icon)">
+                                    <path fill-rule="evenodd" d="M27,18.1A8.9,8.9,0,1,0,35.9,27,8.9,8.9,0,0,0,27,18.1ZM24.662,32.412l-4.128-4.128a.5.5,0,0,1,0-.707l1.036-1.036a.5.5,0,0,1,.707,0l2.731,2.731,6.106-6.106a.5.5,0,0,1,.707,0l1.043,1.043a.5.5,0,0,1,0,.707l-7.5,7.5A.5.5,0,0,1,24.662,32.412Z">
                                     </path>
-                                    <path fill-rule=evenodd
-                                        d=M14.7,27a12.229,12.229,0,0,1,1.34-5.563L6.728,24.364,12,14.453V4h8V14.454l.98,1.825a12.231,12.231,0,0,1,1.77-.81L22,14V4h1a1,1,0,0,0,1-1V1a1,1,0,0,0-1-1H9A1,1,0,0,0,8,1V3A1,1,0,0,0,9,4h1V14L.928,31.759A3,3,0,0,0,3.659,36H18.636A12.252,12.252,0,0,1,14.7,27Z>
+                                    <path fill-rule="evenodd" d="M14.7,27a12.229,12.229,0,0,1,1.34-5.563L6.728,24.364,12,14.453V4h8V14.454l.98,1.825a12.231,12.231,0,0,1,1.77-.81L22,14V4h1a1,1,0,0,0,1-1V1a1,1,0,0,0-1-1H9A1,1,0,0,0,8,1V3A1,1,0,0,0,9,4h1V14L.928,31.759A3,3,0,0,0,3.659,36H18.636A12.252,12.252,0,0,1,14.7,27Z">
                                     </path>
-                                </svg><span class=spectrum-ActionButton-label_e2d99e>Preview &amp;
+                                </svg><span class="spectrum-ActionButton-label_e2d99e">Preview &amp;
                                     Test</span></button>
-                            <div class="spectrum-Rule_612bb8 spectrum-Rule--medium_612bb8 spectrum-Rule--vertical_612bb8"
-                                role=separator aria-orientation=vertical></div><button class=spectrum-Button_e2d99e
-                                type=button data-variant=accent data-style=fill
-                                style=margin-left:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200));margin-right:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200))><span
-                                    class=spectrum-Button-label_e2d99e>Save</span></button>
+                            <div class="spectrum-Rule_612bb8 spectrum-Rule--medium_612bb8 spectrum-Rule--vertical_612bb8" role="separator" aria-orientation="vertical"></div><button id="destination-selector-save-button" class="spectrum-Button_e2d99e" type="button" data-variant="accent" data-style="fill" style="margin-left:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200));margin-right:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200))"><span class="spectrum-Button-label_e2d99e">Save</span></button>
                         </div>
                     </div>
                 </div>
-                <div class=flex_e15493 style=min-height:100vh;flex-direction:row>
-                    <div
-                        style="flex:1 1 0%;background-color:var(--spectrum-alias-background-color-gray-300,var(--spectrum-legacy-color-gray-300,var(--spectrum-global-color-gray-300,var(--spectrum-semantic-gray-300-color-background))));padding:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500))">
-                        <div class=flex_e15493 style=align-items:center;flex-direction:column>
-                            <div
-                                style=min-height:var(--spectrum-global-dimension-size-3000,var(--spectrum-alias-size-3000));height:100%;width:100%;max-width:var(--spectrum-global-dimension-size-6000,var(--spectrum-alias-size-6000));overflow:auto;background-color:var(--spectrum-alias-background-color-gray-50,var(--spectrum-legacy-color-gray-50,var(--spectrum-global-color-gray-50,var(--spectrum-semantic-gray-50-color-background))));border-radius:var(--spectrum-alias-border-radius-medium)>
-                                <div
-                                    style=padding:var(--spectrum-global-dimension-size-450,var(--spectrum-alias-size-450))>
-                                    <div class=flex_e15493 style=align-items:flex-start;justify-content:space-between>
-                                        <div class=flex_e15493 style=align-items:center;flex-direction:row>
-                                            <div
-                                                style=border-radius:100%;background-color:var(--spectrum-alias-background-color-notice,var(--spectrum-legacy-color-notice,var(--spectrum-global-color-notice,var(--spectrum-semantic-notice-color-background))));width:var(--spectrum-global-dimension-size-600,var(--spectrum-alias-size-600));height:var(--spectrum-global-dimension-size-600,var(--spectrum-alias-size-600));margin-right:var(--spectrum-global-dimension-size-125,var(--spectrum-alias-size-125))>
-                                                <div class=flex_e15493 style=align-items:center;justify-content:center>
-                                                    <span style=font-size:28px;color:white;margin-top:5px>W</span></div>
+                <div class="flex_e15493" style="min-height:100vh;flex-direction:row">
+                    <div style="flex:1 1 0%;background-color:var(--spectrum-alias-background-color-gray-300,var(--spectrum-legacy-color-gray-300,var(--spectrum-global-color-gray-300,var(--spectrum-semantic-gray-300-color-background))));padding:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500))">
+                        <div class="flex_e15493" style="align-items:center;flex-direction:column">
+                            <div style="min-height:var(--spectrum-global-dimension-size-3000,var(--spectrum-alias-size-3000));height:100%;width:100%;max-width:var(--spectrum-global-dimension-size-6000,var(--spectrum-alias-size-6000));overflow:auto;background-color:var(--spectrum-alias-background-color-gray-50,var(--spectrum-legacy-color-gray-50,var(--spectrum-global-color-gray-50,var(--spectrum-semantic-gray-50-color-background))));border-radius:var(--spectrum-alias-border-radius-medium)">
+                                <div style="padding:var(--spectrum-global-dimension-size-450,var(--spectrum-alias-size-450))">
+                                    <div class="flex_e15493" style="align-items:flex-start;justify-content:space-between">
+                                        <div class="flex_e15493" style="align-items:center;flex-direction:row">
+                                            <div style="border-radius:100%;background-color:var(--spectrum-alias-background-color-notice,var(--spectrum-legacy-color-notice,var(--spectrum-global-color-notice,var(--spectrum-semantic-notice-color-background))));width:var(--spectrum-global-dimension-size-600,var(--spectrum-alias-size-600));height:var(--spectrum-global-dimension-size-600,var(--spectrum-alias-size-600));margin-right:var(--spectrum-global-dimension-size-125,var(--spectrum-alias-size-125))">
+                                                <div class="flex_e15493" style="align-items:center;justify-content:center">
+                                                    <span style="font-size:28px;color:white;margin-top:5px">W</span></div>
                                             </div>
                                             <header>
-                                                <h3 style=color:rgb(38,128,235);font-size:16px;margin:0px>
-                                                    WKND Outdoor Adventures</h3><span>From:</span><span
-                                                    style=padding-left:3px;color:rgb(110,110,110)>promotions@wknd.com</span>
+                                                <h3 style="color:rgb(38,128,235);font-size:16px;margin:0px">
+                                                    WKND Outdoor Adventures</h3><span>From:</span><span style="padding-left:3px;color:rgb(110,110,110)">promotions@wknd.com</span>
                                             </header>
-                                        </div><svg viewBox="0 0 36 36"
-                                            class="spectrum-Icon_368b34 spectrum-Icon--sizeM_368b34" focusable=false
-                                            aria-hidden=true role=img>
-                                            <path fill-rule=evenodd
-                                                d=M33.567,8.2,27.8,2.432a1.215,1.215,0,0,0-.866-.353H26.9a1.371,1.371,0,0,0-.927.406L5.084,23.372a.99.99,0,0,0-.251.422L2.055,33.1c-.114.377.459.851.783.851a.251.251,0,0,0,.062-.007c.276-.063,7.866-2.344,9.311-2.778a.972.972,0,0,0,.414-.249L33.513,10.028a1.372,1.372,0,0,0,.4-.883A1.221,1.221,0,0,0,33.567,8.2ZM11.4,29.316c-2.161.649-4.862,1.465-6.729,2.022l2.009-6.73Z>
+                                        </div><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeM_368b34" focusable="false" aria-hidden="true" role="img">
+                                            <path fill-rule="evenodd" d="M33.567,8.2,27.8,2.432a1.215,1.215,0,0,0-.866-.353H26.9a1.371,1.371,0,0,0-.927.406L5.084,23.372a.99.99,0,0,0-.251.422L2.055,33.1c-.114.377.459.851.783.851a.251.251,0,0,0,.062-.007c.276-.063,7.866-2.344,9.311-2.778a.972.972,0,0,0,.414-.249L33.513,10.028a1.372,1.372,0,0,0,.4-.883A1.221,1.221,0,0,0,33.567,8.2ZM11.4,29.316c-2.161.649-4.862,1.465-6.729,2.022l2.009-6.73Z">
                                             </path>
                                         </svg>
                                     </div>
-                                    <hr class="spectrum-Rule_612bb8 spectrum-Rule--small_612bb8 spectrum-Rule--horizontal_612bb8"
-                                        style=margin-top:var(--spectrum-global-dimension-size-150,var(--spectrum-alias-size-150));margin-bottom:var(--spectrum-global-dimension-size-150,var(--spectrum-alias-size-150))>
-                                    <div class=flex_e15493 style=flex-direction:column>
-                                        <h4 style=margin-top:0px>Discover Zion National Park and Get 10% Off Hiking Equipment!</h4>
-                                        <div style=width:100%;height:100%><span>Dear Adventurer,<br>
+                                    <hr class="spectrum-Rule_612bb8 spectrum-Rule--small_612bb8 spectrum-Rule--horizontal_612bb8" style="margin-top:var(--spectrum-global-dimension-size-150,var(--spectrum-alias-size-150));margin-bottom:var(--spectrum-global-dimension-size-150,var(--spectrum-alias-size-150))">
+                                    <div class="flex_e15493" style="flex-direction:column">
+                                        <h4 style="margin-top:0px">Discover Zion National Park and Get 10% Off Hiking Equipment!</h4>
+                                        <div style="width:100%;height:100%"><span>Dear Adventurer,<br>
                                             <br>To help you get ready for your next outdoor escapade, we are offering a special promotion exclusively for our members. If you are a member, you can get 10% off on all hiking equipment in our store! We have a wide selection of hiking boots, backpacks, tents, and other gear to suit your needs.</span></div>
-                                        <div
-                                            style=margin-top:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200));justify-content:center;gap:var(--spectrum-global-dimension-size-300,var(--spectrum-alias-size-300));grid-template-columns:repeat(1,1fr);display:grid>
-                                            <div id="asset-selector-preview-image"
-                                                style=margin:var(--spectrum-global-dimension-size-400,var(--spectrum-alias-size-400))>
-                                                <div class=flex_e15493 style=align-items:center;flex-direction:column>
+                                        <div style="margin-top:var(--spectrum-global-dimension-size-200,var(--spectrum-alias-size-200));justify-content:center;gap:var(--spectrum-global-dimension-size-300,var(--spectrum-alias-size-300));grid-template-columns:repeat(1,1fr);display:grid">
+                                            <div id="asset-selector-preview-image" style="margin:var(--spectrum-global-dimension-size-400,var(--spectrum-alias-size-400))">
+                                                <div class="flex_e15493" style="align-items:center;flex-direction:column">
                                                     <div class="flex_e15493 spectrum-IllustratedMessage_02bd98">
-                                                        <h3 class=spectrum-IllustratedMessage-heading_02bd98>
-                                                            <button id="asset-selector-preview-button"
-                                                                class="spectrum-ActionButton_e2d99e spectrum-ActionButton--quiet_e2d99e"
-                                                                type=button aria-label="Asset Selector Button"
-                                                                style=height:108px;max-height:300px>
+                                                        <h3 class="spectrum-IllustratedMessage-heading_02bd98">
+                                                            <button id="asset-selector-preview-button" class="spectrum-ActionButton_e2d99e spectrum-ActionButton--quiet_e2d99e" type="button" aria-label="Asset Selector Button" style="height:108px;max-height:300px">
                                                                 <div>
-                                                                    <div style=overflow:hidden><img
-                                                                            src=data:image/svg+xml;base64,PHN2ZyBkYXRhLW5hbWU9IkRlc2lnbiBmcm9tIHNjcmF0Y2giIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEwMCA2NiI+PGcgZGF0YS1uYW1lPSJHcm91cCAxNzI1MzUiIGZpbGw9IiNiM2IzYjMiPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MTgiIGQ9Ik04OSA2NkgxOGE0IDQgMCAwIDEtNC00IDEgMSAwIDAgMSAxLTFoNzZhMSAxIDAgMCAxIDEgMSA0IDQgMCAwIDEtMyA0bS03My0zYTIgMiAwIDAgMCAyIDFoNzFhMiAyIDAgMCAwIDItMVoiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTE5IiBkPSJNMjMgNjFhMSAxIDAgMCAxLTEgMFYyNWEzIDMgMCAwIDEgMy0zaDU3YTMgMyAwIDAgMSAyIDN2NWExIDEgMCAxIDEtMSAwdi01YTEgMSAwIDAgMC0xLTFIMjVhMSAxIDAgMCAwLTEgMXYzNmExIDEgMCAwIDEtMSAwIi8+PHBhdGggZGF0YS1uYW1lPSJQYXRoIDEwMTkyMCIgZD0iTTgzIDYxVjQ2YTEgMSAwIDEgMSAxIDB2MTVhMSAxIDAgMCAxLTEgMCIvPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MjEiIGQ9Ik01MyA1MmExIDEgMCAwIDEtMS0xVjM2YTEgMSAwIDEgMSAyIDB2MTVhMSAxIDAgMCAxLTEgMSIvPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MjIiIGQ9Ik02MSA0NEg0NmExIDEgMCAwIDEgMC0yaDE1YTEgMSAwIDAgMSAwIDIiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTIzIiBkPSJNODkgNTNhMSAxIDAgMCAxLTEtMVY0MGExIDEgMCAwIDEgMS0xIDEgMSAwIDAgMSAxIDBsOSA5YTEgMSAwIDAgMSAwIDEgMSAxIDAgMCAxIDAgMSAxIDEgMCAwIDEtMSAwbC01LTEtMyA0YTEgMSAwIDAgMS0xIDBabTEtMTN2MTJsMi00YTEgMSAwIDAgMSAxIDBoNVoiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTI0IiBkPSJNODEgNDRhNSA1IDAgMCAxLTEtMTFsMTQtMWE1IDUgMCAwIDEgNCAxIDUgNSAwIDAgMS0yIDkgMSAxIDAgMCAxIDAtMSA0IDQgMCAwIDAgMS03IDQgNCAwIDAgMC0zLTFsLTEzIDFhNCA0IDAgMCAwIDAgOWw1LTFhMSAxIDAgMCAxIDAgMWwtNCAxYTUgNSAwIDAgMS0xIDAiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTI1IiBkPSJNNTYgMjBhMTAgMTAgMCAwIDEgMC0yYzAtNSA0LTggMTEtOGgzVjljMC0xIDAtNC01LTRhMTMgMTMgMCAwIDAtNiAxIDEgMSAwIDAgMS0xIDBWMmExNyAxNyAwIDAgMSA4LTJjNiAwIDkgNCA5IDEwdjEwYTEgMSAwIDEgMS0xIDBWMTBjMC02LTMtOS04LTlhMTYgMTYgMCAwIDAtNyAydjJhMTQgMTQgMCAwIDEgNi0xYzQgMCA2IDMgNiA1djFhMSAxIDAgMCAxIDAgMSAxIDEgMCAwIDEtMSAwaC0zYy02IDAtMTAgMy0xMCA3YTggOCAwIDAgMCAwIDIgMSAxIDAgMCAxLTEgMG0xNSAwYTEgMSAwIDAgMS0xIDB2LTZhMjMgMjMgMCAwIDAtMyAwYy0zIDAtNiAxLTYgNGE0IDQgMCAwIDAgMCAxIDEgMSAwIDAgMSAwIDEgMSAxIDAgMCAxLTEgMCA1IDUgMCAwIDEgMC0yYzAtMiAxLTUgNy01YTI0IDI0IDAgMCAxIDQgMCAxIDEgMCAwIDEgMCAxdjYiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTI2IiBkPSJNOSA0MWExIDEgMCAwIDEtMS0xTDAgMjVhMSAxIDAgMCAxIDAtMSAxIDEgMCAwIDEgMS0xbDMtMmExIDEgMCAwIDEgMSAwIDEgMSAwIDAgMSAwIDFsLTQgMiA4IDE1IDEwLTVhMSAxIDAgMCAxIDEgMCAxIDEgMCAwIDEgMCAxTDkgNDBhMSAxIDAgMCAxIDAgMSIvPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MjciIGQ9Ik05IDMyYTEgMSAwIDAgMS0xLTFMMyAxNGExIDEgMCAwIDEgMC0xIDEgMSAwIDAgMSAxIDBsMjUtN2ExIDEgMCAwIDEgMSAwbDQgMTRhMSAxIDAgMSAxLTEgMEwyOSA3IDQgMTRsNSAxNiAxMC0zYTEgMSAwIDAgMSAxIDAgMSAxIDAgMCAxIDAgMUw5IDMxYTEgMSAwIDAgMSAwIDEiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTI4IiBkPSJNMjYgMTVhMyAzIDAgMCAxLTMtMiAzIDMgMCAwIDEgMC0yIDMgMyAwIDAgMSAyLTEgMyAzIDAgMCAxIDIgMCAzIDMgMCAwIDEgMCA1IDMgMyAwIDAgMS0xIDBtMC00YTIgMiAwIDAgMC0yIDEgMiAyIDAgMCAwIDAgMSAyIDIgMCAwIDAgMiAxIDIgMiAwIDAgMCAxLTEgMiAyIDAgMCAwIDAtMiAyIDIgMCAwIDAtMSAwIi8+PHBhdGggZGF0YS1uYW1lPSJQYXRoIDEwMTkyOSIgZD0iTTIyIDIyYTEgMSAwIDAgMSAwLTFsMS0zYTIgMiAwIDAgMSAyLTFsNSAzYTEgMSAwIDAgMSAwIDEgMSAxIDAgMCAxLTEgMGwtNC0yaC0xbC0xIDNhMSAxIDAgMCAxLTEgMCIvPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MzAiIGQ9Ik05IDMwYTEgMSAwIDAgMSAwLTFsNi0xMWExIDEgMCAwIDEgMiAwbDUgM2ExIDEgMCAwIDEgMSAxIDEgMSAwIDAgMS0xIDBsLTYtMy02IDExYTEgMSAwIDAgMS0xIDAiLz48L2c+PC9zdmc+
-                                                                            alt="demo design placeholder image"
-                                                                            class=spectrum-Image-img_fdc794></div>
+                                                                    <div style="overflow:hidden"><img src="data:image/svg+xml;base64,PHN2ZyBkYXRhLW5hbWU9IkRlc2lnbiBmcm9tIHNjcmF0Y2giIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEwMCA2NiI+PGcgZGF0YS1uYW1lPSJHcm91cCAxNzI1MzUiIGZpbGw9IiNiM2IzYjMiPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MTgiIGQ9Ik04OSA2NkgxOGE0IDQgMCAwIDEtNC00IDEgMSAwIDAgMSAxLTFoNzZhMSAxIDAgMCAxIDEgMSA0IDQgMCAwIDEtMyA0bS03My0zYTIgMiAwIDAgMCAyIDFoNzFhMiAyIDAgMCAwIDItMVoiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTE5IiBkPSJNMjMgNjFhMSAxIDAgMCAxLTEgMFYyNWEzIDMgMCAwIDEgMy0zaDU3YTMgMyAwIDAgMSAyIDN2NWExIDEgMCAxIDEtMSAwdi01YTEgMSAwIDAgMC0xLTFIMjVhMSAxIDAgMCAwLTEgMXYzNmExIDEgMCAwIDEtMSAwIi8+PHBhdGggZGF0YS1uYW1lPSJQYXRoIDEwMTkyMCIgZD0iTTgzIDYxVjQ2YTEgMSAwIDEgMSAxIDB2MTVhMSAxIDAgMCAxLTEgMCIvPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MjEiIGQ9Ik01MyA1MmExIDEgMCAwIDEtMS0xVjM2YTEgMSAwIDEgMSAyIDB2MTVhMSAxIDAgMCAxLTEgMSIvPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MjIiIGQ9Ik02MSA0NEg0NmExIDEgMCAwIDEgMC0yaDE1YTEgMSAwIDAgMSAwIDIiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTIzIiBkPSJNODkgNTNhMSAxIDAgMCAxLTEtMVY0MGExIDEgMCAwIDEgMS0xIDEgMSAwIDAgMSAxIDBsOSA5YTEgMSAwIDAgMSAwIDEgMSAxIDAgMCAxIDAgMSAxIDEgMCAwIDEtMSAwbC01LTEtMyA0YTEgMSAwIDAgMS0xIDBabTEtMTN2MTJsMi00YTEgMSAwIDAgMSAxIDBoNVoiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTI0IiBkPSJNODEgNDRhNSA1IDAgMCAxLTEtMTFsMTQtMWE1IDUgMCAwIDEgNCAxIDUgNSAwIDAgMS0yIDkgMSAxIDAgMCAxIDAtMSA0IDQgMCAwIDAgMS03IDQgNCAwIDAgMC0zLTFsLTEzIDFhNCA0IDAgMCAwIDAgOWw1LTFhMSAxIDAgMCAxIDAgMWwtNCAxYTUgNSAwIDAgMS0xIDAiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTI1IiBkPSJNNTYgMjBhMTAgMTAgMCAwIDEgMC0yYzAtNSA0LTggMTEtOGgzVjljMC0xIDAtNC01LTRhMTMgMTMgMCAwIDAtNiAxIDEgMSAwIDAgMS0xIDBWMmExNyAxNyAwIDAgMSA4LTJjNiAwIDkgNCA5IDEwdjEwYTEgMSAwIDEgMS0xIDBWMTBjMC02LTMtOS04LTlhMTYgMTYgMCAwIDAtNyAydjJhMTQgMTQgMCAwIDEgNi0xYzQgMCA2IDMgNiA1djFhMSAxIDAgMCAxIDAgMSAxIDEgMCAwIDEtMSAwaC0zYy02IDAtMTAgMy0xMCA3YTggOCAwIDAgMCAwIDIgMSAxIDAgMCAxLTEgMG0xNSAwYTEgMSAwIDAgMS0xIDB2LTZhMjMgMjMgMCAwIDAtMyAwYy0zIDAtNiAxLTYgNGE0IDQgMCAwIDAgMCAxIDEgMSAwIDAgMSAwIDEgMSAxIDAgMCAxLTEgMCA1IDUgMCAwIDEgMC0yYzAtMiAxLTUgNy01YTI0IDI0IDAgMCAxIDQgMCAxIDEgMCAwIDEgMCAxdjYiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTI2IiBkPSJNOSA0MWExIDEgMCAwIDEtMS0xTDAgMjVhMSAxIDAgMCAxIDAtMSAxIDEgMCAwIDEgMS0xbDMtMmExIDEgMCAwIDEgMSAwIDEgMSAwIDAgMSAwIDFsLTQgMiA4IDE1IDEwLTVhMSAxIDAgMCAxIDEgMCAxIDEgMCAwIDEgMCAxTDkgNDBhMSAxIDAgMCAxIDAgMSIvPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MjciIGQ9Ik05IDMyYTEgMSAwIDAgMS0xLTFMMyAxNGExIDEgMCAwIDEgMC0xIDEgMSAwIDAgMSAxIDBsMjUtN2ExIDEgMCAwIDEgMSAwbDQgMTRhMSAxIDAgMSAxLTEgMEwyOSA3IDQgMTRsNSAxNiAxMC0zYTEgMSAwIDAgMSAxIDAgMSAxIDAgMCAxIDAgMUw5IDMxYTEgMSAwIDAgMSAwIDEiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTAxOTI4IiBkPSJNMjYgMTVhMyAzIDAgMCAxLTMtMiAzIDMgMCAwIDEgMC0yIDMgMyAwIDAgMSAyLTEgMyAzIDAgMCAxIDIgMCAzIDMgMCAwIDEgMCA1IDMgMyAwIDAgMS0xIDBtMC00YTIgMiAwIDAgMC0yIDEgMiAyIDAgMCAwIDAgMSAyIDIgMCAwIDAgMiAxIDIgMiAwIDAgMCAxLTEgMiAyIDAgMCAwIDAtMiAyIDIgMCAwIDAtMSAwIi8+PHBhdGggZGF0YS1uYW1lPSJQYXRoIDEwMTkyOSIgZD0iTTIyIDIyYTEgMSAwIDAgMSAwLTFsMS0zYTIgMiAwIDAgMSAyLTFsNSAzYTEgMSAwIDAgMSAwIDEgMSAxIDAgMCAxLTEgMGwtNC0yaC0xbC0xIDNhMSAxIDAgMCAxLTEgMCIvPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxMDE5MzAiIGQ9Ik05IDMwYTEgMSAwIDAgMSAwLTFsNi0xMWExIDEgMCAwIDEgMiAwbDUgM2ExIDEgMCAwIDEgMSAxIDEgMSAwIDAgMS0xIDBsLTYtMy02IDExYTEgMSAwIDAgMS0xIDAiLz48L2c+PC9zdmc+" alt="demo design placeholder image" class="spectrum-Image-img_fdc794"></div>
                                                                 </div>
                                                             </button>
                                                         </h3>
-                                                        <section class=spectrum-IllustratedMessage-description_02bd98
-                                                            style=text-align:center;color:rgb(110,110,110);display:block;margin-top:60px>
+                                                        <section class="spectrum-IllustratedMessage-description_02bd98" style="text-align:center;color:rgb(110,110,110);display:block;margin-top:60px">
                                                             Click the placeholder icon in this email template to effortlessly import hiking assets using AssetSelectors.</section>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div>
-                                                <div class=flex_e15493 style=align-items:center;flex-direction:column>
-                                                    <div style=width:100%;height:100%;margin:-10px><span>Don't miss out on this chance to explore the beauty of Zion National Park and upgrade your hiking gear. <a href="https://git.corp.adobe.com/CQ/assets-selectors/tree/main/packages/%40assets/selectors/examples" target=_blank
-                                                        class="spectrum-Link_5a03c7 spectrum-Link--primary"
-                                                        style=margin-top:10px><strong><u>Visit our store</u></strong></a> today and enjoy the discounts that come with being a member.
+                                                <div class="flex_e15493" style="align-items:center;flex-direction:column">
+                                                    <div style="width:100%;height:100%;margin:-10px"><span>Don't miss out on this chance to explore the beauty of Zion National Park and upgrade your hiking gear. <a href="https://git.corp.adobe.com/CQ/assets-selectors/tree/main/packages/%40assets/selectors/examples" target="_blank" class="spectrum-Link_5a03c7 spectrum-Link--primary" style="margin-top:10px"><strong><u>Visit our store</u></strong></a> today and enjoy the discounts that come with being a member.
                                                     </span>
-                                                    </div><!-- <a
-                                                        href=https://git.corp.adobe.com/CQ/assets-selectors/tree/main/packages/%40assets/selectors/examples
-                                                        target=_blank
-                                                        class="spectrum-Link_5a03c7 spectrum-Link--primary"
-                                                        style=margin-top:10px>Get started integrating
-                                                        AssetsSelectors quickly and confidently, browse our
-                                                        collection of code examples for use with frameworks like
-                                                        React, Vanilla JavaScript, and others.</a> -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,131 +113,30 @@ governing permissions and limitations under the License.
                             </div>
                         </div>
                     </div>
-                    <div
-                        style=width:var(--spectrum-global-dimension-size-4600,var(--spectrum-alias-size-4600));border-right-width:var(--spectrum-alias-border-size-thick);border-right-color:var(--spectrum-alias-border-color-gray-300,var(--spectrum-legacy-color-gray-300,var(--spectrum-global-color-gray-300,var(--spectrum-semantic-gray-300-color-border))));padding-bottom:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));background-color:var(--spectrum-alias-background-color-gray-100,var(--spectrum-legacy-color-gray-100,var(--spectrum-global-color-gray-100,var(--spectrum-semantic-gray-100-color-background))));border-right-style:solid;box-sizing:border-box>
-                        <div
-                            style=padding-left:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));padding-right:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500))>
-                            <h2>Email</h2>
-                        </div>
-                        <hr class="spectrum-Rule_612bb8 spectrum-Rule--medium_612bb8 spectrum-Rule--horizontal_612bb8">
-                        <div
-                            style=width:var(--spectrum-global-dimension-size-4600,var(--spectrum-alias-size-4600));border-right-width:var(--spectrum-alias-border-size-thick);border-right-color:var(--spectrum-alias-border-color-gray-300,var(--spectrum-legacy-color-gray-300,var(--spectrum-global-color-gray-300,var(--spectrum-semantic-gray-300-color-border))));padding-bottom:var(--spectrum-global-dimension-size-300,var(--spectrum-alias-size-300));border-right-style:solid;box-sizing:border-box>
-                            <h3
-                                style=margin-left:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));margin-right:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500))>
-                                Header</h3>
-                            <div
-                                style=padding-left:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));padding-right:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500))>
-                                <span
-                                    style=color:rgb(110,110,110);display:block;margin-bottom:var(--spectrum-global-dimension-size-10,var(--spectrum-alias-size-10))>From
-                                    email</span><span style=color:rgb(75,75,75)>promotions@wknd.com</span>
-                            </div>
-                            <div
-                                style=padding-left:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));padding-right:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));padding-top:var(--spectrum-global-dimension-size-300,var(--spectrum-alias-size-300))>
-                                <span
-                                    style=color:rgb(110,110,110);display:block;margin-bottom:var(--spectrum-global-dimension-size-10,var(--spectrum-alias-size-10))>From
-                                    name</span><span style=color:rgb(75,75,75)>WKND Outdoor Adventures</span>
-                            </div>
-                            <div
-                                style=padding-left:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));padding-right:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));padding-top:var(--spectrum-global-dimension-size-300,var(--spectrum-alias-size-300))>
-                                <span
-                                    style=color:rgb(110,110,110);display:block;margin-bottom:var(--spectrum-global-dimension-size-10,var(--spectrum-alias-size-10))>Subject
-                                    line</span>
-                                <div class="spectrum-Field_d2db1f spectrum-Field--positionTop_d2db1f spectrum-Textfield-wrapper_73bc77"
-                                    style=color:rgb(75,75,75);min-height:var(--spectrum-global-dimension-size-1200,var(--spectrum-alias-size-1200));width:var(--spectrum-global-dimension-size-3600,var(--spectrum-alias-size-3600))>
-                                    <div
-                                        class="spectrum-Textfield_73bc77 spectrum-Textfield--multiline_73bc77 spectrum-Field-field_d2db1f">
-                                        <textarea id=react-aria5730260679-5 rows=1
-                                            class="spectrum-Textfield-input_73bc77 is-hovered_73bc77"
-                                            style=height:73px>Discover Zion National Park and Get 10% Off Hiking Equipment!</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="spectrum-Rule_612bb8 spectrum-Rule--medium_612bb8 spectrum-Rule--horizontal_612bb8">
-                        <div>
-                            <h3
-                                style=margin-left:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));margin-right:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500))>
-                                Body</h3>
-                            <div
-                                style=padding-left:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500));padding-right:var(--spectrum-global-dimension-size-500,var(--spectrum-alias-size-500))>
-                                <section>Dear Adventurer,<br>
-                                    <br>To help you get ready for your next outdoor escapade, we are offering a special promotion exclusively for our members. If you are a member, you can get 10% off on all hiking equipment in our store! We have a wide selection of hiking boots, backpacks, tents, and other gear to suit your needs.</section>
-                            </div>
-                        </div>
-                        <div
-                            style="padding-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-top: var(--spectrum-global-dimension-size-300, var(--spectrum-alias-size-300));">
-                            <span
-                                style="color: rgb(110, 110, 110); display: block; margin-bottom: var(--spectrum-global-dimension-size-100, var(--spectrum-alias-size-100));">Selected
-                                Asset</span>
-                            <div class="flex_e15493">
-                                <div class="spectrum-Field_d2db1f spectrum-Field--positionTop_d2db1f spectrum-Textfield-wrapper_73bc77"
-                                    style="width: 100%;">
-                                    <div class="spectrum-Textfield_73bc77 spectrum-Field-field_d2db1f"><input
-                                            id="asset-selector-selected-item-input" type="text" readonly="" placeholder="No assets selected"
-                                            class="spectrum-Textfield-input_73bc77"></div>
-                                </div><button class="spectrum-ActionButton_e2d99e" type="button"
-                                    style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; margin-left: -5px;"><svg
-                                        viewBox="0 0 36 36"
-                                        class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                        focusable="false" aria-hidden="true" role="img">
-                                        <path
-                                            d="M14 16v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2H16a2 2 0 0 0-2 2zm4 3.5a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5zm0 7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5zm0 7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5zm16-14a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5zm0 7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5zm0 7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5zM29.5 26h-9a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5z">
-                                        </path>
-                                        <circle cx="25" cy="9" r="2.5"></circle>
-                                        <path
-                                            d="M12 12.343l-.728-.728a2 2 0 0 0-2.828 0L2 18.059V4h28v8h2V3a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v22a1 1 0 0 0 1 1h11z">
-                                        </path>
-                                    </svg></button>
-                            </div>
-                            <div
-                                style="height: 150px; overflow: scroll; margin-top: var(--spectrum-global-dimension-size-100, var(--spectrum-alias-size-100)); margin-bottom: var(--spectrum-global-dimension-size-100, var(--spectrum-alias-size-100));">
-                                <div class="spectrum-Well_d48698">
-                                    <pre id="asset-selector-selected-item-pre" style="white-space: pre-wrap; margin: -5px 0px;"></pre>
-                                </div>
-                            </div>
-                        </div>
+                    <div style="width: var(--spectrum-global-dimension-size-4600, var(--spectrum-alias-size-4600)); border-right-width: var(--spectrum-alias-border-size-thick); border-right-color: var(--spectrum-alias-border-color-gray-300, var(--spectrum-legacy-color-gray-300, var(--spectrum-global-color-gray-300, var(--spectrum-semantic-gray-300-color-border)))); padding-bottom: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); background-color: var(--spectrum-alias-background-color-gray-100, var(--spectrum-legacy-color-gray-100, var(--spectrum-global-color-gray-100, var(--spectrum-semantic-gray-100-color-background)))); border-right-style: solid; box-sizing: border-box;"><div style="padding-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500));"><h2>Email</h2></div><hr class="spectrum-Rule_612bb8 spectrum-Rule--medium_612bb8 spectrum-Rule--horizontal_612bb8"><div style="width: var(--spectrum-global-dimension-size-4600, var(--spectrum-alias-size-4600)); border-right-width: var(--spectrum-alias-border-size-thick); border-right-color: var(--spectrum-alias-border-color-gray-300, var(--spectrum-legacy-color-gray-300, var(--spectrum-global-color-gray-300, var(--spectrum-semantic-gray-300-color-border)))); padding-bottom: var(--spectrum-global-dimension-size-300, var(--spectrum-alias-size-300)); border-right-style: solid; box-sizing: border-box;"><h3 style="margin-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); margin-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500));">Header</h3><div style="padding-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500));"><span style="color: rgb(110, 110, 110); display: block; margin-bottom: var(--spectrum-global-dimension-size-10, var(--spectrum-alias-size-10));">From email</span><span style="color: rgb(75, 75, 75);">promotions@wknd.com</span></div><div style="padding-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-top: var(--spectrum-global-dimension-size-300, var(--spectrum-alias-size-300));"><span style="color: rgb(110, 110, 110); display: block; margin-bottom: var(--spectrum-global-dimension-size-10, var(--spectrum-alias-size-10));">From name</span><span style="color: rgb(75, 75, 75);">WKND Outdoor Adventures</span></div><div style="padding-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-top: var(--spectrum-global-dimension-size-300, var(--spectrum-alias-size-300));"><span style="color: rgb(110, 110, 110); display: block; margin-bottom: var(--spectrum-global-dimension-size-10, var(--spectrum-alias-size-10));">Subject line</span><div class="spectrum-Field_d2db1f spectrum-Field--positionTop_d2db1f spectrum-Textfield-wrapper_73bc77" style="color: rgb(75, 75, 75); min-height: var(--spectrum-global-dimension-size-1200, var(--spectrum-alias-size-1200)); width: var(--spectrum-global-dimension-size-3600, var(--spectrum-alias-size-3600));"><div class="spectrum-Textfield_73bc77 spectrum-Textfield--multiline_73bc77 spectrum-Field-field_d2db1f"><textarea id="react-aria7939839991-5" rows="1" class="spectrum-Textfield-input_73bc77" style="height: 56px;">Discover Zion National Park and Get 10% Off Hiking Equipment!</textarea></div></div></div></div><hr class="spectrum-Rule_612bb8 spectrum-Rule--medium_612bb8 spectrum-Rule--horizontal_612bb8"><div class="flex_e15493" style="flex-direction: column; justify-content: space-between;"><div><h3 style="margin-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); margin-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500));">Body</h3>
+                        <div style="padding-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500));"><span>Dear Adventurer, <br> <br></span><section>To help you get ready for your next outdoor escapade, we are offering a special promotion exclusively for our members. If you are a member, you can get 10% off on all hiking equipment in our store! We have a wide selection of hiking boots, backpacks, tents, and other gear to suit your needs.</section><div style="overflow: scroll; margin-top: var(--spectrum-global-dimension-size-100, var(--spectrum-alias-size-100)); margin-bottom: var(--spectrum-global-dimension-size-100, var(--spectrum-alias-size-100));"><div class="spectrum-Well_d48698" style="height: 250px;"><pre id="asset-selector-selected-item-pre" style="white-space: pre-wrap; margin: -5px 0px;"></pre></div></div></div>
                     </div>
-                    <div style=padding:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))>
-                        <div class=flex_e15493 style=flex-direction:column><button id="environment-properties-button"
-                                class=spectrum-ActionButton_e2d99e type=button
-                                style=margin-bottom:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))><svg
-                                    viewBox="0 0 36 36"
-                                    class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                    focusable=false aria-hidden=true role=img>
-                                    <path fill-rule=evenodd
-                                        d=M33.5,6H15.9A5,5,0,0,0,6.1,6H2.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5H6.1a5,5,0,0,0,9.8,0H33.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,33.5,6ZM11,10a3,3,0,1,1,3-3A3,3,0,0,1,11,10Z>
+                        <div style="padding-left: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-right: var(--spectrum-global-dimension-size-500, var(--spectrum-alias-size-500)); padding-top: var(--spectrum-global-dimension-size-300, var(--spectrum-alias-size-300));">
+                            <span style="color: rgb(110, 110, 110); display: block; margin-bottom: var(--spectrum-global-dimension-size-100, var(--spectrum-alias-size-100));">Select Asset Destination</span><div class="flex_e15493"><div class="spectrum-Field_d2db1f spectrum-Field--positionTop_d2db1f spectrum-Textfield-wrapper_73bc77" style="width: 100%;"><div class="spectrum-Textfield_73bc77 spectrum-Field-field_d2db1f"><input id="destination-selector-selected-item-input" type="text" readonly="" placeholder="No destination selected" id="react-aria7939839991-10" class="spectrum-Textfield-input_73bc77" value=""></div></div><button id="destination-selector-open-button" class="spectrum-ActionButton_e2d99e" type="button" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; margin-left: -5px;"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img"><path fill-rule="evenodd" d="M33,8h0l-14.332.008-3.3-3.4A2,2,0,0,0,13.929,4H4A2,2,0,0,0,2,6V29a1,1,0,0,0,1,1H33a1,1,0,0,0,1-1V9A1,1,0,0,0,33,8ZM4,6h9.929l3.887,4H4Z"></path></svg></button></div></div></div></div>
+                    <div style="padding:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))">
+                        <div class="flex_e15493" style="flex-direction:column"><button id="environment-properties-button" class="spectrum-ActionButton_e2d99e" type="button" style="margin-bottom:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img">
+                                    <path fill-rule="evenodd" d="M33.5,6H15.9A5,5,0,0,0,6.1,6H2.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5H6.1a5,5,0,0,0,9.8,0H33.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,33.5,6ZM11,10a3,3,0,1,1,3-3A3,3,0,0,1,11,10Z">
                                     </path>
-                                    <path fill-rule=evenodd
-                                        d=M33.5,26H19.9a5,5,0,0,0-9.8,0H2.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h7.6a5,5,0,0,0,9.8,0H33.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,33.5,26ZM15,30a3,3,0,1,1,3-3A3,3,0,0,1,15,30Z>
+                                    <path fill-rule="evenodd" d="M33.5,26H19.9a5,5,0,0,0-9.8,0H2.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h7.6a5,5,0,0,0,9.8,0H33.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,33.5,26ZM15,30a3,3,0,1,1,3-3A3,3,0,0,1,15,30Z">
                                     </path>
-                                    <path fill-rule=evenodd
-                                        d=M2,16.5v1a.5.5,0,0,0,.5.5H20.1a5,5,0,0,0,9.8,0h3.6a.5.5,0,0,0,.5-.5v-1a.5.5,0,0,0-.5-.5H29.9a5,5,0,0,0-9.8,0H2.5A.5.5,0,0,0,2,16.5ZM22,17a3,3,0,1,1,3,3A3,3,0,0,1,22,17Z>
+                                    <path fill-rule="evenodd" d="M2,16.5v1a.5.5,0,0,0,.5.5H20.1a5,5,0,0,0,9.8,0h3.6a.5.5,0,0,0,.5-.5v-1a.5.5,0,0,0-.5-.5H29.9a5,5,0,0,0-9.8,0H2.5A.5.5,0,0,0,2,16.5ZM22,17a3,3,0,1,1,3,3A3,3,0,0,1,22,17Z">
                                     </path>
-                                </svg></button><button id="integration-guide-button"
-                                class="spectrum-ActionButton_e2d99e spectrum-ActionButton--quiet_e2d99e" type=button
-                                style=margin-bottom:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))><svg
-                                    viewBox="0 0 36 36"
-                                    class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                    focusable=false aria-hidden=true role=img>
-                                    <path fill-rule=evenodd
-                                        d=M35.493,19.061,27.3,27.381a1,1,0,0,1-1.425,0l-.893-.907a1.006,1.006,0,0,1,0-1.4L31.943,18l-6.959-7.071a1.006,1.006,0,0,1,0-1.4l.893-.907a1,1,0,0,1,1.425,0l8.191,8.32A1.523,1.523,0,0,1,35.493,19.061Z>
+                                </svg></button><button id="integration-guide-button" class="spectrum-ActionButton_e2d99e spectrum-ActionButton--quiet_e2d99e" type="button" style="margin-bottom:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img">
+                                    <path fill-rule="evenodd" d="M35.493,19.061,27.3,27.381a1,1,0,0,1-1.425,0l-.893-.907a1.006,1.006,0,0,1,0-1.4L31.943,18l-6.959-7.071a1.006,1.006,0,0,1,0-1.4l.893-.907a1,1,0,0,1,1.425,0l8.191,8.32A1.523,1.523,0,0,1,35.493,19.061Z">
                                     </path>
-                                    <path fill-rule=evenodd
-                                        d=M.507,16.939,8.7,8.619a1,1,0,0,1,1.425,0l.893.907a1.006,1.006,0,0,1,0,1.4L4.057,18l6.959,7.071a1.006,1.006,0,0,1,0,1.4l-.893.907a1,1,0,0,1-1.425,0L.507,19.061A1.523,1.523,0,0,1,.507,16.939Z>
+                                    <path fill-rule="evenodd" d="M.507,16.939,8.7,8.619a1,1,0,0,1,1.425,0l.893.907a1.006,1.006,0,0,1,0,1.4L4.057,18l6.959,7.071a1.006,1.006,0,0,1,0,1.4l-.893.907a1,1,0,0,1-1.425,0L.507,19.061A1.523,1.523,0,0,1,.507,16.939Z">
                                     </path>
-                                    <path fill-rule=evenodd
-                                        d=M15.489,29.687H14.345a1,1,0,0,1-.966-1.259L19.571,5.387a1,1,0,0,1,.966-.741h1.105A1,1,0,0,1,22.608,5.9L16.455,28.946A1,1,0,0,1,15.489,29.687Z>
+                                    <path fill-rule="evenodd" d="M15.489,29.687H14.345a1,1,0,0,1-.966-1.259L19.571,5.387a1,1,0,0,1,.966-.741h1.105A1,1,0,0,1,22.608,5.9L16.455,28.946A1,1,0,0,1,15.489,29.687Z">
                                     </path>
-                                </svg></button><button id="color-scheme-switch-button"
-                                class="spectrum-ActionButton_e2d99e spectrum-ActionButton--quiet_e2d99e" type=button
-                                style=margin-bottom:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))><svg
-                                    viewBox="0 0 36 36"
-                                    class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e"
-                                    focusable=false aria-hidden=true role=img>
-                                    <path fill-rule=evenodd
-                                        d=M18,2.1A15.9,15.9,0,1,0,33.9,18,15.9,15.9,0,0,0,18,2.1Zm0,29.813A13.913,13.913,0,1,1,31.913,18,13.912,13.912,0,0,1,18,31.913Z>
+                                </svg></button><button id="color-scheme-switch-button" class="spectrum-ActionButton_e2d99e spectrum-ActionButton--quiet_e2d99e" type="button" style="margin-bottom:var(--spectrum-global-dimension-size-100,var(--spectrum-alias-size-100))"><svg viewBox="0 0 36 36" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" focusable="false" aria-hidden="true" role="img">
+                                    <path fill-rule="evenodd" d="M18,2.1A15.9,15.9,0,1,0,33.9,18,15.9,15.9,0,0,0,18,2.1Zm0,29.813A13.913,13.913,0,1,1,31.913,18,13.912,13.912,0,0,1,18,31.913Z">
                                     </path>
-                                    <path fill-rule=evenodd d=M18,6.2V29.8A11.8,11.8,0,0,0,18,6.2Z></path>
+                                    <path fill-rule="evenodd" d="M18,6.2V29.8A11.8,11.8,0,0,0,18,6.2Z"></path>
                                 </svg></button></div>
                     </div>
                 </div>
@@ -322,6 +144,4 @@ governing permissions and limitations under the License.
         </div>
     </div>
     <dialog id="integration-properties-guide-dialog"></dialog>
-</body>
-
-</html>
+</body></html>

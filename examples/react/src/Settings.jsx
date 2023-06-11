@@ -10,94 +10,105 @@
  * governing permissions and limitations under the License.
  */
 
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from 'react';
 import {
-    useDialogContainer,
-    Dialog,
-    Heading,
-    Content,
-    ButtonGroup,
-    Button,
-    Divider,
-    RadioGroup,
-    Radio,
-    Form,
-    TextField,
-    Footer
-} from "@adobe/react-spectrum";
+  useDialogContainer,
+  Dialog,
+  Heading,
+  Content,
+  ButtonGroup,
+  Button,
+  Divider,
+  RadioGroup,
+  Radio,
+  Form,
+  TextField,
+  Footer,
+} from '@adobe/react-spectrum';
 
-import { EnvironmentContext } from "./EnvironmentProvider";
+import { EnvironmentContext } from './EnvironmentProvider';
 
 export const Settings = () => {
-    const dialog = useDialogContainer();
+  const dialog = useDialogContainer();
 
-    const { environment, setEnvironment, imsAuthInfo, applyImsAuthChange, cancelImsAuthChange, signOut } = useContext(EnvironmentContext);
-    const [imsClientId, setImsClientId] = useState(imsAuthInfo.imsClientId);
-    const [imsOrg, setImsOrg] = useState(imsAuthInfo.imsOrg);
+  const {
+    environment,
+    setEnvironment,
+    imsAuthInfo,
+    applyImsAuthChange,
+    cancelImsAuthChange,
+    signOut,
+  } = useContext(EnvironmentContext);
+  const [imsClientId, setImsClientId] = useState(imsAuthInfo.imsClientId);
+  const [imsOrg, setImsOrg] = useState(imsAuthInfo.imsOrg);
 
-    useEffect(() => {
-        setImsClientId(imsAuthInfo.imsClientId);
-        setImsOrg(imsAuthInfo.imsOrg);
-    }, [imsAuthInfo]);
+  useEffect(() => {
+    setImsClientId(imsAuthInfo.imsClientId);
+    setImsOrg(imsAuthInfo.imsOrg);
+  }, [imsAuthInfo]);
 
-    const handleOnConfirm = () => {
-        applyImsAuthChange({
-            imsOrg,
-            imsClientId
-        });
-        dialog.dismiss();
-    };
+  const handleOnConfirm = () => {
+    applyImsAuthChange({
+      imsOrg,
+      imsClientId,
+    });
+    dialog.dismiss();
+  };
 
-    const handleOnCancel = () => {
-        cancelImsAuthChange();
-        dialog.dismiss();
-    }
+  const handleOnCancel = () => {
+    cancelImsAuthChange();
+    dialog.dismiss();
+  };
 
-    const handleSignOut = () => {
-        signOut();
-        dialog.dismiss();
-    };
+  const handleSignOut = () => {
+    signOut();
+    dialog.dismiss();
+  };
 
-    return (
-        <Dialog size="M">
-            <Heading>Environment settings</Heading>
-            <Divider />
-            <Content>
-                <RadioGroup
-                    label="AssetsSelectors environment"
-                    value={environment}
-                    onChange={setEnvironment}
-                    defaultValue={environment}
-                    orientation="horizontal"
-                    labelPosition="side"
-                    labelAlign="end"
-                    isEmphasized
-                >
-                    <Radio value="prod">Production</Radio>
-                    <Radio value="stage">Stage</Radio>
-                </RadioGroup>
-                <Form>
-                    <TextField label="IMS Client ID" value={imsClientId} onChange={setImsClientId} />
-                    <TextField label="Ims Org" value={imsOrg} onChange={setImsOrg} />
-                </Form>
-            </Content>
-            {
-                imsAuthInfo.imsTokenService && imsAuthInfo.imsTokenService.imsToken && (<Footer>
-                    <Button variant="negative" onPress={handleSignOut}>
-                        Sign out
-                    </Button>
-                </Footer>)
-            }
-            <ButtonGroup>
-                <Button variant="secondary" onPress={handleOnCancel}>
-                    Cancel
-                </Button>
-                <Button variant="accent" onPress={handleOnConfirm}>
-                    Confirm
-                </Button>
-            </ButtonGroup>
-        </Dialog>
-    );
+  return (
+    <Dialog size="M">
+      <Heading>Environment settings</Heading>
+      <Divider />
+      <Content>
+        <RadioGroup
+          label="AssetsSelectors environment"
+          value={environment}
+          onChange={setEnvironment}
+          defaultValue={environment}
+          orientation="horizontal"
+          labelPosition="side"
+          labelAlign="end"
+          isEmphasized
+        >
+          <Radio value="prod">Production</Radio>
+          <Radio value="stage">Stage</Radio>
+        </RadioGroup>
+        <Form>
+          <TextField
+            label="IMS Client ID"
+            value={imsClientId}
+            onChange={setImsClientId}
+          />
+          <TextField label="Ims Org" value={imsOrg} onChange={setImsOrg} />
+        </Form>
+      </Content>
+      {imsAuthInfo.imsAuthService && imsAuthInfo.imsAuthService.imsToken && (
+        <Footer>
+          <Button variant="negative" onPress={handleSignOut}>
+            Sign out
+          </Button>
+        </Footer>
+      )}
+      <ButtonGroup>
+        <Button variant="secondary" onPress={handleOnCancel}>
+          Cancel
+        </Button>
+        <Button variant="accent" onPress={handleOnConfirm}>
+          Confirm
+        </Button>
+      </ButtonGroup>
+    </Dialog>
+  );
 };
 
 export default Settings;
