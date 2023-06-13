@@ -7,7 +7,6 @@ body {
 #root {
   padding: 0;
   margin: 0;
-  height: 100%;
 }
 
 html {
@@ -819,6 +818,17 @@ button.spectrum-Button_e2d99e,button.spectrum-ActionButton_e2d99e {
   display: none !important;
 }
 
+.spectrum-Well_d48698 {
+    min-width: var(--spectrum-global-dimension-size-2000);
+    padding: var(--spectrum-global-dimension-size-200);
+    margin-top: var(--spectrum-global-dimension-size-50);
+    border-width: var(--spectrum-alias-border-size-thin,var(--spectrum-global-dimension-static-size-10));
+    border-radius: var(--spectrum-alias-border-radius-regular,var(--spectrum-global-dimension-size-50));
+    background-color: var(--spectrum-well-background-color);
+    border-style: solid;
+    border-color: var(--spectrum-well-border-color);
+    display: block;
+}
 
 @keyframes dialog-open {
   0% {
