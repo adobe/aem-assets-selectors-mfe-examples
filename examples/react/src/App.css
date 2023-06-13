@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-body{
+ body{
   margin: 0;
   height: 100%;
 }
@@ -23,7 +23,6 @@ body{
 #root{
   padding: 0;
   margin: 0;
-  height: 100%;
 }
 
 html {

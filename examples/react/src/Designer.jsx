@@ -219,8 +219,13 @@ const DesignerView = (props) => {
               </span>
               <Content>{sloganText}</Content>
               {selectedAssetMetadata && (
-                <View overflow="scroll" marginY="size-100">
-                  <Well height="250px">
+                <View marginY="size-100">
+                  <Well
+                    maxHeight="250px"
+                    UNSAFE_style={{
+                      overflow: 'auto',
+                    }}
+                  >
                     <pre
                       style={{
                         whiteSpace: 'pre-wrap',
@@ -451,7 +456,7 @@ const DesignerView = (props) => {
 
             <DialogTrigger type="modal">
               <Button variant="cta" marginX="size-200">
-                <Text>Save</Text>
+                <Text>Save Asset</Text>
               </Button>
               <DestinationSelectorWrapper
                 {...props}
