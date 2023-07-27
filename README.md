@@ -40,7 +40,7 @@ Assets Selectors is available via both ESM CDN (think esm.sh/skypack) and UMD ve
 In browsers using UMD version:
 
 ```html
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js"></script>
+<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
 
 <script>
   const { renderAssetSelector } = PureJSSelectors;
@@ -51,14 +51,14 @@ In browsers with [`importMap`][import-maps-wiki] support using ESM CDN version:
 
 ```html
 <script type="module">
-  import { AssetSelector } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors/index.js'
+  import { AssetSelector } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js'
 </script>
 ```
 
 In Deno/Webpack Module Federation using ESM CDN version:
 
 ```js
-import { AssetSelector } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors/index.js'
+import { AssetSelector } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js'
 ```
 
 ## APIs
@@ -170,7 +170,7 @@ Assets Selectors UMD version exposes a global variable `PureJSSelectors` which e
 
 ```js
 // 1. Include the CDN link in your script tag
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js"></script>
+<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
 
 // 2. Register the Assets Selectors Auth Service on document load
 // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
@@ -195,7 +195,7 @@ PureJSSelectors.renderAssetSelectorWithAuthFlow(document.getElementById('asset-s
 
 ```js
 // 1. Include the CDN link in your script tag
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js"></script>
+<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
 
 // 2. Register the Assets Selectors Auth Service on document load
 // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
@@ -235,7 +235,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
 <script type="importmap">
   {
     "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors/index.js",
+      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
       "react": "https://esm.sh/react@18.2.0",
       "react-dom": "https://esm.sh/react-dom@18.2.0"
     }
@@ -273,7 +273,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
 <script type="importmap">
   {
     "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors/index.js",
+      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
       "react": "https://esm.sh/react@18.2.0",
       "react-dom": "https://esm.sh/react-dom@18.2.0"
     }
@@ -317,7 +317,7 @@ Assets Selectors ESM CDN version also exposes `AssetSelector`, `AssetSelectorWit
 <script type="importmap">
   {
     "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors/index.js",
+      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
       "react": "https://esm.sh/react@18.2.0",
       "react-dom": "https://esm.sh/react-dom@18.2.0"
     }
@@ -369,7 +369,7 @@ root.render(<App />);
 <script type="importmap">
   {
     "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors/index.js",
+      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
       "react": "https://esm.sh/react@18.2.0",
       "react-dom": "https://esm.sh/react-dom@18.2.0"
     }
@@ -424,7 +424,7 @@ You can use the Assets Selectors ESM CDN/UMD version in your Angular application
 
 ```js
 // 1. Include the CDN link in your index.html script tag
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js"></script>
+<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
 
 // component code
 @Component({
@@ -462,7 +462,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
 
 ```js
 // 1. Include the CDN link in your index.html script tag
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/assets-selectors.js"></script>
+<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
 
 // component code
 @Component({
