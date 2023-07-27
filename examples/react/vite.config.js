@@ -1,20 +1,21 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import basicSsl from '@vitejs/plugin-basic-ssl'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import basicSsl from '@vitejs/plugin-basic-ssl';
 
 // externals
 const externals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  '@assets/selectors': 'https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors/index.js',
-}
+  '@assets/selectors':
+    'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js',
+};
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     rollupOptions: {
       external: Object.keys(externals),
-    }
+    },
   },
   plugins: [react(), basicSsl()],
   server: {
@@ -22,10 +23,10 @@ export default defineConfig({
   },
   define: {
     global: {},
-  }, 
+  },
   resolve: {
     alias: {
-      "@assets/selectors": externals['@assets/selectors'],
-    }
-  }
-})
+      '@assets/selectors': externals['@assets/selectors'],
+    },
+  },
+});
