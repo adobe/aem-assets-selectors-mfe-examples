@@ -73,7 +73,18 @@
          * @function onClose
          */
         function onClose() {
-            const selectorDialog = document.getElementById('asset-selector-dialog') || document.getElementById('destination-selector-dialog');
+            const selectorDialog = document.getElementById('asset-selector-dialog');
+            selectorDialog.close();
+        }
+
+        /**
+         * Closes the Destination Selector dialog when it is called.
+         * This is a helper function used by Asset Selectors UI.
+         *
+         * @function onClose
+         */
+        function destinationSelectorOnClose() {
+            const selectorDialog = document.getElementById('destination-selector-dialog');
             selectorDialog.close();
         }
 
@@ -87,6 +98,18 @@
         function handleSelection(selection) {
             console.log('Selected asset:', selection);
             onClose();
+        };
+
+        /**
+         * Handles the selected path when it is called.
+         * This is a helper function used by Asset Selectors UI.
+         *
+         * @function handleOnConfirm
+         * @param {object} selection - The selected path.
+         */
+        function handleOnConfirm(selection) {
+            console.log('Selected path:', selection);
+            destinationSelectorOnClose();
         };
 
         /**
@@ -160,8 +183,8 @@
 
             /** @type {DestinationSelectorProps} */
             const props = {
-                "onClose": onClose,
-                "handleSelection": handleSelection,
+                "onClose": destinationSelectorOnClose,
+                "handleSelection": handleOnConfirm,
             }
 
             // Get the container element where the Destination Selector will be rendered.
