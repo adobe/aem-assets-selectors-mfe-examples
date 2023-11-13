@@ -504,6 +504,12 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
 
 <br/>
 
+### Usage Data
+
+By default, Assets Selectors MFEs collect Usage Data to help improve the product. If you wish to opt out any Usage Data collection, you can do so by setting the `disableTracking` property to `true` in the [AssetSelectorProps](./docs/AssetSelectorProps.md) or [DestinationSelectorProps](./docs/DestinationSelectorProps.md).
+
+```js
+
 ### Contributing
 
 Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
