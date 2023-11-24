@@ -22,7 +22,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
       // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderAssetSelectorWithAuthFlow
 
       const imsAuthProps = {
-          imsClientId: 'exc_app',
+          imsClientId: '<ADOBE_PROVIDED_IMS_CLIENT_ID>',
           imsScope: 'additional_info.projectedProductContext,openid',
           redirectUri: window.location.href
       };

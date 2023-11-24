@@ -16,7 +16,7 @@ import { registerAssetsSelectorsAuthService } from './AssetSelectorWrapper';
 
 export const EnvironmentContext = React.createContext({});
 
-const stageImsClientId = 'exc_app';
+const stageImsClientId = '<ADOBE_PROVIDED_IMS_CLIENT_ID>';
 const stageImsOrg = '9D0725C05E44FE1A0A49411C@AdobeOrg';
 
 const prodImsClientId = 'aem-assets-frontend-1';
