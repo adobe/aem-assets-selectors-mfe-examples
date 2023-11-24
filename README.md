@@ -175,7 +175,7 @@ Assets Selectors UMD version exposes a global variable `PureJSSelectors` which e
 // 2. Register the Assets Selectors Auth Service on document load
 // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
 PureJSSelectors.registerAssetsSelectorsAuthService({
-    imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+    imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
     imsScope: 'additional_info.projectedProductContext,openid',
     redirectUri: window.location.href
 });
@@ -200,7 +200,7 @@ PureJSSelectors.renderAssetSelectorWithAuthFlow(document.getElementById('asset-s
 // 2. Register the Assets Selectors Auth Service on document load
 // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
 PureJSSelectors.registerAssetsSelectorsAuthService({
-    imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+    imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
     imsScope: 'additional_info.projectedProductContext,openid',
     redirectUri: window.location.href
 });
@@ -249,7 +249,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
   // 3. Register the Assets Selectors Auth Service
   // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
   registerAssetsSelectorsAuthService({
-      imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+      imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
       imsScope: 'additional_info.projectedProductContext,openid',
       redirectUri: window.location.href
   });
@@ -287,7 +287,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
   // 3. Register the Assets Selectors Auth Service
   // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
   registerAssetsSelectorsAuthService({
-      imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+      imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
       imsScope: 'additional_info.projectedProductContext,openid',
       redirectUri: window.location.href
   });
@@ -336,7 +336,7 @@ Assets Selectors ESM CDN version also exposes `AssetSelector`, `AssetSelectorWit
     // Note: it is recommended that you call registerAssetsSelectorsAuthService before rendering AssetSelectorWithAuthFlow
 
     const imsAuthProps = {
-        imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+        imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
         imsScope: 'additional_info.projectedProductContext,openid',
         redirectUri: window.location.href
     };
@@ -388,7 +388,7 @@ root.render(<App />);
     // Note: it is recommended that you call registerAssetsSelectorsAuthService before rendering DestinationSelectorWithAuthFlow
 
     const imsAuthProps = {
-        imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+        imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
         imsScope: 'additional_info.projectedProductContext,openid',
         redirectUri: window.location.href
     };
@@ -438,7 +438,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
       // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderAssetSelectorWithAuthFlow
 
       const imsAuthProps = {
-          imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+          imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
           imsScope: 'additional_info.projectedProductContext,openid',
           redirectUri: window.location.href
       };
@@ -476,7 +476,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
       // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderDestinationSelectorWithAuthFlow
 
       const imsAuthProps = {
-          imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+          imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
           imsScope: 'additional_info.projectedProductContext,openid',
           redirectUri: window.location.href
       };

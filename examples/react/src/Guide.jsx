@@ -26,7 +26,7 @@ import { CodeBlock, dracula } from "react-code-blocks";
 const step1Code = `import { registerAssetsSelectorsAuthService, AssetSelectorWithAuthFlow } from "https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors"`
 
 const step2Code = `const imsAuthProps = {
-    imsClientId: IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_ORG, 
+    imsClientId: "<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>", 
     imsScope: "openid,read_organizations,additional_info.projectedProductContext",
     redirectUrl: window.location.href,
 };
