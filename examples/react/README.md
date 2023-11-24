@@ -4,6 +4,8 @@ This example showcases how to integrate the AssetSelector in a React app.
 
 ### Launching the React Example
 
+:warning: This implementation assumes you have the configuration of a valid `imsClientId` for your AEM Assets repository and a `redirectUrl` that corresponds to the environment from which these examples are running on.
+
 The React example app in the can be launched using the following steps:
 
 1. Make sure you have `npm` or `yarn` installed on your system.

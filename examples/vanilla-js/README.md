@@ -4,6 +4,8 @@ This example showcases how to integrate the AssetSelector in a JavaScript app.
 
 ### Launching the JavaScript App
 
+:warning: This implementation assumes you have the configuration of a valid `imsClientId` for your AEM Assets repository and a `redirectUrl` that corresponds to the environment from which these examples are running on.
+
 The JavaScript app includes two different examples that you can launch:
 
 1. `index.html` - showcases a simple version of the AssetSelector example.
