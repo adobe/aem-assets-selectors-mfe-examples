@@ -40,7 +40,7 @@ This GitHub repository contains usage examples for the Assets Selectors' JavaScr
 - Program ID and Environment ID for the AEM CS instance
 - Domain names where the integrating application is hosted
 
-After provisioning, your organization will be provided with an `imsClientId`, `imsScope`, and a `redirectUrl` corresponding to the environment that you request —which are essential for the configuration of Assets Selectors to work end-to-end. Without those valid properties, you will not be able to run this example
+After provisioning, your organization will be provided with an `imsClientId`, `imsScope`, and a `redirectUrl` corresponding to the environment that you request —which are essential for the configuration of Assets Selectors to work end-to-end. Without those valid properties, you will not be able to integrate with Assets Selectors. 
 
 ---
 Assets Selectors is available via both ESM CDN (think esm.sh/skypack) and UMD version.
