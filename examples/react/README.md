@@ -4,6 +4,15 @@ This example showcases how to integrate the AssetSelector in a React app.
 
 ### Launching the React Example
 
+:warning: This repository is intended to serve as a supplemental documentation describing the available APIs and usage examples for integrating Assets Selectors. Before attempting to install or use the Assets Selectors, ensure that your organization has been provisioned to access the Assets Selectors as part of the AEM Assets as a Cloud Service (CS) profile. If you have not been provisioned, you will not be able to successfully integrate or use these components. To request provisioning, your program admin should raise a support ticket marked as P2 from Admin Console and include the following information:
+
+- Program ID and Environment ID for the AEM CS instance
+- Domain names where the integrating application is hosted
+
+After provisioning, your organization will be provided with an `imsClientId`, `imsScope`, and a `redirectUrl` corresponding to the environment that you request —which are essential for the configuration of Assets Selectors to work end-to-end. Without those valid properties, you will not be able to run this example
+
+---
+
 The React example app in the can be launched using the following steps:
 
 1. Make sure you have `npm` or `yarn` installed on your system.

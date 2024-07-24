@@ -26,10 +26,10 @@ function init(){
 
 function onEnvironmentPropertiesChange(event) {
 
-    const stageImsClientId = "exc_app";
+    const stageImsClientId = "<ADOBE_PROVIDED_IMS_CLIENT_ID>";
     const stageImsOrg = "9D0725C05E44FE1A0A49411C@AdobeOrg";
 
-    const prodImsClientId = "aem-assets-frontend-1";
+    const prodImsClientId = "<ADOBE_PROVIDED_IMS_CLIENT_ID>";
     const prodImsOrg = "999F6D0B617C10B80A495E2E@AdobeOrg";
 
     const environmentPropertiesInputImsClientId = document.getElementById('environment-properties-input-ims-client-id');

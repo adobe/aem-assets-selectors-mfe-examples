@@ -35,6 +35,14 @@ This GitHub repository contains usage examples for the Assets Selectors' JavaScr
 
 ## Installation
 
+:warning: This repository is intended to serve as a supplemental documentation describing the available APIs and usage examples for integrating Assets Selectors. Before attempting to install or use the Assets Selectors, ensure that your organization has been provisioned to access the Assets Selectors as part of the AEM Assets as a Cloud Service (CS) profile. If you have not been provisioned, you will not be able to successfully integrate or use these components. To request provisioning, your program admin should raise a support ticket marked as P2 from Admin Console and include the following information:
+
+- Program ID and Environment ID for the AEM CS instance
+- Domain names where the integrating application is hosted
+
+After provisioning, your organization will be provided with an `imsClientId`, `imsScope`, and a `redirectUrl` corresponding to the environment that you request —which are essential for the configuration of Assets Selectors to work end-to-end. Without those valid properties, you will not be able to integrate with Assets Selectors. 
+
+---
 Assets Selectors is available via both ESM CDN (think esm.sh/skypack) and UMD version.
 
 In browsers using UMD version:
@@ -175,7 +183,7 @@ Assets Selectors UMD version exposes a global variable `PureJSSelectors` which e
 // 2. Register the Assets Selectors Auth Service on document load
 // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
 PureJSSelectors.registerAssetsSelectorsAuthService({
-    imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+    imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
     imsScope: 'additional_info.projectedProductContext,openid',
     redirectUri: window.location.href
 });
@@ -200,7 +208,7 @@ PureJSSelectors.renderAssetSelectorWithAuthFlow(document.getElementById('asset-s
 // 2. Register the Assets Selectors Auth Service on document load
 // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
 PureJSSelectors.registerAssetsSelectorsAuthService({
-    imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+    imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
     imsScope: 'additional_info.projectedProductContext,openid',
     redirectUri: window.location.href
 });
@@ -249,7 +257,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
   // 3. Register the Assets Selectors Auth Service
   // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
   registerAssetsSelectorsAuthService({
-      imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+      imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
       imsScope: 'additional_info.projectedProductContext,openid',
       redirectUri: window.location.href
   });
@@ -287,7 +295,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
   // 3. Register the Assets Selectors Auth Service
   // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
   registerAssetsSelectorsAuthService({
-      imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+      imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
       imsScope: 'additional_info.projectedProductContext,openid',
       redirectUri: window.location.href
   });
@@ -336,7 +344,7 @@ Assets Selectors ESM CDN version also exposes `AssetSelector`, `AssetSelectorWit
     // Note: it is recommended that you call registerAssetsSelectorsAuthService before rendering AssetSelectorWithAuthFlow
 
     const imsAuthProps = {
-        imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+        imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
         imsScope: 'additional_info.projectedProductContext,openid',
         redirectUri: window.location.href
     };
@@ -388,7 +396,7 @@ root.render(<App />);
     // Note: it is recommended that you call registerAssetsSelectorsAuthService before rendering DestinationSelectorWithAuthFlow
 
     const imsAuthProps = {
-        imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+        imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
         imsScope: 'additional_info.projectedProductContext,openid',
         redirectUri: window.location.href
     };
@@ -438,7 +446,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
       // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderAssetSelectorWithAuthFlow
 
       const imsAuthProps = {
-          imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+          imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
           imsScope: 'additional_info.projectedProductContext,openid',
           redirectUri: window.location.href
       };
@@ -476,7 +484,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
       // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderDestinationSelectorWithAuthFlow
 
       const imsAuthProps = {
-          imsClientId: 'client-id-associate-with-your-aem-assets-repository',
+          imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
           imsScope: 'additional_info.projectedProductContext,openid',
           redirectUri: window.location.href
       };
@@ -503,6 +511,10 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
 ```
 
 <br/>
+
+### Usage Data
+
+By default, AssetsSelectors collect usage data to help improve the product. If you wish to opt out of any usage data collection, you can do so by setting the `disableTracking` property to `true` in the [AssetSelectorProps](./docs/AssetSelectorProps.md) or [DestinationSelectorProps](./docs/DestinationSelectorProps.md).
 
 ### Contributing
 

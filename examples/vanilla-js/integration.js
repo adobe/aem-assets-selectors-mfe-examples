@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     props = {},
     changeEnvironment = false
   ) {
-    const prodImsClientId = 'aem-assets-frontend-1';
+    const prodImsClientId = '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>';
     const prodImsOrg = '999F6D0B617C10B80A495E2E@AdobeOrg';
 
     const initImsAuthInfo = {
