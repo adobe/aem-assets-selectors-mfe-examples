@@ -184,7 +184,7 @@ Assets Selectors UMD version exposes a global variable `PureJSSelectors` which e
 // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
 PureJSSelectors.registerAssetsSelectorsAuthService({
     imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-    imsScope: 'additional_info.projectedProductContext,openid',
+    imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
     redirectUri: window.location.href
 });
 
@@ -209,7 +209,7 @@ PureJSSelectors.renderAssetSelectorWithAuthFlow(document.getElementById('asset-s
 // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
 PureJSSelectors.registerAssetsSelectorsAuthService({
     imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-    imsScope: 'additional_info.projectedProductContext,openid',
+    imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
     redirectUri: window.location.href
 });
 
@@ -258,7 +258,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
   // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
   registerAssetsSelectorsAuthService({
       imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-      imsScope: 'additional_info.projectedProductContext,openid',
+      imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
       redirectUri: window.location.href
   });
 
@@ -296,7 +296,7 @@ Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export. As
   // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
   registerAssetsSelectorsAuthService({
       imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-      imsScope: 'additional_info.projectedProductContext,openid',
+      imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
       redirectUri: window.location.href
   });
 
@@ -345,7 +345,7 @@ Assets Selectors ESM CDN version also exposes `AssetSelector`, `AssetSelectorWit
 
     const imsAuthProps = {
         imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-        imsScope: 'additional_info.projectedProductContext,openid',
+        imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
         redirectUri: window.location.href
     };
 
@@ -397,7 +397,7 @@ root.render(<App />);
 
     const imsAuthProps = {
         imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-        imsScope: 'additional_info.projectedProductContext,openid',
+        imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
         redirectUri: window.location.href
     };
 
@@ -447,7 +447,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
 
       const imsAuthProps = {
           imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-          imsScope: 'additional_info.projectedProductContext,openid',
+          imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
           redirectUri: window.location.href
       };
       PureJSSelectors.registerAssetsSelectorsAuthService(imsAuthProps);   
@@ -485,7 +485,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
 
       const imsAuthProps = {
           imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-          imsScope: 'additional_info.projectedProductContext,openid',
+          imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
           redirectUri: window.location.href
       };
       PureJSSelectors.registerAssetsSelectorsAuthService(imsAuthProps);   
