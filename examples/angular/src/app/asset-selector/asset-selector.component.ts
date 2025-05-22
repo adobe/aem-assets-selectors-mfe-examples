@@ -23,7 +23,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
 
       const imsAuthProps = {
           imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-          imsScope: 'additional_info.projectedProductContext,openid',
+          imsScope: 'additional_info.projectedProductContext,openid,read_organizations',
           redirectUri: window.location.href
       };
       // @ts-ignore

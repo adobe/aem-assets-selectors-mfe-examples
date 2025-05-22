@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
       env: 'prod',
       imsClientId: prodImsClientId,
       imsScope:
-        'AdobeID,openid,read_organizations,additional_info.projectedProductContext',
+        'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
       redirectUrl: window.location.href,
       imsOrg: prodImsOrg,
       imsAuthService: undefined,
