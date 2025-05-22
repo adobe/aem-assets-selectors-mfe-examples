@@ -27,7 +27,7 @@ const step1Code = `import { registerAssetsSelectorsAuthService, AssetSelectorWit
 
 const step2Code = `const imsAuthProps = {
     imsClientId: "<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>", 
-    imsScope: "openid,read_organizations,additional_info.projectedProductContext",
+    imsScope: "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
     redirectUrl: window.location.href,
 };
 // must be called on page load

@@ -57,7 +57,7 @@ function onConfirmClick() {
         env: environmentRadioItemStage.checked ? "stage" : "prod",
         imsClientId: environmentPropertiesInputImsClientId.value,
         imsScope:
-            "AdobeID,openid,read_organizations,additional_info.projectedProductContext",
+            "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
         redirectUrl: window.location.href,
         imsOrg: environmentPropertiesInputImsOrgId.value,
         imsTokenService: undefined,
