@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const prodImsOrg = '999F6D0B617C10B80A495E2E@AdobeOrg';
 
     const initImsAuthInfo = {
-      env: 'prod',
       imsClientId: prodImsClientId,
       imsScope:
         'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
