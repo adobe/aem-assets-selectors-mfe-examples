@@ -29,7 +29,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
     if (!this.imsConfigured) {
       console.error(
         '[asset-selector] Missing imsClientId. Copy examples/angular/.env.example to .env, set ASSET_SELECTOR_IMS_CLIENT_ID, then run: node set-env.mjs\n' +
-          'Tip: use npm start (not ng serve alone) so the env file is applied before the dev server starts.'
+        'Tip: use npm start (not ng serve alone) so the env file is applied before the dev server starts.'
       );
       return;
     }
@@ -57,8 +57,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
     const props = {
       imsOrg: environment.imsOrg,
       handleSelection: (assets: unknown) => this.handleSelection(assets),
-      aemTierType: ['delivery', 'author'],
-      featureSet: ['advisor'],
+      aemTierType: ['delivery', 'author']
     };
     PureJSSelectors.renderAssetSelectorWithAuthFlow(host, props);
   }
