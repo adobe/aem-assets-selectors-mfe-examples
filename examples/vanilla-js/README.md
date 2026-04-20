@@ -2,16 +2,9 @@
 
 This example showcases how to integrate the AssetSelector in a JavaScript app.
 
+> **Prerequisites:** Your organization must be provisioned for Assets Selectors. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector#prereqs) on Experience League.
+
 ### Launching the JavaScript App
-
-:warning: This repository is intended to serve as a supplemental documentation describing the available APIs and usage examples for integrating Assets Selectors. Before attempting to install or use the Assets Selectors, ensure that your organization has been provisioned to access the Assets Selectors as part of the AEM Assets as a Cloud Service (CS) profile. If you have not been provisioned, you will not be able to successfully integrate or use these components. To request provisioning, your program admin should raise a support ticket marked as P2 from Admin Console and include the following information:
-
-- Program ID and Environment ID for the AEM CS instance
-- Domain names where the integrating application is hosted
-
-After provisioning, your organization will be provided with an `imsClientId`, `imsScope`, and a `redirectUrl` corresponding to the environment that you request —which are essential for the configuration of Assets Selectors to work end-to-end. Without those valid properties, you will not be able to run this example
-
----
 
 The JavaScript app includes two different examples that you can use:
 
@@ -44,11 +37,11 @@ To launch the JavaScript app, follow these steps:
 
 ### Using complex example (integration.html)
 
-1. Once the app is launched, navigate to [`integration.html`](https://localhost:8080:integration.html) to view the end-to-end integration example.
+1. Once the app is launched, navigate to [`integration.html`](https://localhost:8080/integration.html) to view the end-to-end integration example.
 2. Click on the "+ placeholder" button to launch the AssetSelector dialog with built in auth flow.
 3. If the user is signed in, the AssetSelector dialog will be rendered with assets.
 4. When you select an asset, the app will render the selected asset.
 
-Visit the following URL to test out the deployed example that is showcased in [integration.html][selectors-vanillajs-demo]
+Visit the following URL to test out the deployed example that is showcased in [integration.html][selectors-vanillajs-demo].
 
 [selectors-vanillajs-demo]: https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/integration/integration.html
