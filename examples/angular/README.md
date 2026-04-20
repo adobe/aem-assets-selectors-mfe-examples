@@ -17,6 +17,14 @@ cp .env.example .env
 
 Running **`npm start`** or **`npm run build`** runs **`set-env.mjs`**, which writes **`src/environments/environment.ts`** and **`environment.prod.ts`** from **`.env`**. Those two files are **gitignored** so IMS values are not committed; see **`src/environments/environment.example.ts`** for the expected shape.
 
+If Git still shows **`environment.ts`** / **`environment.prod.ts`** as modified, they are still **tracked** (`.gitignore` only applies to untracked files). Stop tracking them once:
+
+```bash
+git rm --cached examples/angular/src/environments/environment.ts examples/angular/src/environments/environment.prod.ts
+```
+
+Then commit that change. After that, local edits from **`set-env.mjs`** stay private.
+
 After **`npm install`**, **`prepare`** creates empty **`environment.ts`** / **`environment.prod.ts`** if they are missing (both are **gitignored**), then runs **`set-env.mjs`** when **`.env`** exists. Add **`.env`** and run **`node set-env.mjs`** (or **`npm start`**) to fill in your IMS client id.
 
 ### Launching the Angular App

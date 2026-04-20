@@ -31,5 +31,6 @@ yarn-error.log
 .angular
 
 # Angular: generated from .env via set-env.mjs (never commit IMS client id / org)
-examples/angular/src/environments/environment.ts
-examples/angular/src/environments/environment.prod.ts
+# (also listed in examples/angular/.gitignore)
+/examples/angular/src/environments/environment.ts
+/examples/angular/src/environments/environment.prod.ts
