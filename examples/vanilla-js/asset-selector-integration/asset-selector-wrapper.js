@@ -7,6 +7,7 @@ function init() {
             handleSelection: handleSelection,
             env: defaultImsAuthInfo.env === 'stg1' ? 'stage' : 'prod',
             imsOrg: defaultImsAuthInfo.imsOrg || null,
+            aemTierType: ['delivery', 'author'],
         };
 
         const container = document.getElementById(

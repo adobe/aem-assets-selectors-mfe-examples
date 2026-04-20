@@ -23,10 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              {
-                "input": "./node_modules/@react-spectrum/theme-light/dist/main.css"
-              }
+              "src/styles.css"
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
@@ -68,6 +65,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 8080
+          },
           "configurations": {
             "production": {
               "browserTarget": "angular:build:production"
@@ -103,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

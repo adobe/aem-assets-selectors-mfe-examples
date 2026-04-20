@@ -11,21 +11,21 @@
  * governing permissions and limitations under the License.
  */
 
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 
 import { useDialogContainer } from "@adobe/react-spectrum";
-import { registerAssetsSelectorsAuthService as registerAssetsSelectorsAuthServiceInternal, AssetSelectorWithAuthFlow} from "@assets/selectors";
+import { registerAssetsSelectorsAuthService as registerAssetsSelectorsAuthServiceInternal, AssetSelectorWithAuthFlow } from "@assets/selectors";
 import { EnvironmentContext } from "./EnvironmentProvider";
 
 export const registerAssetsSelectorsAuthService = (imsAuthProps, changeEnvironment = false) => {
-    if(imsAuthProps){
+    if (imsAuthProps) {
         return registerAssetsSelectorsAuthServiceInternal(imsAuthProps, changeEnvironment);
     }
 };
 
 export const AssetSelectorWrapper = (props) => {
     const dialog = useDialogContainer();
-    const { imsAuthInfo} = useContext(EnvironmentContext);
+    const { imsAuthInfo } = useContext(EnvironmentContext);
 
     const assetsSelectorsProps = {
         ...props,
@@ -37,6 +37,7 @@ export const AssetSelectorWrapper = (props) => {
         },
         env: imsAuthInfo.env,
         imsOrg: imsAuthInfo.imsOrg,
+        aemTierType: ['delivery', 'author']
     }
 
     // AssetSelectorWithAuthFlow adds authentication flow to AssetSelector

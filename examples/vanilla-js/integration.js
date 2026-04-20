@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
     props = {},
     changeEnvironment = false
   ) {
-    const prodImsClientId = '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>';
-    const prodImsOrg = '999F6D0B617C10B80A495E2E@AdobeOrg';
+    const prodImsClientId = '%%ASSET_SELECTOR_IMS_CLIENT_ID%%';
+    const prodImsOrg = '%%ASSET_SELECTOR_IMS_ORG%%';
 
     const initImsAuthInfo = {
       env: 'prod',

@@ -11,37 +11,55 @@
  */
 
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { environment } from '../../environments/environment';
+
+declare const PureJSSelectors: any;
+
+const IMS_SCOPE =
+  'AdobeID,openid,additional_info.projectedProductContext,read_organizations';
 
 @Component({
   selector: 'asset-selector',
-  template: '<div style="height: 100vh" id="asset-selector"></div>'
+  template: '<div style="height: 100vh" id="asset-selector"></div>',
 })
 export class AssetSelectorComponent implements OnInit, AfterViewInit {
-  ngOnInit() {
-      // 1. Register the Assets Selectors Auth Service on component load
-      // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderAssetSelectorWithAuthFlow
+  private readonly imsConfigured = !!environment.imsClientId?.trim();
 
-      const imsAuthProps = {
-          imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-          imsScope: 'additional_info.projectedProductContext,openid,read_organizations',
-          redirectUri: window.location.href
-      };
-      // @ts-ignore
-      // make sure to add `declare const PureJSSelectors: any;` to your type declaration file 
-      PureJSSelectors.registerAssetsSelectorsAuthService(imsAuthProps);   
+  ngOnInit() {
+    if (!this.imsConfigured) {
+      console.error(
+        '[asset-selector] Missing imsClientId. Copy examples/angular/.env.example to .env, set ASSET_SELECTOR_IMS_CLIENT_ID, then run: node set-env.mjs\n' +
+          'Tip: use npm start (not ng serve alone) so the env file is applied before the dev server starts.'
+      );
+      return;
+    }
+    const imsAuthProps = {
+      imsClientId: environment.imsClientId,
+      imsScope: IMS_SCOPE,
+      redirectUrl: window.location.href,
+    };
+    PureJSSelectors.registerAssetsSelectorsAuthService(imsAuthProps);
   }
 
-  handleSelection(assets) {
-      console.log("Selected assets", assets)
+  handleSelection(assets: unknown) {
+    console.log('Selected assets', assets);
   }
 
   ngAfterViewInit() {
-      // 2. Render the AssetSelector component with built in auth flow
-      const props = {
-          imsOrg: "9D0725C05E44FE1A0A49411C@AdobeOrg",
-          handleSelection: this.handleSelection,
+    const host = document.getElementById('asset-selector');
+    if (!this.imsConfigured) {
+      if (host) {
+        host.textContent =
+          'Missing ASSET_SELECTOR_IMS_CLIENT_ID. Add .env (see .env.example), run: node set-env.mjs, then reload. Or use: npm start';
       }
-      // @ts-ignore
-      PureJSSelectors.renderAssetSelectorWithAuthFlow(document.getElementById('asset-selector'), props);
+      return;
+    }
+    const props = {
+      imsOrg: environment.imsOrg,
+      handleSelection: (assets: unknown) => this.handleSelection(assets),
+      aemTierType: ['delivery', 'author'],
+      featureSet: ['advisor'],
+    };
+    PureJSSelectors.renderAssetSelectorWithAuthFlow(host, props);
   }
 }

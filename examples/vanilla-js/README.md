@@ -13,19 +13,23 @@ The JavaScript app includes two different examples that you can use:
 
 To launch the JavaScript app, follow these steps:
 
-1. Make sure you have `npx` or `python` installed on your system.
-2. Run the following command in your command line interface:
+1. Make sure you have Node.js installed on your system.
+2. Copy `.env.example` to `.env` and add your IMS Client ID:
 
-   ``` bash
-   npx http-server -a localhost -p 8080
-    
-    # OR
-   python -m http.server 8080
+   ```bash
+   cp .env.example .env
+   # edit .env and set ASSET_SELECTOR_IMS_CLIENT_ID
    ```
 
-   This will start a local HTTP server on port 8080.
+3. Start the dev server:
 
-3. Open a web browser and navigate to `localhost:8080` to view the app.
+   ```bash
+   node serve.mjs
+   ```
+
+   This will start a local HTTP server on port 8080 and inject your Client ID into the examples.
+
+4. Open a web browser and navigate to `http://localhost:8080` to view the app.
 
 ### Using simple example (index.html)
 
@@ -37,7 +41,7 @@ To launch the JavaScript app, follow these steps:
 
 ### Using complex example (integration.html)
 
-1. Once the app is launched, navigate to [`integration.html`](https://localhost:8080/integration.html) to view the end-to-end integration example.
+1. Once the app is launched, navigate to [`integration.html`](http://localhost:8080/integration.html) to view the end-to-end integration example.
 2. Click on the "+ placeholder" button to launch the AssetSelector dialog with built in auth flow.
 3. If the user is signed in, the AssetSelector dialog will be rendered with assets.
 4. When you select an asset, the app will render the selected asset.

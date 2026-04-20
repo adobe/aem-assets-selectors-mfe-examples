@@ -16,11 +16,13 @@ import { registerAssetsSelectorsAuthService } from './AssetSelectorWrapper';
 
 export const EnvironmentContext = React.createContext({});
 
-const stageImsClientId = '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>';
-const stageImsOrg = '9D0725C05E44FE1A0A49411C@AdobeOrg';
+const imsClientId = import.meta.env.VITE_ASSET_SELECTOR_IMS_CLIENT_ID;
+const imsOrg = import.meta.env.VITE_ASSET_SELECTOR_IMS_ORG || null;
+const stageImsClientId = imsClientId;
+const stageImsOrg = imsOrg;
 
-const prodImsClientId = '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>';
-const prodImsOrg = '999F6D0B617C10B80A495E2E@AdobeOrg';
+const prodImsClientId = imsClientId;
+const prodImsOrg = imsOrg;
 
 const initImsAuthInfo = {
   env: 'prod',

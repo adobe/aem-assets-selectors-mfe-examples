@@ -12,7 +12,7 @@
 		let imsInstance = null;
 
         const imsProps = {
-            imsClientId: "<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>",
+            imsClientId: "%%ASSET_SELECTOR_IMS_CLIENT_ID%%",
             imsScope: "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
             redirectUrl: window.location.href,
             modalMode: true,
@@ -139,7 +139,8 @@
             const assetSelectorProps = {
                 "onClose": onClose,
                 "handleSelection": handleSelection,
-                imsOrg:"9D0725C05E44FE1A0A49411C@AdobeOrg"
+                imsOrg: "%%ASSET_SELECTOR_IMS_ORG%%",
+                aemTierType: ['delivery', 'author']
             }
 
             // Get the container element where the asset selector will be rendered.
