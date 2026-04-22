@@ -10,13 +10,13 @@ This repository provides **runnable code examples** for integrating Assets Selec
 
 - [Prerequisites](#prerequisites)
 - [Distribution](#distribution)
-- [Examples](#examples)
+- [Runnable Demos](#runnable-demos)
+- [Documentation](#documentation)
+- [Framework Examples](#framework-examples)
   - [JavaScript - UMD](#example---javascript-umd)
   - [JavaScript - ESM (importMap)](#example---javascript-esm-importmap)
   - [React with importMap via ESM CDN](#example---react-with-importmap-via-esm-cdn)
   - [Angular](#example---angular)
-- [Runnable Demos](#runnable-demos)
-- [Documentation](#documentation)
 - [Contributing](#contributing)
 - [Licensing](#licensing)
 
@@ -57,7 +57,31 @@ In Deno/Webpack Module Federation using ESM CDN version:
 import { AssetSelector } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js'
 ```
 
-## Examples
+## Runnable Demos
+
+Each example directory contains a self-contained project with its own instructions:
+
+- **[Vanilla JavaScript](./examples/vanilla-js/)** — Plain HTML/CSS/JS using the UMD build from Adobe CDN
+- **[React](./examples/react/)** — React 18 + Vite application
+- **[Angular](./examples/angular/)** — Angular 14 application
+
+## Documentation
+
+For complete documentation on Assets Selectors — including full property reference, `ImsAuthProps`, customization guides, and scenario-specific examples — visit the following Experience League pages:
+
+| Topic | What you'll find | Link |
+|-------|------------------|------|
+| Overview | What Asset Selector is, provisioning prerequisites, architecture | [Micro-Frontend Asset Selector Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector) |
+| Properties Reference | Full prop tables for `AssetSelector`, `DestinationSelector`, and `ImsAuthProps` | [Asset Selector Properties](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) |
+| Customizations | Filters, i18n, theming, feature flags, repository switching | [Asset Selector Customizations](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-customization) |
+| Usage Examples | Additional framework- and scenario-specific snippets | [Asset Selector Examples](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-examples) |
+| Dynamic Media OpenAPI | Integrating with Dynamic Media Open APIs | [Integrate with Dynamic Media Open APIs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-integration/integrate-asset-selector-dynamic-media-open-api) |
+
+### Usage Data
+
+By default, Assets Selectors collect usage data to help improve the product. If you wish to opt out of any usage data collection, you can do so by setting the `disableTracking` property to `true` in the AssetSelector or DestinationSelector props. See the [Properties Reference](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) for details.
+
+## Framework Examples
 
 Assets Selectors allows you to integrate the AssetSelector and DestinationSelector components into your application using vanilla JavaScript, React, Angular, and other frameworks. Below are some examples of how you can make use of these components in your application.
 
@@ -435,30 +459,6 @@ export class DestinationSelectorComponent implements OnInit, AfterViewInit {
 <asset-selector></asset-selector>
 <destination-selector></destination-selector>
 ```
-
-## Runnable Demos
-
-Each example directory contains a self-contained project with its own instructions:
-
-- **[Vanilla JavaScript](./examples/vanilla-js/)** — Plain HTML/CSS/JS using the UMD build from Adobe CDN
-- **[React](./examples/react/)** — React 18 + Vite application
-- **[Angular](./examples/angular/)** — Angular 14 application
-
-## Documentation
-
-For complete documentation on Assets Selectors — including full property reference, `ImsAuthProps`, customization guides, and scenario-specific examples — visit the following Experience League pages:
-
-| Topic | What you'll find | Link |
-|-------|------------------|------|
-| Overview | What Asset Selector is, provisioning prerequisites, architecture | [Micro-Frontend Asset Selector Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector) |
-| Properties Reference | Full prop tables for `AssetSelector`, `DestinationSelector`, and `ImsAuthProps` | [Asset Selector Properties](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) |
-| Customizations | Filters, i18n, theming, feature flags, repository switching | [Asset Selector Customizations](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-customization) |
-| Usage Examples | Additional framework- and scenario-specific snippets | [Asset Selector Examples](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-examples) |
-| Dynamic Media OpenAPI | Integrating with Dynamic Media Open APIs | [Integrate with Dynamic Media Open APIs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-integration/integrate-asset-selector-dynamic-media-open-api) |
-
-### Usage Data
-
-By default, Assets Selectors collect usage data to help improve the product. If you wish to opt out of any usage data collection, you can do so by setting the `disableTracking` property to `true` in the AssetSelector or DestinationSelector props. See the [Properties Reference](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) for details.
 
 ## Contributing
 
