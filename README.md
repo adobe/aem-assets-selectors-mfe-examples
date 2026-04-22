@@ -15,7 +15,7 @@ This repository provides **runnable code examples** for integrating Assets Selec
 - [Framework Examples](#framework-examples)
   - [JavaScript - UMD](#example---javascript-umd)
   - [JavaScript - ESM (importMap)](#example---javascript-esm-importmap)
-  - [React with importMap via ESM CDN](#example---react-with-importmap-via-esm-cdn)
+  - [React (importMap via ESM CDN)](#example---react-importmap-via-esm-cdn)
   - [Angular](#example---angular)
 - [Contributing](#contributing)
 - [Licensing](#licensing)
@@ -83,381 +83,147 @@ By default, Assets Selectors collect usage data to help improve the product. If 
 
 ## Framework Examples
 
-Assets Selectors allows you to integrate the AssetSelector and DestinationSelector components into your application using vanilla JavaScript, React, Angular, and other frameworks. Below are some examples of how you can make use of these components in your application.
+Minimal snippets showing the shape of integration in each framework. Every snippet follows the same two-step pattern: **(1)** register the auth service on page/component load, then **(2)** render the selector with the built-in auth flow. The full runnable projects in [`examples/`](./examples) show the same APIs with a richer UI shell around them.
+
+> **About `imsOrg`** — Setting `imsOrg: "your-aem-assets-repository-ims-org"` pins the selector to a specific org. Omitting it (or passing `null`) lets the repository switcher show all orgs the authenticated user belongs to — the runnable examples in this repo default to `null` so they work out of the box without additional environment variables. Swap in your org ID for a single-tenant integration.
+>
+> For the full prop reference including `AssetSelectorProps`, `DestinationSelectorProps`, and `ImsAuthProps`, see the [Documentation](#documentation) table above.
 
 ### Example - JavaScript UMD
 
-Assets Selectors UMD version exposes a global variable `PureJSSelectors` which exposes the Asset Selector and Destination Selector APIs. Below is an example of how you can use the Asset Selector and Destination Selector components in your application using the built-in auth flow. For a more complete and runnable code, refer to the [Vanilla JavaScript demo](./examples/vanilla-js).
-
-#### AssetSelector Usage
-
-```js
-// 1. Include the CDN link in your script tag
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
-
-// 2. Register the Assets Selectors Auth Service on document load
-// Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
-PureJSSelectors.registerAssetsSelectorsAuthService({
-    imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-    imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
-    redirectUri: window.location.href
-});
-
-// 3. Render the AssetSelector component with built in auth flow
-const props = {
-    imsOrg: "your-aem-assets-repository-ims-org",
-    handleSelection: (assets) => {
-        ...
-    }
-}
-
-PureJSSelectors.renderAssetSelectorWithAuthFlow(document.getElementById('asset-selector-container'), props);
-```
-
-#### DestinationSelector Usage
-
-```js
-// 1. Include the CDN link in your script tag
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
-
-// 2. Register the Assets Selectors Auth Service on document load
-// Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
-PureJSSelectors.registerAssetsSelectorsAuthService({
-    imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-    imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
-    redirectUri: window.location.href
-});
-
-// 3. Render the DestinationSelector component with built in auth flow
-const props = {
-    imsOrg: "your-aem-assets-repository-ims-org",
-    onConfirm: (selectedDestination) => {
-        ...
-    }
-}
-
-PureJSSelectors.renderDestinationSelectorWithAuthFlow(document.getElementById('destination-selector-container'), props);
-```
+UMD exposes the API on a global `PureJSSelectors`. Full example: [`examples/vanilla-js/`](./examples/vanilla-js).
 
 ```html
-<!-- In your HTML file where AssetSelector or DestinationSelector will be rendered on to the container element -->
+<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
 <div id="asset-selector-container"></div>
-<div id="destination-selector-container"></div>
+
+<script>
+  PureJSSelectors.registerAssetsSelectorsAuthService({
+    imsClientId: '<IMS_CLIENT_ID>',
+    imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
+    redirectUrl: window.location.href,
+  });
+
+  PureJSSelectors.renderAssetSelectorWithAuthFlow(
+    document.getElementById('asset-selector-container'),
+    {
+      imsOrg: null, // or "your-aem-assets-repository-ims-org" to pin to a single org
+      handleSelection: (assets) => { /* ... */ },
+    }
+  );
+</script>
 ```
+
+For `DestinationSelector`, swap `renderAssetSelectorWithAuthFlow` → `renderDestinationSelectorWithAuthFlow` and `handleSelection` → `onConfirm`.
 
 ### Example - JavaScript ESM (importMap)
 
-Assets Selectors ESM CDN version exposes `PureJSSelectors` as a named export, as well as React JSX components for Asset Selector and Destination Selector APIs. It takes advantage of the browser's [importMap][import-maps-wiki] feature, which allows you to define a mapping of import names to URLs — similar to a package manager like npm or yarn, but without the need for a build step.
+ESM exposes the same functions as named exports via an [importMap][import-maps-wiki]. Your project must resolve React and ReactDOM; the map below pulls them from esm.sh.
 
-> Note: if your project does not have React as a dependency, you will need to include React and ReactDOM in your importMap.
-
-#### AssetSelector Usage
-
-```js
-// 1. Supply the browser with importMap specifier
+```html
 <script type="importmap">
-  {
-    "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
-      "react": "https://esm.sh/react@18.2.0",
-      "react-dom": "https://esm.sh/react-dom@18.2.0"
-    }
+{
+  "imports": {
+    "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0"
   }
+}
 </script>
+<div id="asset-selector-container"></div>
 
 <script type="module">
-  // 2. Import the Assets Selectors components from the alias
   import { registerAssetsSelectorsAuthService, renderAssetSelectorWithAuthFlow } from '@assets/selectors';
 
-  // 3. Register the Assets Selectors Auth Service
-  // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderAssetSelectorWithAuthFlow
   registerAssetsSelectorsAuthService({
-      imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-      imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
-      redirectUri: window.location.href
+    imsClientId: '<IMS_CLIENT_ID>',
+    imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
+    redirectUrl: window.location.href,
   });
 
-  // 4. Render the AssetSelector component with built in auth flow
-  const props = {
-      imsOrg: "your-aem-assets-repository-ims-org",
-      handleSelection: (assets) => {
-          ...
-      }
-  }
-  renderAssetSelectorWithAuthFlow(document.getElementById('asset-selector-container'), props);
+  renderAssetSelectorWithAuthFlow(
+    document.getElementById('asset-selector-container'),
+    {
+      imsOrg: null, // or "your-aem-assets-repository-ims-org" to pin to a single org
+      handleSelection: (assets) => { /* ... */ },
+    }
+  );
 </script>
 ```
 
-#### DestinationSelector Usage
+### Example - React (importMap via ESM CDN)
 
-```js
-// 1. Supply the browser with importMap specifier
-<script type="importmap">
-  {
-    "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
-      "react": "https://esm.sh/react@18.2.0",
-      "react-dom": "https://esm.sh/react-dom@18.2.0"
-    }
-  }
-</script>
+ESM also exports React components: `AssetSelector`, `AssetSelectorWithAuthFlow`, `DestinationSelector`, `DestinationSelectorWithAuthFlow`. Full example: [`examples/react/`](./examples/react).
 
-<script type="module">
-  // 2. Import the Assets Selectors components from the alias
-  import { registerAssetsSelectorsAuthService, renderDestinationSelectorWithAuthFlow } from '@assets/selectors';
+**Using the built-in auth flow** — the most common path:
 
-  // 3. Register the Assets Selectors Auth Service
-  // Note: it is recommended that you call registerAssetsSelectorsAuthService before you call renderDestinationSelectorWithAuthFlow
-  registerAssetsSelectorsAuthService({
-      imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
+```jsx
+import React, { useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import { AssetSelectorWithAuthFlow, registerAssetsSelectorsAuthService } from '@assets/selectors';
+
+const App = () => {
+  useEffect(() => {
+    registerAssetsSelectorsAuthService({
+      imsClientId: '<IMS_CLIENT_ID>',
       imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
-      redirectUri: window.location.href
-  });
+      redirectUrl: window.location.href,
+    });
+  }, []);
 
-  // 4. Render the DestinationSelector component with built in auth flow
-  const props = {
-      imsOrg: "your-aem-assets-repository-ims-org",
-      onConfirm: (selectedDestination) => {
-          ...
-      }
-  }
-  renderDestinationSelectorWithAuthFlow(document.getElementById('destination-selector-container'), props);
-</script>
+  return (
+    <AssetSelectorWithAuthFlow
+      imsOrg={null} // or "your-aem-assets-repository-ims-org" to pin to a single org
+      handleSelection={(assets) => { /* ... */ }}
+    />
+  );
+};
+
+createRoot(document.getElementById('root')).render(<App />);
 ```
 
-### Example - React with importMap via ESM CDN
-
-Assets Selectors ESM CDN version also exposes `AssetSelector`, `AssetSelectorWithAuthFlow`, `DestinationSelector`, `DestinationSelectorWithAuthFlow`, and `registerAssetsSelectorsAuthService` as React JSX components.
-
-> Note: if your project does not have React as a dependency, you will need to include React and ReactDOM in your importMap. For a more complete and runnable code, refer to the [React demo](./examples/react).
-
-#### AssetSelector Usage (simple — you already have an `imsToken`)
-
-Use the plain `<AssetSelector />` component when you've already obtained a valid `imsToken` through your own auth flow. This is the most lightweight integration.
+**Bring your own `imsToken`** — use the plain `<AssetSelector />` when your app already has a valid token:
 
 ```jsx
-// 1. Supply the browser with importMap specifier
-<script type="importmap">
-  {
-    "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
-      "react": "https://esm.sh/react@18.2.0",
-      "react-dom": "https://esm.sh/react-dom@18.2.0"
-    }
-  }
-</script>
+import { AssetSelector } from '@assets/selectors';
 
-<script type="module">
-  import React from 'react';
-  import { createRoot } from 'react-dom/client';
-
-  // 2. Import the AssetSelector component from the alias
-  import { AssetSelector } from '@assets/selectors';
-
-  const App = () => {
-    // 3. Provide your existing imsToken and other props
-    const props = {
-        imsOrg: "your-aem-assets-repository-ims-org",
-        imsToken: "<YOUR_VALID_IMS_TOKEN>",
-        handleSelection: (assets) => {
-            ...
-        }
-    }
-
-    return <AssetSelector {...props} />;
-  }
-
-  const root = createRoot(document.getElementById('root'));
-  root.render(<App />);
-</script>
-```
-
-#### AssetSelector Usage (with built-in auth flow)
-
-Use `<AssetSelectorWithAuthFlow />` when you want the component to handle the Adobe login flow for you.
-
-```jsx
-// 1. Supply the browser with importMap specifier
-<script type="importmap">
-  {
-    "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
-      "react": "https://esm.sh/react@18.2.0",
-      "react-dom": "https://esm.sh/react-dom@18.2.0"
-    }
-  }
-</script>
-
-<script type="module">
-  import React, { useEffect } from 'react';
-  import { createRoot } from 'react-dom/client';
-
-  // 2. Import the Assets Selectors components from the alias
-  import { AssetSelectorWithAuthFlow, registerAssetsSelectorsAuthService } from '@assets/selectors';
-
-  const App = () => {
-    // 3. Register the Assets Selectors Auth Service on component load
-    // Note: it is recommended that you call registerAssetsSelectorsAuthService before rendering AssetSelectorWithAuthFlow
-    const imsAuthProps = {
-        imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-        imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
-        redirectUri: window.location.href
-    };
-
-    useEffect(() => {
-        registerAssetsSelectorsAuthService(imsAuthProps);
-    }, []);
-
-    // 4. Return and render the AssetSelector component with built in auth flow
-    const props = {
-        imsOrg: "your-aem-assets-repository-ims-org",
-        handleSelection: (assets) => {
-            ...
-        }
-    }
-
-    return <AssetSelectorWithAuthFlow {...props} />;
-  }
-
-  const root = createRoot(document.getElementById('root'));
-  root.render(<App />);
-</script>
-```
-
-#### DestinationSelector Usage
-
-```jsx
-// 1. Supply the browser with importMap specifier
-<script type="importmap">
-  {
-    "imports": {
-      "@assets/selectors": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js",
-      "react": "https://esm.sh/react@18.2.0",
-      "react-dom": "https://esm.sh/react-dom@18.2.0"
-    }
-  }
-</script>
-
-<script type="module">
-  import React, { useEffect } from 'react';
-  import { createRoot } from 'react-dom/client';
-
-  // 2. Import the Assets Selectors components from the alias
-  import { DestinationSelectorWithAuthFlow, registerAssetsSelectorsAuthService } from '@assets/selectors';
-
-  const App = () => {
-    // 3. Register the Assets Selectors Auth Service on component load
-    // Note: it is recommended that you call registerAssetsSelectorsAuthService before rendering DestinationSelectorWithAuthFlow
-    const imsAuthProps = {
-        imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-        imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
-        redirectUri: window.location.href
-    };
-
-    useEffect(() => {
-        registerAssetsSelectorsAuthService(imsAuthProps);
-    }, []);
-
-    // 4. Return and render the DestinationSelector component with built in auth flow
-    const props = {
-        imsOrg: "your-aem-assets-repository-ims-org",
-        onConfirm: (selectedDestination) => {
-            ...
-        }
-    }
-
-    return <DestinationSelectorWithAuthFlow {...props} />;
-  }
-
-  const root = createRoot(document.getElementById('root'));
-  root.render(<App />);
-</script>
+<AssetSelector
+  imsOrg={null}
+  imsToken="<YOUR_VALID_IMS_TOKEN>"
+  handleSelection={(assets) => { /* ... */ }}
+/>
 ```
 
 ### Example - Angular
 
-You can use the Assets Selectors ESM CDN/UMD version in your Angular application. The following example shows how to use the Assets Selectors in Angular.
-
-> Note: Assets Selectors depend on React, so you must resolve React as a dependency before you can use the Assets Selectors in your Angular application. For a more complete and runnable code, refer to the [Angular demo](./examples/angular).
-
-#### AssetSelector Usage
+Angular consumes the UMD build via a `<script>` in `index.html` and the global `PureJSSelectors`. Full example: [`examples/angular/`](./examples/angular).
 
 ```ts
-// 1. Include the CDN link in your index.html script tag
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
+declare const PureJSSelectors: any;
 
-// component code
 @Component({
   selector: 'asset-selector',
-  template: '<div id="asset-selector"></div>'
+  template: '<div id="asset-selector" style="height: 100vh"></div>',
 })
-
 export class AssetSelectorComponent implements OnInit, AfterViewInit {
   ngOnInit() {
-      // 2. Register the Assets Selectors Auth Service on component load
-      // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderAssetSelectorWithAuthFlow
-      const imsAuthProps = {
-          imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-          imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
-          redirectUri: window.location.href
-      };
-      PureJSSelectors.registerAssetsSelectorsAuthService(imsAuthProps);
+    PureJSSelectors.registerAssetsSelectorsAuthService({
+      imsClientId: '<IMS_CLIENT_ID>',
+      imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
+      redirectUrl: window.location.href,
+    });
   }
 
   ngAfterViewInit() {
-      // 3. Render the AssetSelector component with built in auth flow
-      const props = {
-          imsOrg: "your-aem-assets-repository-ims-org",
-          handleSelection: (assets) => {
-              ...
-          }
+    PureJSSelectors.renderAssetSelectorWithAuthFlow(
+      document.getElementById('asset-selector'),
+      {
+        imsOrg: null, // or "your-aem-assets-repository-ims-org" to pin to a single org
+        handleSelection: (assets: unknown) => { /* ... */ },
       }
-      PureJSSelectors.renderAssetSelectorWithAuthFlow(document.getElementById('asset-selector'), props);
+    );
   }
 }
-```
-
-#### DestinationSelector Usage
-
-```ts
-// 1. Include the CDN link in your index.html script tag
-<script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
-
-// component code
-@Component({
-  selector: 'destination-selector',
-  template: '<div id="destination-selector"></div>'
-})
-
-export class DestinationSelectorComponent implements OnInit, AfterViewInit {
-  ngOnInit() {
-      // 2. Register the Assets Selectors Auth Service on component load
-      // Note: it is recommended that you call registerAssetsSelectorsAuthService before calling renderDestinationSelectorWithAuthFlow
-      const imsAuthProps = {
-          imsClientId: '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>',
-          imsScope: 'AdobeID,openid,additional_info.projectedProductContext,read_organizations',
-          redirectUri: window.location.href
-      };
-      PureJSSelectors.registerAssetsSelectorsAuthService(imsAuthProps);
-  }
-
-  ngAfterViewInit() {
-      // 3. Render the DestinationSelector component with built in auth flow
-      const props = {
-          imsOrg: "your-aem-assets-repository-ims-org",
-          onConfirm: (selectedDestination) => {
-              ...
-          }
-      }
-      PureJSSelectors.renderDestinationSelectorWithAuthFlow(document.getElementById('destination-selector'), props);
-  }
-}
-```
-
-```html
-<!-- In your template, AssetSelector/DestinationSelector will be rendered anywhere you're using this selector -->
-<asset-selector></asset-selector>
-<destination-selector></destination-selector>
 ```
 
 ## Contributing
