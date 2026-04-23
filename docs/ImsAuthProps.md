@@ -2,7 +2,7 @@
 
 > **This documentation has moved to Adobe Experience League.**
 >
-> See: **[Asset Selector Properties](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties)**
+> See: **[Integrate Asset Selector: IMS Auth Props](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-integration/integrate-asset-selector-adobe-app#ims-auth-props)**
 
 The standalone prop-reference documents previously under `docs/` have been consolidated into the Experience League pages for Asset Selector. The Properties Reference page above covers `ImsAuthProps` alongside `AssetSelector` and `DestinationSelector` props.
 
