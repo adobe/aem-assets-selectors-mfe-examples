@@ -1,4 +1,4 @@
-## Assets Selectors - Code Examples
+## Assets Selectors
 
 Assets Selectors contains a collection of components such as AssetSelector and DestinationSelector from [Adobe Experience Manager Assets as a Cloud Service][aem-cs-wiki] (AEM CS). These components follow the [Micro Frontend architecture][microfrontend-wiki] and are consumable in your application via convenient JavaScript APIs to search, browse, and retrieve digital assets available in the AEM CS repository.
 
@@ -14,7 +14,9 @@ This repository provides **runnable code examples** for integrating Assets Selec
 
 ## Contents
 
+- [Assets Selectors](#assets-selectors)
 - [What is this repository for](#what-is-this-repository-for)
+- [Contents](#contents)
 - [Installation](#installation)
 - [APIs](#apis)
   - [PureJSSelectors.`renderAssetSelector` or `<AssetSelector/>`](#purejsselectorsrenderassetselector-or-assetselector)
@@ -22,13 +24,13 @@ This repository provides **runnable code examples** for integrating Assets Selec
   - [PureJSSelectors.`registerAssetsSelectorsAuthService`](#purejsselectorsregisterassetsselectorsauthservice)
   - [PureJSSelectors.`renderDestinationSelector` or `<DestinationSelector/>`](#purejsselectorsrenderdestinationselector-or-destinationselector)
   - [PureJSSelectors.`renderDestinationSelectorWithAuthFlow` or `<DestinationSelectorWithAuthFlow />`](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-)
-- [Runnable Demos](#runnable-demos)
 - [Documentation](#documentation)
-- [Framework Examples](#framework-examples)
-  - [JavaScript - UMD](#example---javascript-umd)
-  - [JavaScript - ESM (importMap)](#example---javascript-esm-importmap)
-  - [React (importMap via ESM CDN)](#example---react-importmap-via-esm-cdn)
-  - [Angular](#example---angular)
+- [Examples](#examples)
+  - [JavaScript UMD](#javascript-umd)
+  - [JavaScript ESM (importMap)](#javascript-esm-importmap)
+  - [React (importMap via ESM CDN)](#react-importmap-via-esm-cdn)
+  - [Angular](#angular)
+- [Usage Data](#usage-data)
 - [Contributing](#contributing)
 - [Licensing](#licensing)
 
@@ -81,6 +83,7 @@ Renders the AssetSelector component on the provided container element and accept
 
 > This method assumes that you supply a valid _imsToken_ that you could have obtained using [`ImsAuthService.getImsToken()`](./docs/ImsAuthService.md) or another medium. If you do not have an _imsToken_, you can use [renderAssetSelectorWithAuthFlow](#purejsselectorsrenderassetselectorwithauthflow-or-assetselectorwithauthflow-) which implements an authentication flow to obtain a user based _imsToken_.
 
+<!-- omit in toc -->
 ###### Parameters
 
 - `container` (`HTMLElement`) — render AssetSelector into the DOM in the supplied container
@@ -101,6 +104,7 @@ Renders the AssetSelector component on the provided container element and accept
 
 > It is **recommended** that you call [_registerAssetsSelectorsAuthService_](#purejsselectorsregisterassetsselectorsauthservice) on your page load before calling renderAssetSelectorWithAuthFlow or `<AssetSelectorWithAuthFlow/>`. In the event where you cannot call _registerAssetsSelectorsAuthService_, you can supply [ImsAuthProps](./docs/ImsAuthProps.md) along with [AssetSelectorProps](./docs/AssetSelectorProps.md). However, that might not create a great user experience.
 
+<!-- omit in toc -->
 ###### Parameters
 
 - `container` (`HTMLElement`) — render AssetSelector into the DOM in the supplied container
@@ -121,10 +125,12 @@ Instantiates the [_ImsAuthService_](./docs/ImsAuthService.md) process. This proc
 
 > It is recommended that you call this function on your application page load. You must also call this function if you're using the [AssetSelectorWithAuthFlow](#purejsselectorsrenderassetselectorwithauthflow-or-assetselectorwithauthflow-) or [DestinationSelectorWithAuthFlow](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-) components. This API is not required if you're using the [AssetSelector](#purejsselectorsrenderassetselector-or-assetselector) or [DestinationSelector](#purejsselectorsrenderdestinationselector-or-destinationselector) components and already obtained a valid _imsToken_.
 
+<!-- omit in toc -->
 ##### Parameters
 
 - `authProps` (`ImsAuthProps`) — required properties for the ImsAuthService. See [ImsAuthProps](./docs/ImsAuthProps.md) for more details.
 
+<!-- omit in toc -->
 ##### Returns
 
 - @returns (`ImsAuthService`) — an instance of the ImsAuthService. See [ImsAuthService](./docs/ImsAuthService.md) for more details.
@@ -139,6 +145,7 @@ Renders the DestinationSelector component on the provided container element and 
 
 > This method assumes that you supply a valid _imsToken_ that you could have obtained using [`ImsAuthService.getImsToken()`](./docs/ImsAuthService.md) or another medium. If you do not have an _imsToken_, you can use [renderDestinationSelectorWithAuthFlow](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-) which implements an authentication flow to obtain a user based _imsToken_.
 
+<!-- omit in toc -->
 ###### Parameters
 
 - `container` (`HTMLElement`) — render DestinationSelector into the DOM in the supplied container
@@ -155,6 +162,7 @@ Renders the DestinationSelector component on the provided container element and 
 
 > It is **recommended** that you call [_registerAssetsSelectorsAuthService_](#purejsselectorsregisterassetsselectorsauthservice) on your page load before calling renderDestinationSelectorWithAuthFlow or `<DestinationSelectorWithAuthFlow/>`. In the event where you cannot call _registerAssetsSelectorsAuthService_, you can supply [ImsAuthProps](./docs/ImsAuthProps.md) along with [DestinationSelectorProps](./docs/DestinationSelectorProps.md). However, that might not create a great user experience.
 
+<!-- omit in toc -->
 ###### Parameters
 
 - `container` (`HTMLElement`) — render DestinationSelector into the DOM in the supplied container
@@ -164,14 +172,6 @@ Renders the DestinationSelector component on the provided container element and 
 ```js
 PureJSSelectors.renderDestinationSelectorWithAuthFlow(container: HTMLElement, props: DestinationSelectorProps, onRenderComplete?: Function): void
 ```
-
-## Runnable Demos
-
-Each example directory contains a self-contained project with its own instructions:
-
-- **[Vanilla JavaScript](./examples/vanilla-js/)** — Plain HTML/CSS/JS using the UMD build from Adobe CDN
-- **[React](./examples/react/)** — React 18 + Vite application
-- **[Angular](./examples/angular/)** — Angular 14 application
 
 ## Documentation
 
@@ -185,19 +185,17 @@ For complete documentation on Assets Selectors — including full property refer
 | Usage Examples | Additional framework- and scenario-specific snippets | [Asset Selector Examples](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-examples) |
 | Dynamic Media OpenAPI | Integrating with Dynamic Media Open APIs | [Integrate with Dynamic Media Open APIs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-integration/integrate-asset-selector-dynamic-media-open-api) |
 
-### Usage Data
+## Examples
 
-By default, Assets Selectors collect usage data to help improve the product. If you wish to opt out of any usage data collection, you can do so by setting the `disableTracking` property to `true` in the AssetSelector or DestinationSelector props. See the [Properties Reference](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) for details.
+Each example directory contains a self-contained project with its own instructions:
 
-## Framework Examples
+- **[Vanilla JavaScript](./examples/vanilla-js/)** — Plain HTML/CSS/JS using the UMD build from Adobe CDN
+- **[React](./examples/react/)** — React 18 + Vite application
+- **[Angular](./examples/angular/)** — Angular 14 application
 
-Minimal snippets showing the shape of integration in each framework. Every snippet follows the same two-step pattern: **(1)** register the auth service on page/component load, then **(2)** render the selector with the built-in auth flow. The full runnable projects in [`examples/`](./examples) show the same APIs with a richer UI shell around them.
+The following sections include minimal snippets showing the shape of integration in each framework. Every snippet follows the same two-step pattern: **(1)** register the auth service on page/component load, then **(2)** render the selector with the built-in auth flow. The full runnable projects in [`examples/`](./examples) show the same APIs with a richer UI shell around them.
 
-> **About `imsOrg`** — Setting `imsOrg: "your-aem-assets-repository-ims-org"` pins the selector to a specific org. Omitting it (or passing `null`) lets the repository switcher show all orgs the authenticated user belongs to — the runnable examples in this repo default to `null` so they work out of the box without additional environment variables. Swap in your org ID for a single-tenant integration.
->
-> For the full prop reference including `AssetSelectorProps`, `DestinationSelectorProps`, and `ImsAuthProps`, see the [Documentation](#documentation) table above.
-
-### Example - JavaScript UMD
+### JavaScript UMD
 
 UMD exposes the API on a global `PureJSSelectors`. Full example: [`examples/vanilla-js/`](./examples/vanilla-js).
 
@@ -224,7 +222,7 @@ UMD exposes the API on a global `PureJSSelectors`. Full example: [`examples/vani
 
 For `DestinationSelector`, swap `renderAssetSelectorWithAuthFlow` → `renderDestinationSelectorWithAuthFlow` and `handleSelection` → `onConfirm`.
 
-### Example - JavaScript ESM (importMap)
+### JavaScript ESM (importMap)
 
 ESM exposes the same functions as named exports via an [importMap][import-maps-wiki]. Your project must resolve React and ReactDOM; the map below pulls them from esm.sh.
 
@@ -259,7 +257,7 @@ ESM exposes the same functions as named exports via an [importMap][import-maps-w
 </script>
 ```
 
-### Example - React (importMap via ESM CDN)
+### React (importMap via ESM CDN)
 
 ESM also exports React components: `AssetSelector`, `AssetSelectorWithAuthFlow`, `DestinationSelector`, `DestinationSelectorWithAuthFlow`. Full example: [`examples/react/`](./examples/react).
 
@@ -302,7 +300,7 @@ import { AssetSelector } from '@assets/selectors';
 />
 ```
 
-### Example - Angular
+### Angular
 
 Angular consumes the UMD build via a `<script>` in `index.html` and the global `PureJSSelectors`. Full example: [`examples/angular/`](./examples/angular).
 
@@ -333,6 +331,10 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
   }
 }
 ```
+
+## Usage Data
+
+By default, Assets Selectors collect usage data to help improve the product. If you wish to opt out of any usage data collection, you can do so by setting the `disableTracking` property to `true` in the AssetSelector or DestinationSelector props. See the [Properties Reference](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) for details.
 
 ## Contributing
 
