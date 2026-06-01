@@ -23,7 +23,7 @@ import {
 import { CodeBlock, dracula } from "react-code-blocks";
 
 
-const step1Code = `import { registerAssetsSelectorsAuthService, AssetSelectorWithAuthFlow } from "https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors"`
+const step1Code = `import { registerContentAdvisorAuthService, AssetSelectorWithAuthFlow } from "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js"`
 
 const step2Code = `const imsAuthProps = {
     imsClientId: "<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>", 
@@ -31,7 +31,7 @@ const step2Code = `const imsAuthProps = {
     redirectUrl: window.location.href,
 };
 // must be called on page load
-registerAssetsSelectorsAuthService(imsAuthProps);
+registerContentAdvisorAuthService(imsAuthProps);
 `;
 
 const step3Code = `function App() {
@@ -54,7 +54,7 @@ const step3Code = `function App() {
 export const Guide = () => {
     return (
         <Dialog size="L" isDismissable>
-            <Heading>AssetsSelectors Integration Guide</Heading>
+            <Heading>Content Advisor Integration Guide</Heading>
             <Divider />
             <Content>
                 <View marginBottom="size-200">
@@ -77,7 +77,7 @@ export const Guide = () => {
                 <View marginBottom="size-200">
                     <View marginBottom={5}>
                         <Text>
-                            <strong>Step 2:</strong> Call <strong><code>registerAssetsSelectorsAuthService(...)</code></strong> with imsAuthProps on page load.
+                            <strong>Step 2:</strong> Call <strong><code>registerContentAdvisorAuthService(...)</code></strong> with imsAuthProps on page load.
                         </Text>
                     </View>
                     <CodeBlock

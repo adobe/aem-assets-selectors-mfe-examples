@@ -45,7 +45,14 @@ if (!imsClientId || imsClientId === '<YOUR_IMS_CLIENT_ID>') {
 }
 
 const server = createServer((req, res) => {
-  let urlPath = new URL(req.url, `http://localhost:${PORT}`).pathname;
+  let urlPath;
+  try {
+    urlPath = new URL(req.url, `http://localhost:${PORT}`).pathname;
+  } catch {
+    res.writeHead(400, { 'Content-Type': 'text/plain' });
+    res.end('Bad Request');
+    return;
+  }
   if (urlPath === '/') urlPath = '/index.html';
 
   const filePath = join(ROOT, urlPath);
@@ -56,21 +63,26 @@ const server = createServer((req, res) => {
     return;
   }
 
-  const ext = extname(filePath);
-  const contentType = MIME_TYPES[ext] || 'application/octet-stream';
-  let body = readFileSync(filePath);
+  try {
+    const ext = extname(filePath);
+    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    let body = readFileSync(filePath);
 
-  if (ext === '.html' || ext === '.js') {
-    body = body.toString('utf-8')
-      .replace(/%%ASSET_SELECTOR_IMS_CLIENT_ID%%/g, imsClientId)
-      .replace(
-        /(['"])%%ASSET_SELECTOR_IMS_ORG%%\1/g,
-        imsOrg ? `"${imsOrg}"` : 'null'
-      );
+    if (ext === '.html' || ext === '.js') {
+      body = body.toString('utf-8')
+        .replace(/%%ASSET_SELECTOR_IMS_CLIENT_ID%%/g, imsClientId)
+        .replace(
+          /(['"])%%ASSET_SELECTOR_IMS_ORG%%\1/g,
+          imsOrg ? `"${imsOrg}"` : 'null'
+        );
+    }
+
+    res.writeHead(200, { 'Content-Type': contentType });
+    res.end(body);
+  } catch {
+    res.writeHead(500, { 'Content-Type': 'text/plain' });
+    res.end('Internal Server Error');
   }
-
-  res.writeHead(200, { 'Content-Type': contentType });
-  res.end(body);
 });
 
 server.listen(PORT, 'localhost', () => {

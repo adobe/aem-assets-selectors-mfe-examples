@@ -13,7 +13,7 @@
 export const doFetch = (url, token = null, method = "GET") => {
     const header = new Headers();
     if(!token) {
-        // get the bearer token either from window/wherever you are storing it from registerAssetsSelectorsAuthService
+        // get the bearer token either from window/wherever you are storing it from registerContentAdvisorAuthService
         header.append("Authorization", `Bearer ${window['assetsSelectorsAuthService'].imsToken}`);
     }
     const requestOptions = {

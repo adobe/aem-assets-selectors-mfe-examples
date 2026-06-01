@@ -51,19 +51,19 @@ document.addEventListener('DOMContentLoaded', function () {
     openDestinationSelectorDialog
   );
 
-  // re-register AssetsSelectors Auth Service
+  // re-register Content Advisor Auth Service
   window.addEventListener('environmentProperties', (args) => {
-    registerAssetsSelectorsAuthService(args.detail, true);
+    registerContentAdvisorAuthService(args.detail, true);
   });
 
   window.addEventListener('onAssetsSelectedEvent', onAssetsSelected);
 
   window.addEventListener('onDestinationSelectedEvent', onDestinationSelected);
 
-  registerAssetsSelectorsAuthService();
+  registerContentAdvisorAuthService();
 
   // must be registered on page load before Content Advisor is rendered
-  function registerAssetsSelectorsAuthService(
+  function registerContentAdvisorAuthService(
     props = {},
     changeEnvironment = false
   ) {
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const doFetch = (url, token = null, method = 'GET') => {
     const header = new Headers();
     if (!token) {
-      // get the bearer token either from window/wherever you are storing it from registerAssetsSelectorsAuthService
+      // get the bearer token either from window/wherever you are storing it from registerContentAdvisorAuthService
       header.append(
         'Authorization',
         `Bearer ${window['assetsSelectorsAuthService'].imsToken}`

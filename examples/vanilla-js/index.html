@@ -85,7 +85,7 @@
             const container = document.getElementById('destination-selector');
             PureJSSelectors.renderDestinationSelectorWithAuthFlow(container, {
                 onClose: destinationSelectorOnClose,
-                handleSelection: handleOnConfirm,
+                onConfirm: handleOnConfirm,
             }, () => {
                 document.getElementById('destination-selector-dialog').showModal();
             });

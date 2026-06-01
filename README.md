@@ -21,9 +21,9 @@ This repository provides **runnable code examples** for integrating Assets Selec
 - [Contents](#contents)
 - [Installation](#installation)
 - [APIs](#apis)
-  - [PureJSSelectors.`renderContentAdvisor` or `<ContentAdvisor/>`](#purejsselectorsrenderassetselector-or-assetselector)
-  - [PureJSSelectors.`renderContentAdvisorWithAuthFlow` or `<AssetSelectorWithAuthFlow />`](#purejsselectorsrenderassetselectorwithauthflow-or-assetselectorwithauthflow-)
-  - [PureJSSelectors.`registerContentAdvisorAuthService`](#purejsselectorsregisterassetsselectorsauthservice)
+  - [PureJSSelectors.`renderContentAdvisor` or `<ContentAdvisor/>`](#purejsselectorsrendercontentadvisor-or-contentadvisor)
+  - [PureJSSelectors.`renderContentAdvisorWithAuthFlow` or `<AssetSelectorWithAuthFlow />`](#purejsselectorsrendercontentadvisorwithauthflow-or-assetselectorwithauthflow-)
+  - [PureJSSelectors.`registerContentAdvisorAuthService`](#purejsselectorsregistercontentadvisorauthservice)
   - [PureJSSelectors.`renderDestinationSelector` or `<DestinationSelector/>`](#purejsselectorsrenderdestinationselector-or-destinationselector)
   - [PureJSSelectors.`renderDestinationSelectorWithAuthFlow` or `<DestinationSelectorWithAuthFlow />`](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-)
 - [Documentation](#documentation)
@@ -75,7 +75,7 @@ import { AssetSelector } from 'https://experience.adobe.com/solutions/CQ-assets-
 
 ## APIs
 
-This package exports the global identifier `PureJSSelectors` when installed via UMD and named exports `PureJSSelectors`, [`ContentAdvisor`](#purejsselectorsrenderassetselector-or-assetselector) (alias: `AssetSelector`), [`AssetSelectorWithAuthFlow`](#purejsselectorsrenderassetselectorwithauthflow-or-assetselectorwithauthflow-), [`DestinationSelector`](#purejsselectorsrenderdestinationselector-or-destinationselector), [`DestinationSelectorWithAuthFlow`](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-), [`registerContentAdvisorAuthService`](#purejsselectorsregisterassetsselectorsauthservice) (alias: `registerAssetsSelectorsAuthService`) when installed via ESM. There are no default exports.
+This package exports the global identifier `PureJSSelectors` when installed via UMD and named exports `PureJSSelectors`, [`ContentAdvisor`](#purejsselectorsrendercontentadvisor-or-contentadvisor) (alias: `AssetSelector`), [`AssetSelectorWithAuthFlow`](#purejsselectorsrendercontentadvisorwithauthflow-or-assetselectorwithauthflow-), [`DestinationSelector`](#purejsselectorsrenderdestinationselector-or-destinationselector), [`DestinationSelectorWithAuthFlow`](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-), [`registerContentAdvisorAuthService`](#purejsselectorsregistercontentadvisorauthservice) (alias: `registerAssetsSelectorsAuthService`) when installed via ESM. There are no default exports.
 
 Below are the API descriptions exported by this package in identifier `PureJSSelectors` and their equivalent JSX components that are available via ESM imports.
 
@@ -83,7 +83,7 @@ Below are the API descriptions exported by this package in identifier `PureJSSel
 
 Renders the ContentAdvisor component on the provided container element and accepts all of the properties described in the [AssetSelector Props](./docs/AssetSelectorProps.md).
 
-> This method assumes that you supply a valid _imsToken_ that you could have obtained using [`ImsAuthService.getImsToken()`](./docs/ImsAuthService.md) or another medium. If you do not have an _imsToken_, you can use [renderContentAdvisorWithAuthFlow](#purejsselectorsrenderassetselectorwithauthflow-or-assetselectorwithauthflow-) which implements an authentication flow to obtain a user based _imsToken_.
+> This method assumes that you supply a valid _imsToken_ that you could have obtained using [`ImsAuthService.getImsToken()`](./docs/ImsAuthService.md) or another medium. If you do not have an _imsToken_, you can use [renderContentAdvisorWithAuthFlow](#purejsselectorsrendercontentadvisorwithauthflow-or-assetselectorwithauthflow-) which implements an authentication flow to obtain a user based _imsToken_.
 
 <!-- omit in toc -->
 ###### Parameters
@@ -104,7 +104,7 @@ PureJSSelectors.renderContentAdvisor(container: HTMLElement, props: AssetSelecto
 
 Renders the ContentAdvisor component on the provided container element and accepts all of the properties described in the [AssetSelector Props](./docs/AssetSelectorProps.md). The ContentAdvisor with auth flow extends ContentAdvisor to include an authentication flow. When there's no _`imsToken`_ present, it will show an _Adobe_ login flow to obtain the _imsToken_ and then render ContentAdvisor.
 
-> It is **recommended** that you call [_registerContentAdvisorAuthService_](#purejsselectorsregisterassetsselectorsauthservice) on your page load before calling renderContentAdvisorWithAuthFlow or `<AssetSelectorWithAuthFlow/>`. In the event where you cannot call _registerContentAdvisorAuthService_, you can supply [ImsAuthProps](./docs/ImsAuthProps.md) along with [AssetSelectorProps](./docs/AssetSelectorProps.md). However, that might not create a great user experience.
+> It is **recommended** that you call [_registerContentAdvisorAuthService_](#purejsselectorsregistercontentadvisorauthservice) on your page load before calling renderContentAdvisorWithAuthFlow or `<AssetSelectorWithAuthFlow/>`. In the event where you cannot call _registerContentAdvisorAuthService_, you can supply [ImsAuthProps](./docs/ImsAuthProps.md) along with [AssetSelectorProps](./docs/AssetSelectorProps.md). However, that might not create a great user experience.
 
 <!-- omit in toc -->
 ###### Parameters
@@ -125,7 +125,7 @@ PureJSSelectors.renderContentAdvisorWithAuthFlow(container: HTMLElement, props: 
 
 Instantiates the [_ImsAuthService_](./docs/ImsAuthService.md) process. This process registers the authorization service for your AEM CS Assets repository and subscribes to authorization flow events.
 
-> It is recommended that you call this function on your application page load. You must also call this function if you're using the [renderContentAdvisorWithAuthFlow](#purejsselectorsrenderassetselectorwithauthflow-or-assetselectorwithauthflow-) or [DestinationSelectorWithAuthFlow](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-) components. This API is not required if you're using the [ContentAdvisor](#purejsselectorsrenderassetselector-or-assetselector) or [DestinationSelector](#purejsselectorsrenderdestinationselector-or-destinationselector) components and already obtained a valid _imsToken_.
+> It is recommended that you call this function on your application page load. You must also call this function if you're using the [renderContentAdvisorWithAuthFlow](#purejsselectorsrendercontentadvisorwithauthflow-or-assetselectorwithauthflow-) or [DestinationSelectorWithAuthFlow](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-) components. This API is not required if you're using the [ContentAdvisor](#purejsselectorsrendercontentadvisor-or-contentadvisor) or [DestinationSelector](#purejsselectorsrenderdestinationselector-or-destinationselector) components and already obtained a valid _imsToken_.
 
 <!-- omit in toc -->
 ##### Parameters
@@ -162,7 +162,7 @@ PureJSSelectors.renderDestinationSelector(container: HTMLElement, props: Destina
 
 Renders the DestinationSelector component on the provided container element and accepts all of the properties described in the [DestinationSelector Props](./docs/DestinationSelectorProps.md). The DestinationSelectorWithAuthFlow component extends the DestinationSelector component to include an authentication flow. When there's no _`imsToken`_ present, the DestinationSelectorWithAuthFlow component will show a _Adobe_ login flow to obtain the _imsToken_ and then render the DestinationSelector component.
 
-> It is **recommended** that you call [_registerAssetsSelectorsAuthService_](#purejsselectorsregisterassetsselectorsauthservice) on your page load before calling renderDestinationSelectorWithAuthFlow or `<DestinationSelectorWithAuthFlow/>`. In the event where you cannot call _registerAssetsSelectorsAuthService_, you can supply [ImsAuthProps](./docs/ImsAuthProps.md) along with [DestinationSelectorProps](./docs/DestinationSelectorProps.md). However, that might not create a great user experience.
+> It is **recommended** that you call [_registerContentAdvisorAuthService_](#purejsselectorsregistercontentadvisorauthservice) on your page load before calling renderDestinationSelectorWithAuthFlow or `<DestinationSelectorWithAuthFlow/>`. In the event where you cannot call _registerContentAdvisorAuthService_, you can supply [ImsAuthProps](./docs/ImsAuthProps.md) along with [DestinationSelectorProps](./docs/DestinationSelectorProps.md). However, that might not create a great user experience.
 
 <!-- omit in toc -->
 ###### Parameters

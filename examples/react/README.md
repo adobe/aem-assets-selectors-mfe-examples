@@ -4,6 +4,19 @@ This example showcases how to integrate the Content Advisor in a React app.
 
 > **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector#prereqs) on Experience League.
 
+### Configuration
+
+IMS values are read from a local **`.env`** file (not committed). Copy the example and set your client ID:
+
+```bash
+cp .env.example .env
+```
+
+- **`VITE_ASSET_SELECTOR_IMS_CLIENT_ID`** (required) — your provisioned IMS client ID.
+- **`VITE_ASSET_SELECTOR_IMS_ORG`** (optional) — pin to a single IMS org; if omitted or empty, **`imsOrg` is `null`** and the repository selector is shown.
+
+Vite exposes these to the app via `import.meta.env`.
+
 ### Launching the React App
 
 1. Make sure you have `npm` or `yarn` installed on your system.
@@ -15,17 +28,19 @@ This example showcases how to integrate the Content Advisor in a React app.
    npm install
    ```
 
-3. Start the app:
+3. Create `.env` from `.env.example` and set **`VITE_ASSET_SELECTOR_IMS_CLIENT_ID`** (see [Configuration](#configuration) above).
+
+4. Start the app:
 
    ``` bash
-   yarn dev --host localhost
+   yarn dev
     # OR
-   npm run dev --host localhost
+   npm run dev
    ```
 
    This will start a local HTTP server on port 8080.
 
-4. Open a web browser and navigate to `http://localhost:8080` to view the app.
+5. Open a web browser and navigate to `http://localhost:8080` to view the app.
 
 ### Using the Web App
 

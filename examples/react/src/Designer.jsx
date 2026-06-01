@@ -127,7 +127,7 @@ const DesignerView = (props) => {
     );
   };
 
-  const renderAssetSelector = () => {
+  const renderContentAdvisor = () => {
     return (
       <DialogTrigger type="fullscreen" isDismissable>
         <ActionButton
@@ -353,7 +353,7 @@ const DesignerView = (props) => {
                   <View margin={assetImagePreview ? 0 : 'size-400'}>
                     <Flex alignItems="center" direction="column">
                       <IllustratedMessage>
-                        <Heading>{renderAssetSelector()}</Heading>
+                        <Heading>{renderContentAdvisor()}</Heading>
                         {!selectedAssetMetadata && (
                           <Content
                             UNSAFE_style={{
