@@ -27,7 +27,7 @@ export const AssetSelectorWrapper = (props) => {
     const dialog = useDialogContainer();
     const { imsAuthInfo } = useContext(EnvironmentContext);
 
-    const assetsSelectorsProps = {
+    const contentAdvisorProps = {
         ...props,
         onClose: () => {
             dialog.dismiss?.();
@@ -40,8 +40,8 @@ export const AssetSelectorWrapper = (props) => {
         aemTierType: ['delivery', 'author']
     }
 
-    // AssetSelectorWithAuthFlow adds authentication flow to AssetSelector
-    // If you already have an imsToken, you can use AssetSelector directly instead
+    // AssetSelectorWithAuthFlow adds authentication flow to ContentAdvisor
+    // If you already have an imsToken, you can use ContentAdvisor directly instead
     return (
         <div
             style={{
@@ -49,7 +49,7 @@ export const AssetSelectorWrapper = (props) => {
                 height: "100%",
             }}
         >
-            <AssetSelectorWithAuthFlow {...assetsSelectorsProps} ></AssetSelectorWithAuthFlow>
+            <AssetSelectorWithAuthFlow {...contentAdvisorProps} ></AssetSelectorWithAuthFlow>
         </div>
     );
 };

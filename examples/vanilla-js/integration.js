@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   assetSelectorPreviewButton.addEventListener(
     'click',
-    openAssetSelectorPreviewDialog
+    openContentAdvisorPreviewDialog
   );
 
   assetSelectorPreviewedImage.addEventListener(
     'click',
-    openAssetSelectorPreviewDialog
+    openContentAdvisorPreviewDialog
   );
 
   destinationSelectorOpenButton.addEventListener(
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   registerAssetsSelectorsAuthService();
 
-  // must be registered on page load before the asset selector is rendered
+  // must be registered on page load before Content Advisor is rendered
   function registerAssetsSelectorsAuthService(
     props = {},
     changeEnvironment = false
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     await fetchDialogContent(integrationPropertiesGuideDialog, 'guide.html');
   }
 
-  async function openAssetSelectorPreviewDialog() {
+  async function openContentAdvisorPreviewDialog() {
     await fetchDialogContent(
       integrationPropertiesGuideDialog,
       './asset-selector-integration/asset-selector-wrapper.html'
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const loadedImage = new Image();
       img.id = imageElementId;
       img.className = 'spectrum-Image-img_fdc794';
-      img.alt = 'Asset Selector preview image';
+      img.alt = 'Content Advisor preview image';
       divElement.appendChild(img);
       // remove all children except the image
       removeAllChildren(divElement);

@@ -1,8 +1,8 @@
 ## Angular Example
 
-This example showcases how to integrate the AssetSelector in an Angular app. The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+This example showcases how to integrate the Content Advisor in an Angular app. The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
-> **Prerequisites:** Your organization must be provisioned for Assets Selectors. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector#prereqs) on Experience League.
+> **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector#prereqs) on Experience League.
 
 ### Configuration
 

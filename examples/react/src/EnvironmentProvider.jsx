@@ -84,7 +84,7 @@ export const EnvironmentProvider = ({ children }) => {
     });
   }, [environment]);
 
-  // you must register the token service before using the asset selector
+  // register the auth service before rendering Content Advisor
   useEffect(() => {
     // you can also access the tokenService from window.assetsSelectorsAuthService
     const tokenService = registerContentAdvisorAuthService(imsAuthInfo);

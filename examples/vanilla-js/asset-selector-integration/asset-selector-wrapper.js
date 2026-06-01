@@ -2,7 +2,7 @@ function init() {
     renderContentAdvisorWithAuthFlow();
     function renderContentAdvisorWithAuthFlow(props) {
         const defaultImsAuthInfo = window['assetsSelectorsAuthService'];
-        const assetsSelectorsProps = {
+        const contentAdvisorProps = {
             onClose: onClose,
             handleSelection: handleSelection,
             env: defaultImsAuthInfo.env === 'stg1' ? 'stage' : 'prod',
@@ -16,9 +16,9 @@ function init() {
 
         PureJSSelectors.renderContentAdvisorWithAuthFlow(
             container,
-            assetsSelectorsProps,
+            contentAdvisorProps,
             () => {
-                // callback function to be called after the asset selector is rendered
+                // callback invoked after Content Advisor is rendered
             }
         );
     }

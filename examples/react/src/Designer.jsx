@@ -134,7 +134,7 @@ const DesignerView = (props) => {
           height={optimalRendition?.height || 108}
           maxHeight={300}
           isQuiet={true}
-          aria-label="Asset Selector Button"
+          aria-label="Content Advisor Button"
         >
           <View>
             {assetImagePreview ? (
@@ -363,7 +363,7 @@ const DesignerView = (props) => {
                           >
                             Click the placeholder icon in this email template to
                             effortlessly import hiking assets using
-                            AssetSelectors.
+                            Content Advisor.
                           </Content>
                         )}
                       </IllustratedMessage>
@@ -423,9 +423,9 @@ const DesignerView = (props) => {
             <ChevronLeft />
             <Header marginX="size-100">
               <Heading marginTop={0} marginBottom={5}>
-                Assets Selectors from Adobe Experience Manager
+                Content Advisor from Adobe Experience Manager
               </Heading>
-              <Text>Elevate Your Users Experience with Assets Selectors</Text>
+              <Text>Elevate Your Users Experience with Content Advisor</Text>
             </Header>
           </Flex>
           <Flex>

@@ -10,15 +10,13 @@
  * governing permissions and limitations under the License.
  */
 
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent {
   title = 'angular';
-  ngAfterViewInit() {
-    console.log("angular after view init");
-  }
 }

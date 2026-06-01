@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  imsClientId: "<YOUR_IMS_CLIENT_ID>",
+  imsClientId: "aemcs-mbriscoe-assetselector",
   imsOrg: null,
 };

@@ -22,35 +22,23 @@ h3 {
     padding: 20px;
 }
 #asset-selector-dialog {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    /* width: 100%; */
-    height: 80%;
     border: 0;
-    border-radius: 4px;
-    background-color: white;
-    z-index: 99999;
-    overflow: hidden;
+    border-radius: 8px;
     padding: 0;
-    margin: 0;
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+    width: min(90vw, 1200px);
+    height: min(88vh, 900px);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
 }
 
 #destination-selector-dialog {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    width: 640px;
-    height: 700px;
     border: 0;
-    border-radius: 4px;
-    background-color: white;
-    z-index: 99999;
-    overflow: hidden;
+    border-radius: 8px;
     padding: 0;
-    margin: 0;
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+    width: min(90vw, 640px);
+    height: min(88vh, 700px);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
 }
 
 #asset-selector-dialog::backdrop,
@@ -97,21 +85,125 @@ html, body {
     height: 100%;
 }
 
-.asset-selector-rail {
-    height: 75vh;
-    border-right: 1px solid #DDD;
-    overflow-y: auto;
-    overflow-x:hidden;
-    width:30vh;
+/* ── Drag and Drop page layout ───────────────────────────── */
+
+.dnd-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #f5f5f5;
 }
 
-.dropzone {
-    height: 75vh;
-    background-color: aliceblue;
-    display:none;
-    text-align: center;
-    list-style: inside;
-    border: solid;
+.dnd-header {
+    padding: 0 20px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.dnd-header h1 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+.dnd-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.selector-rail {
+    width: 400px;
+    min-width: 400px;
+    border-right: 1px solid #e0e0e0;
+    overflow: hidden;
+    background: white;
+}
+
+/* ── Drop zones ──────────────────────────────────────────── */
+
+.drop-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    padding: 16px;
+    overflow: hidden;
+}
+
+.drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    background: white;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
+    padding: 24px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    cursor: default;
+    overflow: hidden;
+}
+
+.drop-zone.drag-over {
+    border-color: #1473e6;
+    background: #eaf3ff;
+}
+
+.drop-icon {
+    width: 96px;
+    height: 49px;
+    color: #bbb;
+    margin-bottom: 10px;
+    transition: color 0.15s ease;
+}
+
+.drop-zone.drag-over .drop-icon {
+    color: #1473e6;
+}
+
+.drop-label {
+    margin: 0;
+    font-size: 13px;
+    color: #888;
+    font-family: system-ui, Arial, sans-serif;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.drop-zone.drag-over .drop-label {
+    color: #1473e6;
+}
+
+.drop-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    width: 100%;
+    font-size: 12px;
+    font-family: system-ui, Arial, sans-serif;
+}
+
+.drop-list:empty {
+    display: none;
+}
+
+.drop-list li {
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: #eaf3ff;
+    color: #1473e6;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
