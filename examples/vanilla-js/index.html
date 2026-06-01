@@ -52,7 +52,7 @@
          */
         function registerImsAuthService() {
             // Register the IMS token service with PureJSSelectors.
-            const registeredTokenService = PureJSSelectors.registerAssetsSelectorsAuthService(imsProps);
+            const registeredTokenService = PureJSSelectors.registerContentAdvisorAuthService(imsProps);
 
             // Store the token service instance in `imsInstance` for use outside of the asset selector.
             // Some helpful functions:
@@ -154,7 +154,7 @@
              * @param {AssetSelectorProps} props - Props for the asset selector UI.
              * @param {Function} callback - A callback function to be called when the UI is ready to be displayed.
              */
-            PureJSSelectors.renderAssetSelectorWithAuthFlow(container, assetSelectorProps, () => {
+            PureJSSelectors.renderContentAdvisorWithAuthFlow(container, assetSelectorProps, () => {
                 const assetSelectorDialog = document.getElementById('asset-selector-dialog');
                 assetSelectorDialog.showModal();
             });

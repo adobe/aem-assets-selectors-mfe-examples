@@ -38,7 +38,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
       imsScope: IMS_SCOPE,
       redirectUrl: window.location.href,
     };
-    PureJSSelectors.registerAssetsSelectorsAuthService(imsAuthProps);
+    PureJSSelectors.registerContentAdvisorAuthService(imsAuthProps);
   }
 
   handleSelection(assets: unknown) {
@@ -59,6 +59,6 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
       handleSelection: (assets: unknown) => this.handleSelection(assets),
       aemTierType: ['delivery', 'author']
     };
-    PureJSSelectors.renderAssetSelectorWithAuthFlow(host, props);
+    PureJSSelectors.renderContentAdvisorWithAuthFlow(host, props);
   }
 }

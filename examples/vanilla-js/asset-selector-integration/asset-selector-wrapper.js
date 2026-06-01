@@ -1,6 +1,6 @@
 function init() {
-    renderAssetSelectorWithAuthFlow();
-    function renderAssetSelectorWithAuthFlow(props) {
+    renderContentAdvisorWithAuthFlow();
+    function renderContentAdvisorWithAuthFlow(props) {
         const defaultImsAuthInfo = window['assetsSelectorsAuthService'];
         const assetsSelectorsProps = {
             onClose: onClose,
@@ -14,7 +14,7 @@ function init() {
             'asset-selector-dialog-content'
         );
 
-        PureJSSelectors.renderAssetSelectorWithAuthFlow(
+        PureJSSelectors.renderContentAdvisorWithAuthFlow(
             container,
             assetsSelectorsProps,
             () => {

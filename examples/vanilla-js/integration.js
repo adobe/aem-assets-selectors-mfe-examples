@@ -82,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     if (PureJSSelectors) {
-      // rename to registerAssetsSelectorsAuthService(...)
-      return PureJSSelectors.registerAssetsSelectorsAuthService(
+      return PureJSSelectors.registerContentAdvisorAuthService(
         initImsAuthInfo,
         changeEnvironment
       );

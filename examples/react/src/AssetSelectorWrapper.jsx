@@ -14,12 +14,12 @@
 import React, { useContext } from "react";
 
 import { useDialogContainer } from "@adobe/react-spectrum";
-import { registerAssetsSelectorsAuthService as registerAssetsSelectorsAuthServiceInternal, AssetSelectorWithAuthFlow } from "@assets/selectors";
+import { registerContentAdvisorAuthService as registerContentAdvisorAuthServiceInternal, AssetSelectorWithAuthFlow } from "@assets/selectors";
 import { EnvironmentContext } from "./EnvironmentProvider";
 
-export const registerAssetsSelectorsAuthService = (imsAuthProps, changeEnvironment = false) => {
+export const registerContentAdvisorAuthService = (imsAuthProps, changeEnvironment = false) => {
     if (imsAuthProps) {
-        return registerAssetsSelectorsAuthServiceInternal(imsAuthProps, changeEnvironment);
+        return registerContentAdvisorAuthServiceInternal(imsAuthProps, changeEnvironment);
     }
 };
 

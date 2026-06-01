@@ -12,7 +12,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { registerAssetsSelectorsAuthService } from './AssetSelectorWrapper';
+import { registerContentAdvisorAuthService } from './AssetSelectorWrapper';
 
 export const EnvironmentContext = React.createContext({});
 
@@ -41,7 +41,7 @@ export const EnvironmentProvider = ({ children }) => {
   const applyImsAuthChange = (props) => {
     // update the token service
     // you can also access the tokenService from window.assetsSelectorsAuthService
-    const tokenService = registerAssetsSelectorsAuthService(
+    const tokenService = registerContentAdvisorAuthService(
       {
         ...imsAuthInfo,
         ...props,
@@ -87,7 +87,7 @@ export const EnvironmentProvider = ({ children }) => {
   // you must register the token service before using the asset selector
   useEffect(() => {
     // you can also access the tokenService from window.assetsSelectorsAuthService
-    const tokenService = registerAssetsSelectorsAuthService(imsAuthInfo);
+    const tokenService = registerContentAdvisorAuthService(imsAuthInfo);
     setImsAuthInfo((prevInfo) => {
       return {
         ...prevInfo,

@@ -31,7 +31,7 @@ governing permissions and limitations under the License.
         };
 
         function registerIMSTokenService() {
-            const registeredTokenService = PureJSSelectors.registerAssetsSelectorsAuthService(imsProps);
+            const registeredTokenService = PureJSSelectors.registerContentAdvisorAuthService(imsProps);
             imsInstance = registeredTokenService;
         };
 
@@ -68,7 +68,7 @@ governing permissions and limitations under the License.
             }
 
             const container = document.getElementById('asset-selector');
-            PureJSSelectors.renderAssetSelectorWithAuthFlow(container, assetSelectorProps);
+            PureJSSelectors.renderContentAdvisorWithAuthFlow(container, assetSelectorProps);
 
             document.getElementsByClassName('dropzone')[0].style.display = 'flex';
         }
