@@ -11,7 +11,7 @@ function init() {
         };
 
         const container = document.getElementById(
-            'asset-selector-dialog-content'
+            'content-advisor-dialog-content'
         );
 
         PureJSSelectors.renderContentAdvisorWithAuthFlow(

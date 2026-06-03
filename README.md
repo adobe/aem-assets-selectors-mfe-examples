@@ -22,7 +22,7 @@ This repository provides **runnable code examples** for integrating Assets Selec
 - [Installation](#installation)
 - [APIs](#apis)
   - [PureJSSelectors.`renderContentAdvisor` or `<ContentAdvisor/>`](#purejsselectorsrendercontentadvisor-or-contentadvisor)
-  - [PureJSSelectors.`renderContentAdvisorWithAuthFlow` or `<AssetSelectorWithAuthFlow />`](#purejsselectorsrendercontentadvisorwithauthflow-or-assetselectorwithauthflow-)
+  - [PureJSSelectors.`renderContentAdvisorWithAuthFlow` or `<ContentAdvisorWithAuthFlow />`](#purejsselectorsrendercontentadvisorwithauthflow-or-contentadvisorwithauthflow-)
   - [PureJSSelectors.`registerContentAdvisorAuthService`](#purejsselectorsregistercontentadvisorauthservice)
   - [PureJSSelectors.`renderDestinationSelector` or `<DestinationSelector/>`](#purejsselectorsrenderdestinationselector-or-destinationselector)
   - [PureJSSelectors.`renderDestinationSelectorWithAuthFlow` or `<DestinationSelectorWithAuthFlow />`](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-)
@@ -63,69 +63,69 @@ In browsers with [`importMap`][import-maps-wiki] support using ESM CDN version:
 
 ```html
 <script type="module">
-  import { AssetSelector } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js'
+  import { ContentAdvisor } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js'
 </script>
 ```
 
 In Deno/Webpack Module Federation using ESM CDN version:
 
 ```js
-import { AssetSelector } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js'
+import { ContentAdvisor } from 'https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js'
 ```
 
 ## APIs
 
-This package exports the global identifier `PureJSSelectors` when installed via UMD and named exports `PureJSSelectors`, [`ContentAdvisor`](#purejsselectorsrendercontentadvisor-or-contentadvisor) (alias: `AssetSelector`), [`AssetSelectorWithAuthFlow`](#purejsselectorsrendercontentadvisorwithauthflow-or-assetselectorwithauthflow-), [`DestinationSelector`](#purejsselectorsrenderdestinationselector-or-destinationselector), [`DestinationSelectorWithAuthFlow`](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-), [`registerContentAdvisorAuthService`](#purejsselectorsregistercontentadvisorauthservice) (alias: `registerAssetsSelectorsAuthService`) when installed via ESM. There are no default exports.
+This package exports the global identifier `PureJSSelectors` when installed via UMD and named exports `PureJSSelectors`, [`ContentAdvisor`](#purejsselectorsrendercontentadvisor-or-contentadvisor) (alias: `AssetSelector`), [`ContentAdvisorWithAuthFlow`](#purejsselectorsrendercontentadvisorwithauthflow-or-contentadvisorwithauthflow-) (alias: `AssetSelectorWithAuthFlow`), [`DestinationSelector`](#purejsselectorsrenderdestinationselector-or-destinationselector), [`DestinationSelectorWithAuthFlow`](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-), [`registerContentAdvisorAuthService`](#purejsselectorsregistercontentadvisorauthservice) (alias: `registerAssetsSelectorsAuthService`) when installed via ESM. There are no default exports.
 
 Below are the API descriptions exported by this package in identifier `PureJSSelectors` and their equivalent JSX components that are available via ESM imports.
 
 ### PureJSSelectors.`renderContentAdvisor` or `<ContentAdvisor/>`
 
-Renders the ContentAdvisor component on the provided container element and accepts all of the properties described in the [AssetSelector Props](./docs/AssetSelectorProps.md).
+Renders the ContentAdvisor component on the provided container element and accepts all of the properties described in the [Content Advisor Props](./docs/AssetSelectorProps.md).
 
-> This method assumes that you supply a valid _imsToken_ that you could have obtained using [`ImsAuthService.getImsToken()`](./docs/ImsAuthService.md) or another medium. If you do not have an _imsToken_, you can use [renderContentAdvisorWithAuthFlow](#purejsselectorsrendercontentadvisorwithauthflow-or-assetselectorwithauthflow-) which implements an authentication flow to obtain a user based _imsToken_.
+> This method assumes that you supply a valid _imsToken_ that you could have obtained using [`ImsAuthService.getImsToken()`](./docs/ImsAuthService.md) or another medium. If you do not have an _imsToken_, you can use [renderContentAdvisorWithAuthFlow](#purejsselectorsrendercontentadvisorwithauthflow-or-contentadvisorwithauthflow-) which implements an authentication flow to obtain a user based _imsToken_.
 
 <!-- omit in toc -->
 ###### Parameters
 
 - `container` (`HTMLElement`) — render ContentAdvisor into the DOM in the supplied container
-- `props` (`AssetSelectorProps`) — properties for the ContentAdvisor component. See [AssetSelector Props](./docs/AssetSelectorProps.md) for more details.
+- `props` (`ContentAdvisorProps`) — properties for the ContentAdvisor component. See [Content Advisor Props](./docs/AssetSelectorProps.md) for more details.
 - `onRenderComplete` (`Function?`, default: `undefined`) — optional callback function that is invoked when the component is rendered or updated.
 
 ```js
-PureJSSelectors.renderContentAdvisor(container: HTMLElement, props: AssetSelectorProps, onRenderComplete?: Function): void
+PureJSSelectors.renderContentAdvisor(container: HTMLElement, props: ContentAdvisorProps, onRenderComplete?: Function): void
 
 // JSX
 
 <ContentAdvisor {...props} />
 ```
 
-### PureJSSelectors.`renderContentAdvisorWithAuthFlow` or `<AssetSelectorWithAuthFlow />`
+### PureJSSelectors.`renderContentAdvisorWithAuthFlow` or `<ContentAdvisorWithAuthFlow />`
 
-Renders the ContentAdvisor component on the provided container element and accepts all of the properties described in the [AssetSelector Props](./docs/AssetSelectorProps.md). The ContentAdvisor with auth flow extends ContentAdvisor to include an authentication flow. When there's no _`imsToken`_ present, it will show an _Adobe_ login flow to obtain the _imsToken_ and then render ContentAdvisor.
+Renders the ContentAdvisor component on the provided container element and accepts all of the properties described in the [Content Advisor Props](./docs/AssetSelectorProps.md). The ContentAdvisor with auth flow extends ContentAdvisor to include an authentication flow. When there's no _`imsToken`_ present, it will show an _Adobe_ login flow to obtain the _imsToken_ and then render ContentAdvisor.
 
-> It is **recommended** that you call [_registerContentAdvisorAuthService_](#purejsselectorsregistercontentadvisorauthservice) on your page load before calling renderContentAdvisorWithAuthFlow or `<AssetSelectorWithAuthFlow/>`. In the event where you cannot call _registerContentAdvisorAuthService_, you can supply [ImsAuthProps](./docs/ImsAuthProps.md) along with [AssetSelectorProps](./docs/AssetSelectorProps.md). However, that might not create a great user experience.
+> It is **recommended** that you call [_registerContentAdvisorAuthService_](#purejsselectorsregistercontentadvisorauthservice) on your page load before calling renderContentAdvisorWithAuthFlow or `<ContentAdvisorWithAuthFlow/>`. In the event where you cannot call _registerContentAdvisorAuthService_, you can supply [ImsAuthProps](./docs/ImsAuthProps.md) along with [ContentAdvisorProps](./docs/AssetSelectorProps.md). However, that might not create a great user experience.
 
 <!-- omit in toc -->
 ###### Parameters
 
 - `container` (`HTMLElement`) — render ContentAdvisor into the DOM in the supplied container
-- `props` (`AssetSelectorProps`) — properties for the ContentAdvisor component. See [AssetSelector Props](./docs/AssetSelectorProps.md) for more details.
+- `props` (`ContentAdvisorProps`) — properties for the ContentAdvisor component. See [Content Advisor Props](./docs/AssetSelectorProps.md) for more details.
 - `onRenderComplete` (`Function?`, default: `undefined`) — optional callback function that is invoked when the component is rendered or updated.
 
 ```js
-PureJSSelectors.renderContentAdvisorWithAuthFlow(container: HTMLElement, props: AssetSelectorProps, onRenderComplete?: Function): void
+PureJSSelectors.renderContentAdvisorWithAuthFlow(container: HTMLElement, props: ContentAdvisorProps, onRenderComplete?: Function): void
 
 // JSX
 
-<AssetSelectorWithAuthFlow {...props} />
+<ContentAdvisorWithAuthFlow {...props} />
 ```
 
 ### PureJSSelectors.`registerContentAdvisorAuthService`
 
 Instantiates the [_ImsAuthService_](./docs/ImsAuthService.md) process. This process registers the authorization service for your AEM CS Assets repository and subscribes to authorization flow events.
 
-> It is recommended that you call this function on your application page load. You must also call this function if you're using the [renderContentAdvisorWithAuthFlow](#purejsselectorsrendercontentadvisorwithauthflow-or-assetselectorwithauthflow-) or [DestinationSelectorWithAuthFlow](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-) components. This API is not required if you're using the [ContentAdvisor](#purejsselectorsrendercontentadvisor-or-contentadvisor) or [DestinationSelector](#purejsselectorsrenderdestinationselector-or-destinationselector) components and already obtained a valid _imsToken_.
+> It is recommended that you call this function on your application page load. You must also call this function if you're using the [renderContentAdvisorWithAuthFlow](#purejsselectorsrendercontentadvisorwithauthflow-or-contentadvisorwithauthflow-) or [DestinationSelectorWithAuthFlow](#purejsselectorsrenderdestinationselectorwithauthflow-or-destinationselectorwithauthflow-) components. This API is not required if you're using the [ContentAdvisor](#purejsselectorsrendercontentadvisor-or-contentadvisor) or [DestinationSelector](#purejsselectorsrenderdestinationselector-or-destinationselector) components and already obtained a valid _imsToken_.
 
 <!-- omit in toc -->
 ##### Parameters
@@ -203,7 +203,7 @@ UMD exposes the API on a global `PureJSSelectors`. Full example: [`examples/vani
 
 ```html
 <script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
-<div id="asset-selector-container"></div>
+<div id="content-advisor-container"></div>
 
 <script>
   PureJSSelectors.registerContentAdvisorAuthService({
@@ -213,7 +213,7 @@ UMD exposes the API on a global `PureJSSelectors`. Full example: [`examples/vani
   });
 
   PureJSSelectors.renderContentAdvisorWithAuthFlow(
-    document.getElementById('asset-selector-container'),
+    document.getElementById('content-advisor-container'),
     {
       imsOrg: null, // or "your-aem-assets-repository-ims-org" to pin to a single org
       handleSelection: (assets) => { /* ... */ },
@@ -238,7 +238,7 @@ ESM exposes the same functions as named exports via an [importMap][import-maps-w
   }
 }
 </script>
-<div id="asset-selector-container"></div>
+<div id="content-advisor-container"></div>
 
 <script type="module">
   import { registerContentAdvisorAuthService, renderContentAdvisorWithAuthFlow } from '@assets/selectors';
@@ -250,7 +250,7 @@ ESM exposes the same functions as named exports via an [importMap][import-maps-w
   });
 
   renderContentAdvisorWithAuthFlow(
-    document.getElementById('asset-selector-container'),
+    document.getElementById('content-advisor-container'),
     {
       imsOrg: null, // or "your-aem-assets-repository-ims-org" to pin to a single org
       handleSelection: (assets) => { /* ... */ },
@@ -261,14 +261,14 @@ ESM exposes the same functions as named exports via an [importMap][import-maps-w
 
 ### React (importMap via ESM CDN)
 
-ESM also exports React components: `ContentAdvisor` (alias: `AssetSelector`), `AssetSelectorWithAuthFlow`, `DestinationSelector`, `DestinationSelectorWithAuthFlow`. Full example: [`examples/react/`](./examples/react).
+ESM also exports React components: `ContentAdvisor` (alias: `AssetSelector`), `ContentAdvisorWithAuthFlow` (alias: `AssetSelectorWithAuthFlow`), `DestinationSelector`, `DestinationSelectorWithAuthFlow`. Full example: [`examples/react/`](./examples/react).
 
 **Using the built-in auth flow** — the most common path:
 
 ```jsx
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { AssetSelectorWithAuthFlow, registerContentAdvisorAuthService } from '@assets/selectors';
+import { ContentAdvisorWithAuthFlow, registerContentAdvisorAuthService } from '@assets/selectors';
 
 const App = () => {
   useEffect(() => {
@@ -280,7 +280,7 @@ const App = () => {
   }, []);
 
   return (
-    <AssetSelectorWithAuthFlow
+    <ContentAdvisorWithAuthFlow
       imsOrg={null} // or "your-aem-assets-repository-ims-org" to pin to a single org
       handleSelection={(assets) => { /* ... */ }}
     />
@@ -310,10 +310,10 @@ Angular consumes the UMD build via a `<script>` in `index.html` and the global `
 declare const PureJSSelectors: any;
 
 @Component({
-  selector: 'asset-selector',
-  template: '<div id="asset-selector" style="height: 100vh"></div>',
+  selector: 'content-advisor',
+  template: '<div id="content-advisor" style="height: 100vh"></div>',
 })
-export class AssetSelectorComponent implements OnInit, AfterViewInit {
+export class ContentAdvisorComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     PureJSSelectors.registerContentAdvisorAuthService({
       imsClientId: '<IMS_CLIENT_ID>',
@@ -324,7 +324,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     PureJSSelectors.renderContentAdvisorWithAuthFlow(
-      document.getElementById('asset-selector'),
+      document.getElementById('content-advisor'),
       {
         imsOrg: null, // or "your-aem-assets-repository-ims-org" to pin to a single org
         handleSelection: (assets: unknown) => { /* ... */ },
@@ -336,7 +336,7 @@ export class AssetSelectorComponent implements OnInit, AfterViewInit {
 
 ## Usage Data
 
-By default, Assets Selectors collect usage data to help improve the product. If you wish to opt out of any usage data collection, you can do so by setting the `disableTracking` property to `true` in the AssetSelector or DestinationSelector props. See the [Properties Reference](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) for details.
+By default, Assets Selectors collect usage data to help improve the product. If you wish to opt out of any usage data collection, you can do so by setting the `disableTracking` property to `true` in the ContentAdvisor or DestinationSelector props. See the [Properties Reference](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) for details.
 
 ## Contributing
 

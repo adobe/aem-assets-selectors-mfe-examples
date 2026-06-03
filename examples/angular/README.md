@@ -12,8 +12,8 @@ IMS values are read from a local **`.env`** file (not committed). Copy the examp
 cp .env.example .env
 ```
 
-- **`ASSET_SELECTOR_IMS_CLIENT_ID`** (required) — same idea as `VITE_ASSET_SELECTOR_IMS_CLIENT_ID` in the React example.
-- **`ASSET_SELECTOR_IMS_ORG`** (optional) — same as `VITE_ASSET_SELECTOR_IMS_ORG` in React; if omitted or empty, **`imsOrg` is `null`** in the app.
+- **`IMS_CLIENT_ID`** (required) — same idea as `VITE_IMS_CLIENT_ID` in the React example.
+- **`IMS_ORG`** (optional) — same as `VITE_IMS_ORG` in React; if omitted or empty, **`imsOrg` is `null`** in the app.
 
 Running **`npm start`** or **`npm run build`** runs **`set-env.mjs`**, which writes **`src/environments/environment.ts`** and **`environment.prod.ts`** from **`.env`**.
 
@@ -26,7 +26,7 @@ Running **`npm start`** or **`npm run build`** runs **`set-env.mjs`**, which wri
    npm install
    ```
 
-3. Create `.env` from `.env.example` and set **`ASSET_SELECTOR_IMS_CLIENT_ID`** (see above).
+3. Create `.env` from `.env.example` and set **`IMS_CLIENT_ID`** (see above).
 
 4. Start the dev server:
 

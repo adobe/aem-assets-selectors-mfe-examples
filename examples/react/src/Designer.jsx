@@ -46,7 +46,7 @@ import Contrast from '@spectrum-icons/workflow/Contrast';
 import Code from '@spectrum-icons/workflow/Code';
 import './App.css';
 import DesignPlaceholder from './svg/Placeholder.js';
-import { AssetSelectorWrapper } from './AssetSelectorWrapper';
+import { ContentAdvisorWrapper } from './ContentAdvisorWrapper';
 import { DestinationSelectorWrapper } from './DestinationSelectorWrapper';
 import {
   getAssetRenditionLinks,
@@ -144,7 +144,7 @@ const DesignerView = (props) => {
             )}
           </View>
         </ActionButton>
-        <AssetSelectorWrapper {...props} handleSelection={handleOnConfirm} />
+        <ContentAdvisorWrapper {...props} handleSelection={handleOnConfirm} />
       </DialogTrigger>
     );
   };

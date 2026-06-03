@@ -10,7 +10,7 @@
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-#asset-selector-dialog-content {
+#content-advisor-dialog-content {
   display: flex;
   flex-direction: column;
   height: 100%;

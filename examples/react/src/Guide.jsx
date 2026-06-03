@@ -23,7 +23,7 @@ import {
 import { CodeBlock, dracula } from "react-code-blocks";
 
 
-const step1Code = `import { registerContentAdvisorAuthService, AssetSelectorWithAuthFlow } from "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js"`
+const step1Code = `import { registerContentAdvisorAuthService, ContentAdvisorWithAuthFlow } from "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js"`
 
 const step2Code = `const imsAuthProps = {
     imsClientId: "<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>", 
@@ -39,11 +39,11 @@ const step3Code = `function App() {
   const [selectedAssets, setSelectedAssets] = useState([]);
 
   const onClose = () => {
-    // Handle closing the AssetSelectorWithAuthFlow
+    // Handle closing the ContentAdvisorWithAuthFlow
   };
 
   return (
-    <AssetSelectorWithAuthFlow
+    <ContentAdvisorWithAuthFlow
         imsOrg={imsOrg}
         onClose={onClose}
         handleSelection={setSelectedAssets}/>
@@ -91,7 +91,7 @@ export const Guide = () => {
                 <View marginBottom="size-200">
                     <View marginBottom={5}>
                         <Text>
-                            <strong>Step 3:</strong> Render <strong><code>AssetSelectorWithAuthFlow</code></strong> with AssetSelector props.
+                            <strong>Step 3:</strong> Render <strong><code>ContentAdvisorWithAuthFlow</code></strong> with Content Advisor props.
                         </Text>
                     </View>
                     <CodeBlock

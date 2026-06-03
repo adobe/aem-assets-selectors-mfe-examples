@@ -26,11 +26,11 @@ function init(){
 
 function onEnvironmentPropertiesChange(event) {
 
-    const stageImsClientId = "%%ASSET_SELECTOR_IMS_CLIENT_ID%%";
-    const stageImsOrg = "%%ASSET_SELECTOR_IMS_ORG%%";
+    const stageImsClientId = "%%IMS_CLIENT_ID%%";
+    const stageImsOrg = "%%IMS_ORG%%";
 
-    const prodImsClientId = "%%ASSET_SELECTOR_IMS_CLIENT_ID%%";
-    const prodImsOrg = "%%ASSET_SELECTOR_IMS_ORG%%";
+    const prodImsClientId = "%%IMS_CLIENT_ID%%";
+    const prodImsOrg = "%%IMS_ORG%%";
 
     const environmentPropertiesInputImsClientId = document.getElementById('environment-properties-input-ims-client-id');
     const environmentPropertiesInputImsOrgId = document.getElementById('environment-properties-input-ims-org-id');

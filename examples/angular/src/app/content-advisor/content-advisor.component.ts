@@ -19,7 +19,7 @@ const IMS_SCOPE =
   'AdobeID,openid,additional_info.projectedProductContext,read_organizations';
 
 @Component({
-  selector: 'asset-selector',
+  selector: 'content-advisor',
   template: `
     <div class="ca-launcher">
       <button class="ca-btn" (click)="openDialog()" [disabled]="!imsConfigured">
@@ -32,7 +32,7 @@ const IMS_SCOPE =
       </div>
 
       <p class="ca-error" *ngIf="!imsConfigured">
-        Missing <code>ASSET_SELECTOR_IMS_CLIENT_ID</code> — copy
+        Missing <code>IMS_CLIENT_ID</code> — copy
         <code>.env.example</code> to <code>.env</code> and run <code>npm start</code>.
       </p>
     </div>
@@ -112,7 +112,7 @@ const IMS_SCOPE =
     }
   `]
 })
-export class AssetSelectorComponent implements OnInit {
+export class ContentAdvisorComponent implements OnInit {
   @ViewChild('selectorDialog') dialogRef!: ElementRef<HTMLDialogElement>;
   @ViewChild('mountPoint') mountRef!: ElementRef<HTMLDivElement>;
 

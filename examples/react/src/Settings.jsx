@@ -71,7 +71,7 @@ export const Settings = () => {
       <Divider />
       <Content>
         <RadioGroup
-          label="AssetsSelectors environment"
+          label="Content Advisor environment"
           value={environment}
           onChange={setEnvironment}
           defaultValue={environment}

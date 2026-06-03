@@ -13,7 +13,7 @@
         let imsInstance = null;
 
         const imsProps = {
-            imsClientId: "%%ASSET_SELECTOR_IMS_CLIENT_ID%%",
+            imsClientId: "%%IMS_CLIENT_ID%%",
             imsScope: "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
             redirectUrl: window.location.href,
             modalMode: true,
@@ -52,7 +52,7 @@
         registerImsAuthService();
 
         function onClose() {
-            document.getElementById('asset-selector-dialog').close();
+            document.getElementById('content-advisor-dialog').close();
         }
 
         function destinationSelectorOnClose() {
@@ -69,15 +69,15 @@
             destinationSelectorOnClose();
         }
 
-        async function renderAssetSelectorWithImsFlow() {
-            const container = document.getElementById('asset-selector');
+        async function renderContentAdvisorWithImsFlow() {
+            const container = document.getElementById('content-advisor');
             PureJSSelectors.renderContentAdvisorWithAuthFlow(container, {
                 onClose: onClose,
                 handleSelection: handleSelection,
-                imsOrg: "%%ASSET_SELECTOR_IMS_ORG%%",
+                imsOrg: "%%IMS_ORG%%",
                 aemTierType: ['delivery', 'author'],
             }, () => {
-                document.getElementById('asset-selector-dialog').showModal();
+                document.getElementById('content-advisor-dialog').showModal();
             });
         }
 
@@ -98,12 +98,12 @@
     </script>
 </head>
 
-<body class="asset-selectors">
+<body class="content-advisors">
     <div>
         <h3>Vanilla JS Examples</h3>
     </div>
     <div>
-        <button onclick="renderAssetSelectorWithImsFlow()">Content Advisor - Select Assets with Ims Flow</button>
+        <button onclick="renderContentAdvisorWithImsFlow()">Content Advisor - Select Assets with Ims Flow</button>
     </div>
     <div>
         <button onclick="renderDestinationSelectorWithImsFlow()">Destination Selector - Select Folders with Ims
@@ -116,8 +116,8 @@
         <button onclick="logoutImsFlow()">(Sign Out)</button>
     </div>
     <div>
-        <dialog id="asset-selector-dialog">
-            <div id="asset-selector" style="height: 100%; width: 100%;"></div>
+        <dialog id="content-advisor-dialog">
+            <div id="content-advisor" style="height: 100%; width: 100%;"></div>
         </dialog>
     </div>
     <div>

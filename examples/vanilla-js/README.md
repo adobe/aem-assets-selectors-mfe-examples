@@ -18,7 +18,7 @@ To launch the JavaScript app, follow these steps:
 
    ```bash
    cp .env.example .env
-   # edit .env and set ASSET_SELECTOR_IMS_CLIENT_ID
+   # edit .env and set IMS_CLIENT_ID
    ```
 
 3. Start the dev server:

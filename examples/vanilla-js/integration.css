@@ -850,7 +850,7 @@ dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-#asset-selector-preview-button:hover, #asset-selector-preview-image:hover {
+#content-advisor-preview-button:hover, #content-advisor-preview-image:hover {
   cursor: pointer;
 }
 

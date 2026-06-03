@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
     'integration-guide-button'
   );
   const assetSelectorPreviewButton = document.getElementById(
-    'asset-selector-preview-button'
+    'content-advisor-preview-button'
   );
   const integrationPropertiesGuideDialog = document.getElementById(
     'integration-properties-guide-dialog'
   );
   const assetSelectorPreviewedImage = document.getElementById(
-    'asset-selector-preview-image'
+    'content-advisor-preview-image'
   );
 
   const destinationSelectorOpenButton = document.getElementById(
@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
     props = {},
     changeEnvironment = false
   ) {
-    const prodImsClientId = '%%ASSET_SELECTOR_IMS_CLIENT_ID%%';
-    const prodImsOrg = '%%ASSET_SELECTOR_IMS_ORG%%';
+    const prodImsClientId = '%%IMS_CLIENT_ID%%';
+    const prodImsOrg = '%%IMS_ORG%%';
 
     const initImsAuthInfo = {
       env: 'prod',
@@ -93,12 +93,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const asset = detail[0];
 
     const assetSelectorSelectedItemWell = document.getElementById(
-      'asset-selector-selected-item-well'
+      'content-advisor-selected-item-well'
     );
     assetSelectorSelectedItemWell.style.display = 'block';
 
     const assetSelectorSelectedItemPre = document.getElementById(
-      'asset-selector-selected-item-pre'
+      'content-advisor-selected-item-pre'
     );
 
     assetSelectorSelectedItemPre.innerText = JSON.stringify(asset, null, 2);
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
   async function openContentAdvisorPreviewDialog() {
     await fetchDialogContent(
       integrationPropertiesGuideDialog,
-      './asset-selector-integration/asset-selector-wrapper.html'
+      './content-advisor-integration/content-advisor-wrapper.html'
     );
   }
 
@@ -255,8 +255,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // insert preview image to the dom
   function showPreviewImage(src) {
-    const imageElementId = 'asset-selector-preview-image-rendered';
-    const divElement = document.getElementById('asset-selector-preview-image');
+    const imageElementId = 'content-advisor-preview-image-rendered';
+    const divElement = document.getElementById('content-advisor-preview-image');
     const imageElement = document.getElementById(imageElementId);
 
     if (divElement) {

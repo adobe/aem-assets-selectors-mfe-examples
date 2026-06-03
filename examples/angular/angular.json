@@ -25,10 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "@react-spectrum"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

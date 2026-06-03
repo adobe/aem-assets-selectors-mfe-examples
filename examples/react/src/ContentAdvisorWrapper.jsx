@@ -14,7 +14,7 @@
 import React, { useContext } from "react";
 
 import { useDialogContainer } from "@adobe/react-spectrum";
-import { registerContentAdvisorAuthService as registerContentAdvisorAuthServiceInternal, AssetSelectorWithAuthFlow } from "@assets/selectors";
+import { registerContentAdvisorAuthService as registerContentAdvisorAuthServiceInternal, ContentAdvisorWithAuthFlow } from "@assets/selectors";
 import { EnvironmentContext } from "./EnvironmentProvider";
 
 export const registerContentAdvisorAuthService = (imsAuthProps, changeEnvironment = false) => {
@@ -23,7 +23,7 @@ export const registerContentAdvisorAuthService = (imsAuthProps, changeEnvironmen
     }
 };
 
-export const AssetSelectorWrapper = (props) => {
+export const ContentAdvisorWrapper = (props) => {
     const dialog = useDialogContainer();
     const { imsAuthInfo } = useContext(EnvironmentContext);
 
@@ -40,7 +40,7 @@ export const AssetSelectorWrapper = (props) => {
         aemTierType: ['delivery', 'author']
     }
 
-    // AssetSelectorWithAuthFlow adds authentication flow to ContentAdvisor
+    // ContentAdvisorWithAuthFlow adds authentication flow to ContentAdvisor
     // If you already have an imsToken, you can use ContentAdvisor directly instead
     return (
         <div
@@ -49,7 +49,7 @@ export const AssetSelectorWrapper = (props) => {
                 height: "100%",
             }}
         >
-            <AssetSelectorWithAuthFlow {...contentAdvisorProps} ></AssetSelectorWithAuthFlow>
+            <ContentAdvisorWithAuthFlow {...contentAdvisorProps} ></ContentAdvisorWithAuthFlow>
         </div>
     );
 };

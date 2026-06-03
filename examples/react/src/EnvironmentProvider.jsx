@@ -12,12 +12,12 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { registerContentAdvisorAuthService } from './AssetSelectorWrapper';
+import { registerContentAdvisorAuthService } from './ContentAdvisorWrapper';
 
 export const EnvironmentContext = React.createContext({});
 
-const imsClientId = import.meta.env.VITE_ASSET_SELECTOR_IMS_CLIENT_ID;
-const imsOrg = import.meta.env.VITE_ASSET_SELECTOR_IMS_ORG || null;
+const imsClientId = import.meta.env.VITE_IMS_CLIENT_ID;
+const imsOrg = import.meta.env.VITE_IMS_ORG || null;
 const stageImsClientId = imsClientId;
 const stageImsOrg = imsOrg;
 

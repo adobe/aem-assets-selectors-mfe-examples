@@ -36,11 +36,11 @@ function loadEnv() {
 }
 
 const env = loadEnv();
-const imsClientId = env.ASSET_SELECTOR_IMS_CLIENT_ID;
-const imsOrg = env.ASSET_SELECTOR_IMS_ORG || null;
+const imsClientId = env.IMS_CLIENT_ID;
+const imsOrg = env.IMS_ORG || null;
 
 if (!imsClientId || imsClientId === '<YOUR_IMS_CLIENT_ID>') {
-  console.error('\n  ERROR: ASSET_SELECTOR_IMS_CLIENT_ID is not set in .env\n');
+  console.error('\n  ERROR: IMS_CLIENT_ID is not set in .env\n');
   process.exit(1);
 }
 
@@ -70,9 +70,9 @@ const server = createServer((req, res) => {
 
     if (ext === '.html' || ext === '.js') {
       body = body.toString('utf-8')
-        .replace(/%%ASSET_SELECTOR_IMS_CLIENT_ID%%/g, imsClientId)
+        .replace(/%%IMS_CLIENT_ID%%/g, imsClientId)
         .replace(
-          /(['"])%%ASSET_SELECTOR_IMS_ORG%%\1/g,
+          /(['"])%%IMS_ORG%%\1/g,
           imsOrg ? `"${imsOrg}"` : 'null'
         );
     }

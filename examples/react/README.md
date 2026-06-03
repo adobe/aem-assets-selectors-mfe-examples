@@ -12,8 +12,8 @@ IMS values are read from a local **`.env`** file (not committed). Copy the examp
 cp .env.example .env
 ```
 
-- **`VITE_ASSET_SELECTOR_IMS_CLIENT_ID`** (required) — your provisioned IMS client ID.
-- **`VITE_ASSET_SELECTOR_IMS_ORG`** (optional) — pin to a single IMS org; if omitted or empty, **`imsOrg` is `null`** and the repository selector is shown.
+- **`VITE_IMS_CLIENT_ID`** (required) — your provisioned IMS client ID.
+- **`VITE_IMS_ORG`** (optional) — pin to a single IMS org; if omitted or empty, **`imsOrg` is `null`** and the repository selector is shown.
 
 Vite exposes these to the app via `import.meta.env`.
 
@@ -28,7 +28,7 @@ Vite exposes these to the app via `import.meta.env`.
    npm install
    ```
 
-3. Create `.env` from `.env.example` and set **`VITE_ASSET_SELECTOR_IMS_CLIENT_ID`** (see [Configuration](#configuration) above).
+3. Create `.env` from `.env.example` and set **`VITE_IMS_CLIENT_ID`** (see [Configuration](#configuration) above).
 
 4. Start the app:
 

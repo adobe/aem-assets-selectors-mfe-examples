@@ -19,13 +19,13 @@ for (const line of readFileSync(envPath, 'utf-8').split('\n')) {
   env[key.trim()] = rest.join('=').trim();
 }
 
-const imsClientId = env.ASSET_SELECTOR_IMS_CLIENT_ID;
-const imsOrgRaw = (env.ASSET_SELECTOR_IMS_ORG || '').trim();
+const imsClientId = env.IMS_CLIENT_ID;
+const imsOrgRaw = (env.IMS_ORG || '').trim();
 const imsOrg =
   imsOrgRaw && imsOrgRaw !== '<YOUR_IMS_ORG>' ? imsOrgRaw : null;
 
 if (!imsClientId || imsClientId === '<YOUR_IMS_CLIENT_ID>') {
-  console.error('\n  ERROR: ASSET_SELECTOR_IMS_CLIENT_ID is not set in .env\n');
+  console.error('\n  ERROR: IMS_CLIENT_ID is not set in .env\n');
   process.exit(1);
 }
 
