@@ -2,7 +2,7 @@
 
 This example showcases how to integrate the Content Advisor in a React app.
 
-> **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector#prereqs) on Experience League.
+> **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties#prereqs) on Experience League.
 
 ### Configuration
 
@@ -14,6 +14,8 @@ cp .env.example .env
 
 - **`VITE_IMS_CLIENT_ID`** (required) — your provisioned IMS client ID.
 - **`VITE_IMS_ORG`** (optional) — pin to a single IMS org; if omitted or empty, **`imsOrg` is `null`** and the repository selector is shown.
+
+> In order to obtain an `IMS_CLIENT_ID` you will need to raise a support ticket with Adobe. Client Id's created via Adobe Developer Console will **not** work for Content Advisor.
 
 Vite exposes these to the app via `import.meta.env`.
 

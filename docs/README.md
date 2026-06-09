@@ -4,13 +4,13 @@
 
 | Old path | New home on Experience League |
 |---|---|
-| [`AssetSelectorProps.md`](./AssetSelectorProps.md) | [Asset Selector Properties](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) |
-| [`DestinationSelectorProps.md`](./DestinationSelectorProps.md) | [Asset Selector Properties](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-properties) |
-| [`ImsAuthProps.md`](./ImsAuthProps.md) | [Integrate Asset Selector: IMS Auth Props](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-integration/integrate-asset-selector-adobe-app#ims-auth-props) |
-| [`ImsAuthService.md`](./ImsAuthService.md) | [Integrate Asset Selector: IMS Auth Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-integration/integrate-asset-selector-adobe-app#ims-auth-service) |
-| [`FilterSchema.md`](./FilterSchema.md) | [Customize filter panel](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-customization#customize-filter-panel) |
-| [`FilterFormProps.md`](./FilterFormProps.md) | [Customize filter panel](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-customization#customize-filter-panel) |
-| [`SelectedAssetType.md`](./SelectedAssetType.md) | [Selection of Assets](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-customization#selection-of-assets) |
-| [`SelectedDestinationType.md`](./SelectedDestinationType.md) | [Selection of Assets](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-customization#selection-of-assets) |
+| [`AssetSelectorProps.md`](./AssetSelectorProps.md) | [Content Advisor Properties](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties) |
+| [`DestinationSelectorProps.md`](./DestinationSelectorProps.md) | [Content Advisor Properties](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties) |
+| [`ImsAuthProps.md`](./ImsAuthProps.md) | [Content Advisor: IMS Auth Props](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties#ims-auth-props) |
+| [`ImsAuthService.md`](./ImsAuthService.md) | [Content Advisor: IMS Auth Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties#ims-auth-service) |
+| [`FilterSchema.md`](./FilterSchema.md) | [Customize filter panel](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-customization#customize-filter-panel) |
+| [`FilterFormProps.md`](./FilterFormProps.md) | [Customize filter panel](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-customization#customize-filter-panel) |
+| [`SelectedAssetType.md`](./SelectedAssetType.md) | [Selection of Assets](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-customization#selection-of-assets) |
+| [`SelectedDestinationType.md`](./SelectedDestinationType.md) | [Selection of Assets](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-customization#selection-of-assets) |
 
 For the full list of Experience League documentation pages, see the [Documentation section of the repository README](../README.md#documentation).

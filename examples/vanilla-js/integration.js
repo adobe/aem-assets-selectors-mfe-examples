@@ -1,3 +1,78 @@
+/*
+ * Color theme controller.
+ *
+ * Runs immediately (this script is in <head>) so `data-theme` is set on the
+ * <html> element before first paint, avoiding a flash of the wrong theme.
+ *
+ * - On first load the theme syncs to the OS `prefers-color-scheme`.
+ * - Toggling stores a local override (localStorage) that wins on later loads.
+ * - With no stored override, the page keeps following live OS changes.
+ *
+ * Exposes window.getActiveColorScheme()/toggleColorScheme() for the rest of
+ * the app (e.g. the Content Advisor / Destination Selector `colorScheme` prop).
+ */
+(function initColorScheme() {
+  const STORAGE_KEY = 'ca-example-color-scheme';
+  const root = document.documentElement;
+
+  function systemPref() {
+    return window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  }
+
+  function storedOverride() {
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function apply(theme) {
+    root.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+    window.dispatchEvent(
+      new CustomEvent('colorSchemeChange', { detail: root.dataset.theme })
+    );
+  }
+
+  window.getActiveColorScheme = function () {
+    return root.dataset.theme || storedOverride() || systemPref();
+  };
+
+  window.setColorScheme = function (theme, persist) {
+    if (persist) {
+      try {
+        localStorage.setItem(STORAGE_KEY, theme);
+      } catch (e) {
+        /* ignore storage failures (e.g. private mode) */
+      }
+    }
+    apply(theme);
+  };
+
+  window.toggleColorScheme = function () {
+    window.setColorScheme(
+      window.getActiveColorScheme() === 'dark' ? 'light' : 'dark',
+      true
+    );
+  };
+
+  // Follow live OS changes only while the user has not set an explicit override.
+  if (window.matchMedia) {
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', function (event) {
+        if (!storedOverride()) {
+          apply(event.matches ? 'dark' : 'light');
+        }
+      });
+  }
+
+  apply(storedOverride() || systemPref());
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
   const propertiesButton = document.getElementById(
     'environment-properties-button'
@@ -51,6 +126,33 @@ document.addEventListener('DOMContentLoaded', function () {
     openDestinationSelectorDialog
   );
 
+  const colorSchemeSwitchButton = document.getElementById(
+    'color-scheme-switch-button'
+  );
+
+  const SUN_ICON =
+    '<svg viewBox="0 0 24 24" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true" role="img"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>';
+
+  const MOON_ICON =
+    '<svg viewBox="0 0 24 24" class="spectrum-Icon_368b34 spectrum-Icon--sizeS_368b34 spectrum-Icon_e2d99e" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true" role="img"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+
+  function renderColorSchemeIcon() {
+    const isDark = window.getActiveColorScheme() === 'dark';
+    colorSchemeSwitchButton.innerHTML = isDark ? MOON_ICON : SUN_ICON;
+    colorSchemeSwitchButton.setAttribute(
+      'aria-label',
+      isDark ? 'Switch to light theme' : 'Switch to dark theme'
+    );
+    colorSchemeSwitchButton.setAttribute(
+      'title',
+      isDark ? 'Switch to light theme' : 'Switch to dark theme'
+    );
+  }
+
+  colorSchemeSwitchButton.addEventListener('click', window.toggleColorScheme);
+  window.addEventListener('colorSchemeChange', renderColorSchemeIcon);
+  renderColorSchemeIcon();
+
   // re-register Content Advisor Auth Service
   window.addEventListener('environmentProperties', (args) => {
     registerContentAdvisorAuthService(args.detail, true);
@@ -67,6 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
     props = {},
     changeEnvironment = false
   ) {
+    // In order to obtain an IMS_CLIENT_ID you will need to raise a support ticket with Adobe.
+    // Client Id's created via Adobe Developer Console will not work for Content Advisor.
     const prodImsClientId = '%%IMS_CLIENT_ID%%';
     const prodImsOrg = '%%IMS_ORG%%';
 

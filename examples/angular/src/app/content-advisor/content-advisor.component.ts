@@ -116,6 +116,8 @@ export class ContentAdvisorComponent implements OnInit {
   @ViewChild('selectorDialog') dialogRef!: ElementRef<HTMLDialogElement>;
   @ViewChild('mountPoint') mountRef!: ElementRef<HTMLDivElement>;
 
+  // In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+  // Client Id's created via Adobe Developer Console will not work for Content Advisor.
   readonly imsConfigured = !!environment.imsClientId?.trim();
   selectedAssetName: string | null = null;
   private rendered = false;

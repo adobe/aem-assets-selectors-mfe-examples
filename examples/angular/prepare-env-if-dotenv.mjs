@@ -12,12 +12,16 @@ const prodPath = join(envDir, 'environment.prod.ts');
 function ensureStubEnvironmentsIfMissing() {
   const devStub = `export const environment = {
   production: false,
+  // In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+  // Client Id's created via Adobe Developer Console will not work for Content Advisor.
   imsClientId: '',
   imsOrg: null as string | null,
 };
 `;
   const prodStub = `export const environment = {
   production: true,
+  // In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+  // Client Id's created via Adobe Developer Console will not work for Content Advisor.
   imsClientId: '',
   imsOrg: null as string | null,
 };

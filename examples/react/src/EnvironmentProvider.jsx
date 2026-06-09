@@ -16,6 +16,8 @@ import { registerContentAdvisorAuthService } from './ContentAdvisorWrapper';
 
 export const EnvironmentContext = React.createContext({});
 
+// In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+// Client Id's created via Adobe Developer Console will not work for Content Advisor.
 const imsClientId = import.meta.env.VITE_IMS_CLIENT_ID;
 const imsOrg = import.meta.env.VITE_IMS_ORG || null;
 const stageImsClientId = imsClientId;

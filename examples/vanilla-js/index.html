@@ -12,6 +12,8 @@
     <script>
         let imsInstance = null;
 
+        // In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+        // Client Id's created via Adobe Developer Console will not work for Content Advisor.
         const imsProps = {
             imsClientId: "%%IMS_CLIENT_ID%%",
             imsScope: "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
@@ -76,6 +78,7 @@
                 handleSelection: handleSelection,
                 imsOrg: "%%IMS_ORG%%",
                 aemTierType: ['delivery', 'author'],
+                colorScheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
             }, () => {
                 document.getElementById('content-advisor-dialog').showModal();
             });
@@ -86,6 +89,7 @@
             PureJSSelectors.renderDestinationSelectorWithAuthFlow(container, {
                 onClose: destinationSelectorOnClose,
                 onConfirm: handleOnConfirm,
+                colorScheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
             }, () => {
                 document.getElementById('destination-selector-dialog').showModal();
             });

@@ -2,7 +2,7 @@
 
 This example showcases how to integrate the Content Advisor in an Angular app. The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
-> **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector#prereqs) on Experience League.
+> **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties#prereqs) on Experience League.
 
 ### Configuration
 
@@ -14,6 +14,8 @@ cp .env.example .env
 
 - **`IMS_CLIENT_ID`** (required) — same idea as `VITE_IMS_CLIENT_ID` in the React example.
 - **`IMS_ORG`** (optional) — same as `VITE_IMS_ORG` in React; if omitted or empty, **`imsOrg` is `null`** in the app.
+
+> In order to obtain an `IMS_CLIENT_ID` you will need to raise a support ticket with Adobe. Client Id's created via Adobe Developer Console will **not** work for Content Advisor.
 
 Running **`npm start`** or **`npm run build`** runs **`set-env.mjs`**, which writes **`src/environments/environment.ts`** and **`environment.prod.ts`** from **`.env`**.
 

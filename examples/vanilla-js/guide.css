@@ -10,17 +10,45 @@
  * governing permissions and limitations under the License.
  */
 
+/* Color tokens are driven through variables so a single dark-mode override
+   below keeps the guide readable when the OS prefers a dark color scheme. */
+.dialog {
+  --guide-surface: #fff;
+  --guide-text: #222;
+  --guide-text-muted: #666;
+  --guide-divider: #e0e0e0;
+  --guide-code-bg: #f0f0f0;
+  --guide-code-text: #222;
+  --guide-hover-bg: #f0f0f0;
+}
+
+/* The theme follows `data-theme` on the <html> element, set by the theme
+   controller in integration.js (initialized from the OS preference, with a
+   manual toggle override). */
+:root[data-theme='dark'] .dialog {
+  --guide-surface: #252525;
+  --guide-text: #f0f0f0;
+  --guide-text-muted: #bcbcbc;
+  --guide-divider: #4a4a4a;
+  --guide-code-bg: #3a3a3a;
+  --guide-code-text: #e8e8e8;
+  --guide-hover-bg: rgba(255, 255, 255, 0.1);
+}
+
 body {
   margin: 0;
   font-family: system-ui, Arial, sans-serif;
   font-size: 14px;
-  color: #222;
+  color: var(--guide-text);
 }
 
 .dialog {
   position: relative;
   padding: 28px 32px 32px;
   max-width: 600px;
+  background: var(--guide-surface);
+  color: var(--guide-text);
+  border-radius: 8px;
 }
 
 h2 {
@@ -31,7 +59,7 @@ h2 {
 
 hr {
   border: none;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--guide-divider);
   margin: 0 0 24px;
 }
 
@@ -49,7 +77,8 @@ hr {
 code {
   font-family: 'Fira Code', 'Cascadia Code', Menlo, monospace;
   font-size: 13px;
-  background: #f0f0f0;
+  background: var(--guide-code-bg);
+  color: var(--guide-code-text);
   padding: 2px 5px;
   border-radius: 3px;
 }
@@ -80,12 +109,12 @@ pre code {
   font-size: 16px;
   line-height: 1;
   cursor: pointer;
-  color: #666;
+  color: var(--guide-text-muted);
   padding: 4px 8px;
   border-radius: 4px;
 }
 
 .close-btn:hover {
-  background: #f0f0f0;
-  color: #222;
+  background: var(--guide-hover-bg);
+  color: var(--guide-text);
 }

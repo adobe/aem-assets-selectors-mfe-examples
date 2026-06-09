@@ -36,6 +36,8 @@ function loadEnv() {
 }
 
 const env = loadEnv();
+// In order to obtain an IMS_CLIENT_ID you will need to raise a support ticket with Adobe.
+// Client Id's created via Adobe Developer Console will not work for Content Advisor.
 const imsClientId = env.IMS_CLIENT_ID;
 const imsOrg = env.IMS_ORG || null;
 

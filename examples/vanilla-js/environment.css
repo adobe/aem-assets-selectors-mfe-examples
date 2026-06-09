@@ -10,17 +10,57 @@
  * governing permissions and limitations under the License.
  */
 
+/* Color tokens are driven through variables so a single dark-mode override
+   below keeps the dialog readable when the OS prefers a dark color scheme. */
+.dialog {
+  --env-surface: #fff;
+  --env-text: #222;
+  --env-text-muted: #444;
+  --env-divider: #e0e0e0;
+  --env-input-bg: #fff;
+  --env-input-border: #ccc;
+  --env-accent: #1473e6;
+  --env-accent-hover: #0d66d0;
+  --env-accent-ring: rgba(20, 115, 230, 0.2);
+  --env-secondary-bg: #fff;
+  --env-secondary-hover: #f5f5f5;
+  --env-danger: #d7373f;
+  --env-danger-hover: #fff3f4;
+}
+
+/* The theme follows `data-theme` on the <html> element, set by the theme
+   controller in integration.js (initialized from the OS preference, with a
+   manual toggle override). */
+:root[data-theme='dark'] .dialog {
+  --env-surface: #252525;
+  --env-text: #f0f0f0;
+  --env-text-muted: #bcbcbc;
+  --env-divider: #4a4a4a;
+  --env-input-bg: #1d1d1d;
+  --env-input-border: #5c5c5c;
+  --env-accent: #378ef0;
+  --env-accent-hover: #4ba0f5;
+  --env-accent-ring: rgba(55, 142, 240, 0.35);
+  --env-secondary-bg: #333;
+  --env-secondary-hover: #3f3f3f;
+  --env-danger: #ec5b62;
+  --env-danger-hover: #3b2122;
+}
+
 body {
   margin: 0;
   font-family: system-ui, Arial, sans-serif;
   font-size: 14px;
-  color: #222;
+  color: var(--env-text);
 }
 
 .dialog {
   padding: 28px 32px 32px;
   min-width: 380px;
   max-width: 480px;
+  background: var(--env-surface);
+  color: var(--env-text);
+  border-radius: 8px;
 }
 
 h2 {
@@ -30,7 +70,7 @@ h2 {
 
 hr {
   border: none;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--env-divider);
   margin: 0 0 20px;
 }
 
@@ -43,7 +83,7 @@ hr {
   font-weight: 600;
   margin-bottom: 6px;
   font-size: 13px;
-  color: #444;
+  color: var(--env-text-muted);
 }
 
 .radio-group {
@@ -62,17 +102,18 @@ hr {
   width: 100%;
   box-sizing: border-box;
   padding: 8px 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--env-input-border);
   border-radius: 4px;
   font-size: 14px;
   font-family: inherit;
-  color: #222;
+  background: var(--env-input-bg);
+  color: var(--env-text);
 }
 
 .text-input:focus {
   outline: none;
-  border-color: #1473e6;
-  box-shadow: 0 0 0 2px rgba(20, 115, 230, 0.2);
+  border-color: var(--env-accent);
+  box-shadow: 0 0 0 2px var(--env-accent-ring);
 }
 
 .actions {
@@ -81,7 +122,7 @@ hr {
   align-items: center;
   margin-top: 24px;
   padding-top: 16px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--env-divider);
 }
 
 .actions-right {
@@ -100,32 +141,32 @@ hr {
 }
 
 .btn-primary {
-  background: #1473e6;
+  background: var(--env-accent);
   color: white;
-  border-color: #1473e6;
+  border-color: var(--env-accent);
 }
 
 .btn-primary:hover {
-  background: #0d66d0;
-  border-color: #0d66d0;
+  background: var(--env-accent-hover);
+  border-color: var(--env-accent-hover);
 }
 
 .btn-secondary {
-  background: white;
-  color: #222;
-  border-color: #ccc;
+  background: var(--env-secondary-bg);
+  color: var(--env-text);
+  border-color: var(--env-input-border);
 }
 
 .btn-secondary:hover {
-  background: #f5f5f5;
+  background: var(--env-secondary-hover);
 }
 
 .btn-danger {
-  background: white;
-  color: #d7373f;
-  border-color: #d7373f;
+  background: var(--env-secondary-bg);
+  color: var(--env-danger);
+  border-color: var(--env-danger);
 }
 
 .btn-danger:hover {
-  background: #fff3f4;
+  background: var(--env-danger-hover);
 }

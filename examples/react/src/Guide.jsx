@@ -25,7 +25,9 @@ import { CodeBlock, dracula } from "react-code-blocks";
 
 const step1Code = `import { registerContentAdvisorAuthService, ContentAdvisorWithAuthFlow } from "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js"`
 
-const step2Code = `const imsAuthProps = {
+const step2Code = `// In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+// Client Id's created via Adobe Developer Console will not work for Content Advisor.
+const imsAuthProps = {
     imsClientId: "<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>", 
     imsScope: "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
     redirectUrl: window.location.href,

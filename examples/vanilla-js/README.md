@@ -2,7 +2,7 @@
 
 This example showcases how to integrate the Content Advisor in a JavaScript app.
 
-> **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/overview-asset-selector#prereqs) on Experience League.
+> **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties#prereqs) on Experience League.
 
 ### Launching the JavaScript App
 
@@ -20,6 +20,8 @@ To launch the JavaScript app, follow these steps:
    cp .env.example .env
    # edit .env and set IMS_CLIENT_ID
    ```
+
+   > In order to obtain an `IMS_CLIENT_ID` you will need to raise a support ticket with Adobe. Client Id's created via Adobe Developer Console will **not** work for Content Advisor.
 
 3. Start the dev server:
 

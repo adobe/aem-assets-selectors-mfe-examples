@@ -8,6 +8,12 @@ function init() {
             env: defaultImsAuthInfo.env === 'stg1' ? 'stage' : 'prod',
             imsOrg: defaultImsAuthInfo.imsOrg || null,
             aemTierType: ['delivery', 'author'],
+            // Match the host page's active theme (toggle override, else OS preference).
+            colorScheme: window.getActiveColorScheme
+                ? window.getActiveColorScheme()
+                : window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light',
         };
 
         const container = document.getElementById(

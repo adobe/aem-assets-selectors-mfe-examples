@@ -19,7 +19,9 @@
 
       <div class="step">
         <p><strong>Step 2</strong> — Call <code>registerContentAdvisorAuthService()</code> with your IMS auth props on page load.</p>
-        <pre><code>const imsAuthProps = {
+        <pre><code>// In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+// Client Id's created via Adobe Developer Console will not work for Content Advisor.
+const imsAuthProps = {
   imsClientId: IMS_CLIENT_ID,
   imsScope: "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
   redirectUrl: window.location.href,

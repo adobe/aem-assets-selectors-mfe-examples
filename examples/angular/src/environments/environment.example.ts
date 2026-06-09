@@ -4,6 +4,8 @@
  */
 export const environment = {
   production: false,
+  // In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+  // Client Id's created via Adobe Developer Console will not work for Content Advisor.
   imsClientId: '',
   imsOrg: null as string | null,
 };

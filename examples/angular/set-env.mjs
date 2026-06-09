@@ -19,6 +19,8 @@ for (const line of readFileSync(envPath, 'utf-8').split('\n')) {
   env[key.trim()] = rest.join('=').trim();
 }
 
+// In order to obtain an IMS_CLIENT_ID you will need to raise a support ticket with Adobe.
+// Client Id's created via Adobe Developer Console will not work for Content Advisor.
 const imsClientId = env.IMS_CLIENT_ID;
 const imsOrgRaw = (env.IMS_ORG || '').trim();
 const imsOrg =
