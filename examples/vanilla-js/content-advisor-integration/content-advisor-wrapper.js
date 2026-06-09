@@ -1,23 +1,30 @@
 function init() {
-    renderAssetSelectorWithAuthFlow();
-    function renderAssetSelectorWithAuthFlow(props) {
+    renderContentAdvisorWithAuthFlow();
+    function renderContentAdvisorWithAuthFlow(props) {
         const defaultImsAuthInfo = window['assetsSelectorsAuthService'];
-        const assetsSelectorsProps = {
+        const contentAdvisorProps = {
             onClose: onClose,
             handleSelection: handleSelection,
             env: defaultImsAuthInfo.env === 'stg1' ? 'stage' : 'prod',
             imsOrg: defaultImsAuthInfo.imsOrg || null,
+            aemTierType: ['delivery', 'author'],
+            // Match the host page's active theme (toggle override, else OS preference).
+            colorScheme: window.getActiveColorScheme
+                ? window.getActiveColorScheme()
+                : window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light',
         };
 
         const container = document.getElementById(
-            'asset-selector-dialog-content'
+            'content-advisor-dialog-content'
         );
 
-        PureJSSelectors.renderAssetSelectorWithAuthFlow(
+        PureJSSelectors.renderContentAdvisorWithAuthFlow(
             container,
-            assetsSelectorsProps,
+            contentAdvisorProps,
             () => {
-                // callback function to be called after the asset selector is rendered
+                // callback invoked after Content Advisor is rendered
             }
         );
     }

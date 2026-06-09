@@ -2,17 +2,20 @@
 <html>
 
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
-	<title>Asset Selectors</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>Content Advisor</title>
     <link rel="stylesheet" href="index.css">
-    <script src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
+    <script
+        src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
 
     <script>
-		let imsInstance = null;
+        let imsInstance = null;
 
+        // In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+        // Client Id's created via Adobe Developer Console will not work for Content Advisor.
         const imsProps = {
-            imsClientId: "<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>",
+            imsClientId: "%%IMS_CLIENT_ID%%",
             imsScope: "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
             redirectUrl: window.location.href,
             modalMode: true,
@@ -39,213 +42,93 @@
             // },
         };
 
-        /**
-         * Registers the IMS token service with the PureJSSelectors library, which is required when using `renderAssetSelectorWithAuthFlow` with a pop-up.
-         *
-         * NOTE: If you don't register the token service and your redirectUrl does not match the one you registered with the imsClientId,
-         * the sign-in flow will fail and a page reload might be required. If you use a different redirectUrl where the IMS provider will
-         * redirect to after the user signs in, you must also load this function on that redirect page for the pop-up to work correctly.
-         *
-         * It is recommended that you call `registerAssetsSelectorsAuthService` on page load.
-         *
-         * @function load
-         */
+        // Must be called on page load before rendering ContentAdvisor.
+        // If your redirectUrl differs from the imsClientId registration, also call this on the redirect page.
         function registerImsAuthService() {
-            // Register the IMS token service with PureJSSelectors.
-            const registeredTokenService = PureJSSelectors.registerAssetsSelectorsAuthService(imsProps);
-
-            // Store the token service instance in `imsInstance` for use outside of the asset selector.
-            // Some helpful functions:
-            // - registeredTokenService.getAccessToken() - to get the current access token
-            // - registeredTokenService.triggerAuthFlow() or registeredTokenService.signIn() - to trigger the sign-in flow based on the imsProps modalMode setting (true/false);
-            // - registeredTokenService.signOut() - to sign out the user and remove the token
-            // - registeredTokenService.refreshToken() - to refresh the existing token
+            const registeredTokenService = PureJSSelectors.registerContentAdvisorAuthService(imsProps);
+            // registeredTokenService exposes: getAccessToken(), signIn(), signOut(), refreshToken()
             imsInstance = registeredTokenService;
         };
 
-		// Must be register token service before the selectors are rendered.
-		registerImsAuthService();
+        // Must be register token service before the selectors are rendered.
+        registerImsAuthService();
 
-        /**
-         * Closes the Asset Selector dialog when it is called.
-         * This is a helper function used by Asset Selectors UI.
-         *
-         * @function onClose
-         */
         function onClose() {
-            const selectorDialog = document.getElementById('asset-selector-dialog');
-            selectorDialog.close();
+            document.getElementById('content-advisor-dialog').close();
         }
 
-        /**
-         * Closes the Destination Selector dialog when it is called.
-         * This is a helper function used by Asset Selectors UI.
-         *
-         * @function onClose
-         */
         function destinationSelectorOnClose() {
-            const selectorDialog = document.getElementById('destination-selector-dialog');
-            selectorDialog.close();
+            document.getElementById('destination-selector-dialog').close();
         }
 
-        /**
-         * Handles the selected asset when it is called.
-         * This is a helper function used by Asset Selectors UI.
-         *
-         * @function handleSelection
-         * @param {object} selection - The selected asset.
-         */
         function handleSelection(selection) {
             console.log('Selected asset:', selection);
             onClose();
-        };
+        }
 
-        /**
-         * Handles the selected path when it is called.
-         * This is a helper function used by Asset Selectors UI.
-         *
-         * @function handleOnConfirm
-         * @param {object} selection - The selected path.
-         */
         function handleOnConfirm(selection) {
             console.log('Selected path:', selection);
             destinationSelectorOnClose();
-        };
+        }
 
-        /**
-         * Renders an asset selector user interface using the PureJSSelectors library.
-         * When the asset selector is ready to be displayed, it will be shown in a dialog box.
-         *
-         * @async
-         * @function renderAssetSelectorWithImsFlow
-         * @returns {Promise<void>}
-         */
-        async function renderAssetSelectorWithImsFlow() {
-
-            /**
-             * Props for the asset selector UI.
-             *
-             * @typedef {Object} AssetSelectorProps
-             * @property {string} discoveryURL - The URL for the AEM Discovery service.
-             * @property {string} imsOrg - The IMS organization ID for the user.
-             * @property {string} apiKey - The API key for the AEM Assets backend.
-             * @property {Function} onClose - A callback function to be called when the asset selector dialog is closed.
-             * @property {Function} handleSelection - A callback function to be called when an asset is selected.
-             * @property {Function} handleNavigateToAsset - A callback function to be called when the user clicks on an asset to navigate to it.
-             * @property {string} env - The environment where the asset selector is being used.
-             */
-
-            /** @type {AssetSelectorProps} */
-            const assetSelectorProps = {
-                "onClose": onClose,
-                "handleSelection": handleSelection,
-                imsOrg:"9D0725C05E44FE1A0A49411C@AdobeOrg"
-            }
-
-            // Get the container element where the asset selector will be rendered.
-            const container = document.getElementById('asset-selector');
-
-            /**
-             * Renders the asset selector UI with IMS authentication, and shows the dialog when it's ready.
-             *
-             * @function renderAssetSelectorWithAuthFlow
-             * @param {Element} container - The container element where the asset selector will be rendered.
-             * @param {AssetSelectorProps} props - Props for the asset selector UI.
-             * @param {Function} callback - A callback function to be called when the UI is ready to be displayed.
-             */
-            PureJSSelectors.renderAssetSelectorWithAuthFlow(container, assetSelectorProps, () => {
-                const assetSelectorDialog = document.getElementById('asset-selector-dialog');
-                assetSelectorDialog.showModal();
+        async function renderContentAdvisorWithImsFlow() {
+            const container = document.getElementById('content-advisor');
+            PureJSSelectors.renderContentAdvisorWithAuthFlow(container, {
+                onClose: onClose,
+                handleSelection: handleSelection,
+                imsOrg: "%%IMS_ORG%%",
+                aemTierType: ['delivery', 'author'],
+                colorScheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+            }, () => {
+                document.getElementById('content-advisor-dialog').showModal();
             });
         }
 
-        /**
-         * Renders a Destination Selector UI with IMS authentication.
-         * The UI will use the registered IMS instance (created in registerAssetsSelectorsAuthService) to get the required tokens.
-         * If a valid token is not present, the sign-in flow will be triggered in either pop-up or full page reload mode based on the configurations set in the imsProps.
-         * Note that registerAssetsSelectorsAuthService must be called before triggering this flow.
-         * For best user experience, it is recommended that registerAssetsSelectorsAuthService is called on page load prior to calling this function.
-         *
-         * @async
-         * @function renderDestinationSelectorWithImsFlow
-         * @returns {Promise<void>}
-         */
         async function renderDestinationSelectorWithImsFlow() {
-            /**
-             * Props for the Destination Selector UI.
-             *
-             * @typedef {Object} DestinationSelectorProps
-             * @property {string} imsOrg - The IMS organization ID for the user.
-             * @property {Function} onClose - A callback function to be called when the Destination Selector dialog is closed.
-             * @property {Function} handleSelection - A callback function to be called when a destination is selected.
-             * @property {string} env - The environment where the Destination Selector is being used.
-             */
-
-            /** @type {DestinationSelectorProps} */
-            const props = {
-                "onClose": destinationSelectorOnClose,
-                "handleSelection": handleOnConfirm,
-            }
-
-            // Get the container element where the Destination Selector will be rendered.
             const container = document.getElementById('destination-selector');
-
-            /**
-             * Renders the Destination Selector UI with IMS authentication, and shows the dialog when it's ready.
-             *
-             * @function renderDestinationSelectorWithAuthFlow
-             * @param {Element} container - The container element where the Destination Selector will be rendered.
-             * @param {DestinationSelectorProps} props - Props for the Destination Selector UI.
-             * @param {Function} callback - A callback function to be called when the UI is ready to be displayed.
-             */
-            PureJSSelectors.renderDestinationSelectorWithAuthFlow(container, props, () => {
-                const destinationSelectorDialog = document.getElementById('destination-selector-dialog');
-                destinationSelectorDialog.showModal();
+            PureJSSelectors.renderDestinationSelectorWithAuthFlow(container, {
+                onClose: destinationSelectorOnClose,
+                onConfirm: handleOnConfirm,
+                colorScheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+            }, () => {
+                document.getElementById('destination-selector-dialog').showModal();
             });
         }
 
-        /**
-         * Initiates the logout flow for the current IMS user using the registered IMS instance.
-         *
-         * @async
-         * @function logoutImsFlow
-         */
         async function logoutImsFlow() {
-            console.log("Signing out...", imsInstance);
-
-            // Call the signOut method on the registered IMS instance to initiate the logout flow.
             await imsInstance.signOut();
         }
 
-	</script>
+    </script>
 </head>
 
-<body class="asset-selectors">
-	<div>
-		<h3>Asset Selectors Consumer Apps in Vanilla JS</h3>
-	</div>
-	<div>
-		<button onclick="renderAssetSelectorWithImsFlow()">Asset Selector - Select Assets with Ims Flow</button>
+<body class="content-advisors">
+    <div>
+        <h3>Vanilla JS Examples</h3>
     </div>
     <div>
-        <button onclick="renderDestinationSelectorWithImsFlow()">Destination Selector - Select Assets with Ims Flow</button>
+        <button onclick="renderContentAdvisorWithImsFlow()">Content Advisor - Select Assets with Ims Flow</button>
     </div>
     <div>
-		<button onclick="location.href='dnd.html'">Asset Selector - Drag & Drop</button>
+        <button onclick="renderDestinationSelectorWithImsFlow()">Destination Selector - Select Folders with Ims
+            Flow</button>
     </div>
     <div>
-		<button onclick="logoutImsFlow()">(Sign Out)</button>
-	</div>
+        <button onclick="location.href='dnd.html'">Content Advisor — Drag &amp; Drop</button>
+    </div>
     <div>
-        <dialog id="asset-selector-dialog">
-            <div id="asset-selector" style="height: calc(100vh - 80px); width: calc(100vw - 60px); margin: -20px;"></div>
+        <button onclick="logoutImsFlow()">(Sign Out)</button>
+    </div>
+    <div>
+        <dialog id="content-advisor-dialog">
+            <div id="content-advisor" style="height: 100%; width: 100%;"></div>
         </dialog>
     </div>
     <div>
-      <dialog id="destination-selector-dialog">
-          <div id="destination-selector" style="height: 100vh; width: calc(100vw - 60px);"></div>
-      </dialog>
-  </div>
+        <dialog id="destination-selector-dialog">
+            <div id="destination-selector" style="height: 100%; width: 100%;"></div>
+        </dialog>
+    </div>
 </body>
 
 </html>

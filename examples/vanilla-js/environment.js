@@ -10,8 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
-function init(){
-    
+function init() {
+
     const environmentProperties = document.getElementById('environment-radio-group');
     const environmentPropertiesButtonSignOut = document.getElementById('environment-properties-button-signOut');
     const environmentPropertiesButtonConfirm = document.getElementById('environment-properties-button-confirm');
@@ -26,18 +26,18 @@ function init(){
 
 function onEnvironmentPropertiesChange(event) {
 
-    const stageImsClientId = "<ADOBE_PROVIDED_IMS_CLIENT_ID>";
-    const stageImsOrg = "9D0725C05E44FE1A0A49411C@AdobeOrg";
+    const stageImsClientId = "%%IMS_CLIENT_ID%%";
+    const stageImsOrg = "%%IMS_ORG%%";
 
-    const prodImsClientId = "<ADOBE_PROVIDED_IMS_CLIENT_ID>";
-    const prodImsOrg = "999F6D0B617C10B80A495E2E@AdobeOrg";
+    const prodImsClientId = "%%IMS_CLIENT_ID%%";
+    const prodImsOrg = "%%IMS_ORG%%";
 
     const environmentPropertiesInputImsClientId = document.getElementById('environment-properties-input-ims-client-id');
     const environmentPropertiesInputImsOrgId = document.getElementById('environment-properties-input-ims-org-id');
     const environmentRadioItemProd = document.getElementById("environment-radio-group-prod");
     const environmentRadioItemStage = document.getElementById("environment-radio-group-stage");
 
-    if(event.target.value === 'stage') {
+    if (event.target.value === 'stage') {
         environmentPropertiesInputImsClientId.value = stageImsClientId;
         environmentPropertiesInputImsOrgId.value = stageImsOrg;
         environmentRadioItemStage.checked = true;
@@ -55,6 +55,8 @@ function onConfirmClick() {
 
     const initImsAuthInfo = {
         env: environmentRadioItemStage.checked ? "stage" : "prod",
+        // In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+        // Client Id's created via Adobe Developer Console will not work for Content Advisor.
         imsClientId: environmentPropertiesInputImsClientId.value,
         imsScope:
             "AdobeID,openid,additional_info.projectedProductContext,read_organizations",

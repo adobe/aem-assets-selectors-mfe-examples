@@ -7,6 +7,12 @@ function init() {
             onConfirm: onConfirm,
             env: defaultImsAuthInfo.env === 'stg1' ? 'stage' : 'prod',
             imsOrg: defaultImsAuthInfo.imsOrg || null,
+            // Match the host page's active theme (toggle override, else OS preference).
+            colorScheme: window.getActiveColorScheme
+                ? window.getActiveColorScheme()
+                : window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light',
         };
 
         const container = document.getElementById(
@@ -17,7 +23,7 @@ function init() {
             container,
             destinationSelectorsProps,
             () => {
-                // callback function to be called after the asset selector is rendered
+                // callback function to be called after the MFE is rendered
             }
         );
     }

@@ -846,11 +846,68 @@ dialog {
   animation-fill-mode: both;
 }
 
+/* Drop the user-agent dialog chrome (thick border + 1em padding) so the
+   injected content controls its own surface, and let it follow the OS scheme. */
+#integration-properties-guide-dialog {
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+}
+
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-#asset-selector-preview-button:hover, #asset-selector-preview-image:hover {
+#content-advisor-preview-button:hover, #content-advisor-preview-image:hover {
   cursor: pointer;
+}
+
+/*
+ * Dark mode for the mock email client.
+ *
+ * The theme is controlled by `data-theme` on the <html> element (set by the
+ * theme controller in integration.js, which initializes from the OS
+ * `prefers-color-scheme` and supports a manual toggle override).
+ *
+ * shared.css only ships the *light* Spectrum gray ramp, and Spectrum
+ * components resolve their backgrounds, text, borders, etc. from
+ * --spectrum-gray-*, so flipping just that ramp (plus the translucent "well"
+ * tokens) re-themes the whole mock email client for free.
+ */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+:root[data-theme='dark'] .spectrum--light_a40724 {
+  --spectrum-gray-50: #1d1d1d;
+  --spectrum-gray-75: #262626;
+  --spectrum-gray-100: #323232;
+  --spectrum-gray-200: #3f3f3f;
+  --spectrum-gray-300: #545454;
+  --spectrum-gray-400: #707070;
+  --spectrum-gray-500: #909090;
+  --spectrum-gray-600: #b2b2b2;
+  --spectrum-gray-700: #d0d0d0;
+  --spectrum-gray-800: #ebebeb;
+  --spectrum-gray-900: #fff;
+  --spectrum-well-background-color: #ffffff0a;
+  --spectrum-well-border-color: #ffffff1f;
+}
+
+/* The mock email markup hard-codes a few light-mode text colors inline
+   (both spaced and unspaced rgb() forms exist), so lift them to stay
+   legible on the dark surfaces. */
+:root[data-theme='dark'] [style*="rgb(75,75,75)"],
+:root[data-theme='dark'] [style*="rgb(75, 75, 75)"] {
+  color: #d0d0d0 !important;
+}
+
+:root[data-theme='dark'] [style*="rgb(110,110,110)"],
+:root[data-theme='dark'] [style*="rgb(110, 110, 110)"] {
+  color: #a8a8a8 !important;
 }
 

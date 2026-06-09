@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+/* ::backdrop can't be scoped by Angular's emulated encapsulation */
+.ca-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}

@@ -71,7 +71,7 @@ export const Settings = () => {
       <Divider />
       <Content>
         <RadioGroup
-          label="AssetsSelectors environment"
+          label="Content Advisor environment"
           value={environment}
           onChange={setEnvironment}
           defaultValue={environment}
@@ -84,6 +84,8 @@ export const Settings = () => {
           <Radio value="stage">Stage</Radio>
         </RadioGroup>
         <Form>
+          {/* In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+              Client Id's created via Adobe Developer Console will not work for Content Advisor. */}
           <TextField
             label="IMS Client ID"
             value={imsClientId}

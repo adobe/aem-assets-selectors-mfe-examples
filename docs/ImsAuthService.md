@@ -1,11 +1,11 @@
 # ImsAuthService
 
-`ImsAuthService` class handles the authentication flow for the Asset Selector. It is responsible for obtaining an `imsToken` from the Adobe IMS authentication service. The `imsToken` is used to authenticate the user and authorize access to the Adobe Experience Manager (AEM) CS Assets repository. ImsAuthService uses the `ImsAuthProps` properties to control the authentication flow and register listeners for various authentication events. You can use the convenient [`registerAssetsSelectorsAuthService`](#purejsselectorsregisterassetsselectorsauthservice) function to register the _ImsAuthService_ instance with the Asset Selector. The following functions are available on the `ImsAuthService` class. However, if you're using the _registerAssetsSelectorsAuthService_ function, you do not need to call these functions directly.
+> **This documentation has moved to Adobe Experience League.**
+>
+> See: **[Content Advisor: IMS Auth Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties#ims-auth-service)**
 
-| Function Name    | Description                                                                                                                                                                                                                             |
-|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `isSignedInUser` | Determines whether the user is currently signed in to the service and returns a boolean value accordingly.                                                                                                                              |
-| `getImsToken`    | Retrieves the authentication `imsToken` for the currently signed-in user, which can be used to authenticate requests to other services such as generating asset _rendition._                                                            |
-| `signIn`         | Initiates the sign-in process for the user. This function uses the `ImsAuthProps` to show authentication in either a pop-up or a full page reload.                                                                                      |
-| `signOut`        | Signs the user out of the service, invalidating their authentication token and requiring them to sign in again to access protected resources. Invoking this function will reload the current page.                                      |
-| `refreshToken`   | Refreshes the authentication token for the currently signed-in user, preventing it from expiring and ensuring uninterrupted access to protected resources. Returns a new authentication token that can be used for subsequent requests. |
+The standalone prop-reference documents previously under `docs/` have been consolidated into the Experience League pages for Content Advisor. Documentation for `registerAssetsSelectorsAuthService` and the returned `ImsAuthService` instance is covered alongside the property references on the page above.
+
+For provisioning prerequisites (IMS client ID, scope, redirect URL), see the [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties#prereqs) section.
+
+For the full list of Experience League documentation pages, see the [Documentation section of the repository README](../README.md#documentation).

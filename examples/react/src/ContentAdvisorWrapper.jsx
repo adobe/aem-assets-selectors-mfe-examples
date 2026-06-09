@@ -11,23 +11,23 @@
  * governing permissions and limitations under the License.
  */
 
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 
 import { useDialogContainer } from "@adobe/react-spectrum";
-import { registerAssetsSelectorsAuthService as registerAssetsSelectorsAuthServiceInternal, AssetSelectorWithAuthFlow} from "@assets/selectors";
+import { registerContentAdvisorAuthService as registerContentAdvisorAuthServiceInternal, ContentAdvisorWithAuthFlow } from "@assets/selectors";
 import { EnvironmentContext } from "./EnvironmentProvider";
 
-export const registerAssetsSelectorsAuthService = (imsAuthProps, changeEnvironment = false) => {
-    if(imsAuthProps){
-        return registerAssetsSelectorsAuthServiceInternal(imsAuthProps, changeEnvironment);
+export const registerContentAdvisorAuthService = (imsAuthProps, changeEnvironment = false) => {
+    if (imsAuthProps) {
+        return registerContentAdvisorAuthServiceInternal(imsAuthProps, changeEnvironment);
     }
 };
 
-export const AssetSelectorWrapper = (props) => {
+export const ContentAdvisorWrapper = (props) => {
     const dialog = useDialogContainer();
-    const { imsAuthInfo} = useContext(EnvironmentContext);
+    const { imsAuthInfo } = useContext(EnvironmentContext);
 
-    const assetsSelectorsProps = {
+    const contentAdvisorProps = {
         ...props,
         onClose: () => {
             dialog.dismiss?.();
@@ -37,10 +37,11 @@ export const AssetSelectorWrapper = (props) => {
         },
         env: imsAuthInfo.env,
         imsOrg: imsAuthInfo.imsOrg,
+        aemTierType: ['delivery', 'author']
     }
 
-    // AssetSelectorWithAuthFlow adds authentication flow to AssetSelector
-    // If you already have an imsToken, you can use AssetSelector directly instead
+    // ContentAdvisorWithAuthFlow adds authentication flow to ContentAdvisor
+    // If you already have an imsToken, you can use ContentAdvisor directly instead
     return (
         <div
             style={{
@@ -48,7 +49,7 @@ export const AssetSelectorWrapper = (props) => {
                 height: "100%",
             }}
         >
-            <AssetSelectorWithAuthFlow {...assetsSelectorsProps} ></AssetSelectorWithAuthFlow>
+            <ContentAdvisorWithAuthFlow {...contentAdvisorProps} ></ContentAdvisorWithAuthFlow>
         </div>
     );
 };

@@ -46,7 +46,7 @@ import Contrast from '@spectrum-icons/workflow/Contrast';
 import Code from '@spectrum-icons/workflow/Code';
 import './App.css';
 import DesignPlaceholder from './svg/Placeholder.js';
-import { AssetSelectorWrapper } from './AssetSelectorWrapper';
+import { ContentAdvisorWrapper } from './ContentAdvisorWrapper';
 import { DestinationSelectorWrapper } from './DestinationSelectorWrapper';
 import {
   getAssetRenditionLinks,
@@ -127,14 +127,14 @@ const DesignerView = (props) => {
     );
   };
 
-  const renderAssetSelector = () => {
+  const renderContentAdvisor = () => {
     return (
       <DialogTrigger type="fullscreen" isDismissable>
         <ActionButton
           height={optimalRendition?.height || 108}
           maxHeight={300}
           isQuiet={true}
-          aria-label="Asset Selector Button"
+          aria-label="Content Advisor Button"
         >
           <View>
             {assetImagePreview ? (
@@ -144,7 +144,7 @@ const DesignerView = (props) => {
             )}
           </View>
         </ActionButton>
-        <AssetSelectorWrapper {...props} handleSelection={handleOnConfirm} />
+        <ContentAdvisorWrapper {...props} handleSelection={handleOnConfirm} />
       </DialogTrigger>
     );
   };
@@ -353,7 +353,7 @@ const DesignerView = (props) => {
                   <View margin={assetImagePreview ? 0 : 'size-400'}>
                     <Flex alignItems="center" direction="column">
                       <IllustratedMessage>
-                        <Heading>{renderAssetSelector()}</Heading>
+                        <Heading>{renderContentAdvisor()}</Heading>
                         {!selectedAssetMetadata && (
                           <Content
                             UNSAFE_style={{
@@ -363,7 +363,7 @@ const DesignerView = (props) => {
                           >
                             Click the placeholder icon in this email template to
                             effortlessly import hiking assets using
-                            AssetSelectors.
+                            Content Advisor.
                           </Content>
                         )}
                       </IllustratedMessage>
@@ -423,9 +423,9 @@ const DesignerView = (props) => {
             <ChevronLeft />
             <Header marginX="size-100">
               <Heading marginTop={0} marginBottom={5}>
-                Assets Selectors from Adobe Experience Manager
+                Content Advisor from Adobe Experience Manager
               </Heading>
-              <Text>Elevate Your Users Experience with Assets Selectors</Text>
+              <Text>Elevate Your Users Experience with Content Advisor</Text>
             </Header>
           </Flex>
           <Flex>

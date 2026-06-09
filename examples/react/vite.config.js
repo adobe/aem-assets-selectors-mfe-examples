@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import basicSsl from '@vitejs/plugin-basic-ssl';
 
 // externals
 const externals = {
@@ -17,7 +16,7 @@ export default defineConfig({
       external: Object.keys(externals),
     },
   },
-  plugins: [react(), basicSsl()],
+  plugins: [react()],
   server: {
     port: 8080,
   },

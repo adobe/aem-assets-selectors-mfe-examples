@@ -12,15 +12,19 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { registerAssetsSelectorsAuthService } from './AssetSelectorWrapper';
+import { registerContentAdvisorAuthService } from './ContentAdvisorWrapper';
 
 export const EnvironmentContext = React.createContext({});
 
-const stageImsClientId = '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>';
-const stageImsOrg = '9D0725C05E44FE1A0A49411C@AdobeOrg';
+// In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+// Client Id's created via Adobe Developer Console will not work for Content Advisor.
+const imsClientId = import.meta.env.VITE_IMS_CLIENT_ID;
+const imsOrg = import.meta.env.VITE_IMS_ORG || null;
+const stageImsClientId = imsClientId;
+const stageImsOrg = imsOrg;
 
-const prodImsClientId = '<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>';
-const prodImsOrg = '999F6D0B617C10B80A495E2E@AdobeOrg';
+const prodImsClientId = imsClientId;
+const prodImsOrg = imsOrg;
 
 const initImsAuthInfo = {
   env: 'prod',
@@ -39,7 +43,7 @@ export const EnvironmentProvider = ({ children }) => {
   const applyImsAuthChange = (props) => {
     // update the token service
     // you can also access the tokenService from window.assetsSelectorsAuthService
-    const tokenService = registerAssetsSelectorsAuthService(
+    const tokenService = registerContentAdvisorAuthService(
       {
         ...imsAuthInfo,
         ...props,
@@ -82,10 +86,10 @@ export const EnvironmentProvider = ({ children }) => {
     });
   }, [environment]);
 
-  // you must register the token service before using the asset selector
+  // register the auth service before rendering Content Advisor
   useEffect(() => {
     // you can also access the tokenService from window.assetsSelectorsAuthService
-    const tokenService = registerAssetsSelectorsAuthService(imsAuthInfo);
+    const tokenService = registerContentAdvisorAuthService(imsAuthInfo);
     setImsAuthInfo((prevInfo) => {
       return {
         ...prevInfo,

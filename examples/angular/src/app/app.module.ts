@@ -17,12 +17,12 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AssetSelectorComponent } from 'src/app/asset-selector/asset-selector.component';
+import { ContentAdvisorComponent } from 'src/app/content-advisor/content-advisor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AssetSelectorComponent,
+    ContentAdvisorComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +31,6 @@ import { AssetSelectorComponent } from 'src/app/asset-selector/asset-selector.co
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [AssetSelectorComponent]
+  exports: [ContentAdvisorComponent]
 })
 export class AppModule { }

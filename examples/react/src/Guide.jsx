@@ -23,15 +23,17 @@ import {
 import { CodeBlock, dracula } from "react-code-blocks";
 
 
-const step1Code = `import { registerAssetsSelectorsAuthService, AssetSelectorWithAuthFlow } from "https://experience.adobe.com/solutions/CQ-assets-selectors/assets/resources/@assets/selectors"`
+const step1Code = `import { registerContentAdvisorAuthService, ContentAdvisorWithAuthFlow } from "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/@assets/selectors/index.js"`
 
-const step2Code = `const imsAuthProps = {
+const step2Code = `// In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
+// Client Id's created via Adobe Developer Console will not work for Content Advisor.
+const imsAuthProps = {
     imsClientId: "<IMS_CLIENT_ID_ASSOCIATED_WITH_YOUR_AEM_ASSETS_REPOSITORY>", 
     imsScope: "AdobeID,openid,additional_info.projectedProductContext,read_organizations",
     redirectUrl: window.location.href,
 };
 // must be called on page load
-registerAssetsSelectorsAuthService(imsAuthProps);
+registerContentAdvisorAuthService(imsAuthProps);
 `;
 
 const step3Code = `function App() {
@@ -39,11 +41,11 @@ const step3Code = `function App() {
   const [selectedAssets, setSelectedAssets] = useState([]);
 
   const onClose = () => {
-    // Handle closing the AssetSelectorWithAuthFlow
+    // Handle closing the ContentAdvisorWithAuthFlow
   };
 
   return (
-    <AssetSelectorWithAuthFlow
+    <ContentAdvisorWithAuthFlow
         imsOrg={imsOrg}
         onClose={onClose}
         handleSelection={setSelectedAssets}/>
@@ -54,7 +56,7 @@ const step3Code = `function App() {
 export const Guide = () => {
     return (
         <Dialog size="L" isDismissable>
-            <Heading>AssetsSelectors Integration Guide</Heading>
+            <Heading>Content Advisor Integration Guide</Heading>
             <Divider />
             <Content>
                 <View marginBottom="size-200">
@@ -77,7 +79,7 @@ export const Guide = () => {
                 <View marginBottom="size-200">
                     <View marginBottom={5}>
                         <Text>
-                            <strong>Step 2:</strong> Call <strong><code>registerAssetsSelectorsAuthService(...)</code></strong> with imsAuthProps on page load.
+                            <strong>Step 2:</strong> Call <strong><code>registerContentAdvisorAuthService(...)</code></strong> with imsAuthProps on page load.
                         </Text>
                     </View>
                     <CodeBlock
@@ -91,7 +93,7 @@ export const Guide = () => {
                 <View marginBottom="size-200">
                     <View marginBottom={5}>
                         <Text>
-                            <strong>Step 3:</strong> Render <strong><code>AssetSelectorWithAuthFlow</code></strong> with AssetSelector props.
+                            <strong>Step 3:</strong> Render <strong><code>ContentAdvisorWithAuthFlow</code></strong> with Content Advisor props.
                         </Text>
                     </View>
                     <CodeBlock

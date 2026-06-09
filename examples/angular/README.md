@@ -1,38 +1,39 @@
-# Angular
+## Angular Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+This example showcases how to integrate the Content Advisor in an Angular app. The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
-## Pre-requisites
+> **Prerequisites:** Your organization must be provisioned for Content Advisor. See [Prerequisites](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-properties#prereqs) on Experience League.
 
-:warning: This repository is intended to serve as a supplemental documentation describing the available APIs and usage examples for integrating Assets Selectors. Before attempting to install or use the Assets Selectors, ensure that your organization has been provisioned to access the Assets Selectors as part of the AEM Assets as a Cloud Service (CS) profile. If you have not been provisioned, you will not be able to successfully integrate or use these components. To request provisioning, your program admin should raise a support ticket marked as P2 from Admin Console and include the following information:
+### Configuration
 
-- Program ID and Environment ID for the AEM CS instance
-- Domain names where the integrating application is hosted
+IMS values are read from a local **`.env`** file (not committed). Copy the example and set your client ID:
 
-After provisioning, your organization will be provided with an `imsClientId`, `imsScope`, and a `redirectUrl` corresponding to the environment that you request —which are essential for the configuration of Assets Selectors to work end-to-end. Without those valid properties, you will not be able to run this example
+```bash
+cp .env.example .env
+```
 
----
+- **`IMS_CLIENT_ID`** (required) — same idea as `VITE_IMS_CLIENT_ID` in the React example.
+- **`IMS_ORG`** (optional) — same as `VITE_IMS_ORG` in React; if omitted or empty, **`imsOrg` is `null`** in the app.
 
-## Development server
+> In order to obtain an `IMS_CLIENT_ID` you will need to raise a support ticket with Adobe. Client Id's created via Adobe Developer Console will **not** work for Content Advisor.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Running **`npm start`** or **`npm run build`** runs **`set-env.mjs`**, which writes **`src/environments/environment.ts`** and **`environment.prod.ts`** from **`.env`**.
 
-## Code scaffolding
+### Launching the Angular App
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Make sure you have the [Angular CLI](https://angular.io/cli) installed.
+2. Install the dependencies:
 
-## Build
+   ``` bash
+   npm install
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Create `.env` from `.env.example` and set **`IMS_CLIENT_ID`** (see above).
 
-## Running unit tests
+4. Start the dev server:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ``` bash
+   npm start
+   ```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+5. Open a web browser and navigate to `http://localhost:8080/` to view the app.

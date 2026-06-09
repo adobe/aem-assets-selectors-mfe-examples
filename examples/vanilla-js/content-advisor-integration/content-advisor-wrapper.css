@@ -1,4 +1,6 @@
 #integration-properties-guide-dialog {
+  width: 80vw;
+  height: 80vh;
   border: 0;
   border-radius: 8px;
   background-color: white;
@@ -16,7 +18,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
-#destination-selector-dialog-content {
+#content-advisor-dialog-content {
   display: flex;
   flex-direction: column;
   height: 100%;
