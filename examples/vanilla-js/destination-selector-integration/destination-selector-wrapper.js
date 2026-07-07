@@ -23,7 +23,7 @@ function init() {
             container,
             destinationSelectorsProps,
             () => {
-                // callback function to be called after the MFE is rendered
+                // callback function to be called after MFE is rendered
             }
         );
     }
