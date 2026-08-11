@@ -14,6 +14,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { environment } from '../../environments/environment';
 
 declare const PureJSSelectors: any;
+declare const UploadCoordinator: any;
 
 const IMS_SCOPE =
   'AdobeID,openid,additional_info.projectedProductContext,read_organizations';
@@ -23,12 +24,12 @@ const IMS_SCOPE =
   template: `
     <div class="ca-launcher">
       <button class="ca-btn" (click)="openDialog()" [disabled]="!imsConfigured">
-        Open Content Advisor
+        Select Upload Destination
       </button>
 
-      <div class="ca-result" *ngIf="selectedAssetName">
-        <span class="ca-result-label">Last selected:</span>
-        <span class="ca-result-name">{{ selectedAssetName }}</span>
+      <div class="ca-result" *ngIf="targetUploadPath">
+        <span class="ca-result-label">Uploading to:</span>
+        <span class="ca-result-name">{{ targetUploadPath }}</span>
       </div>
 
       <p class="ca-error" *ngIf="!imsConfigured">
@@ -100,7 +101,7 @@ const IMS_SCOPE =
       border: 0;
       border-radius: 8px;
       padding: 0;
-      width: min(90vw, 1200px);
+      width: min(90vw, 640px);
       height: min(88vh, 900px);
       overflow: hidden;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
@@ -119,8 +120,9 @@ export class ContentAdvisorComponent implements OnInit {
   // In order to obtain an imsClientId you will need to raise a support ticket with Adobe.
   // Client Id's created via Adobe Developer Console will not work for Content Advisor.
   readonly imsConfigured = !!environment.imsClientId?.trim();
-  selectedAssetName: string | null = null;
-  private rendered = false;
+  targetUploadPath: string | null = null;
+  private accessToken: string | null = null;
+  private destinationSelectorRendered = false;
 
   ngOnInit() {
     if (!this.imsConfigured) return;
@@ -128,22 +130,26 @@ export class ContentAdvisorComponent implements OnInit {
       imsClientId: environment.imsClientId,
       imsScope: IMS_SCOPE,
       redirectUrl: window.location.href,
+      onAccessTokenReceived: (accessToken: { token: string }) => {
+        this.accessToken = accessToken.token;
+      },
     });
   }
 
   openDialog() {
     if (!this.imsConfigured) return;
-    if (!this.rendered) {
-      PureJSSelectors.renderContentAdvisorWithAuthFlow(
+    if (!this.destinationSelectorRendered) {
+      PureJSSelectors.renderDestinationSelectorWithAuthFlow(
         this.mountRef.nativeElement,
         {
           imsOrg: environment.imsOrg,
           onClose: () => this.closeDialog(),
-          handleSelection: (assets: any[]) => this.handleSelection(assets),
+          initRepoId: environment.repositoryId,
+          onConfirm: (destination: any) => this.handleDestinationSelected(destination),
           aemTierType: ['delivery', 'author'],
         }
       );
-      this.rendered = true;
+      this.destinationSelectorRendered = true;
     }
     this.dialogRef.nativeElement.showModal();
   }
@@ -152,11 +158,26 @@ export class ContentAdvisorComponent implements OnInit {
     this.dialogRef.nativeElement.close();
   }
 
-  handleSelection(assets: any[]) {
-    const asset = assets?.[0];
-    const name = asset?.['repo:name'] ?? asset?.name ?? 'unknown';
-    console.log('Selected asset name:', name);
-    this.selectedAssetName = name;
-    this.closeDialog();
+  handleDestinationSelected(destination: any) {
+    const path = destination?.['repo:path'] ?? destination?.path ?? null;
+
+    if (!this.accessToken || !path) return;
+    this.targetUploadPath = path;
+    this.renderUpload(this.accessToken, path);
+  }
+
+  private renderUpload(apiToken: string, targetUploadPath: string) {
+    UploadCoordinator.renderAllInOneUpload(
+      this.mountRef.nativeElement,
+      {
+        env: 'PROD',
+        // Adobe IMS bearer token used to authenticate with the AEM as a Cloud Service repository.
+        apiToken: apiToken,
+        // AEM as a Cloud Service author host to upload assets to.
+        repositoryId: environment.repositoryId,
+        // DAM path assets will be uploaded to.
+        targetUploadPath,
+      }
+    );
   }
 }
