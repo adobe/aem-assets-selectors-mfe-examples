@@ -19,6 +19,19 @@ cp .env.example .env
 
 Vite exposes these to the app via `import.meta.env`.
 
+#### Optional: customized detail panel (`infoPopoverMap`)
+
+> **Limited availability:** this only takes effect for integrations whose `apiKey` Adobe has enabled for detail panel customization.
+
+- **`VITE_ENABLE_DETAIL_PANEL_CUSTOMIZATION=true`** — turns on advisor mode and passes the example map in [`src/detailPanelInfoPopoverMap.js`](./src/detailPanelInfoPopoverMap.js) to `<ContentAdvisorWithAuthFlow />`.
+- **`VITE_API_KEY`** (optional) — set this only if Adobe gave you an `apiKey` that differs from `VITE_IMS_CLIENT_ID`.
+
+Open an asset's details in Content Advisor to see the customized **Info** tab. See the [detail panel customization guide](../../docs/content-advisor-detail-panel-customization.md) for the full reference.
+
+#### Optional: customized filter panel (`filterSchema`)
+
+- **`VITE_ENABLE_FILTER_SCHEMA_CUSTOMIZATION=true`**: passes `filterSchema`, `filterSchemaSource` and `filterSchemaDefaults` from [`src/contentAdvisorFilterSchema.js`](./src/contentAdvisorFilterSchema.js). Works for every integration; no `apiKey` enablement is needed. Content Advisor opens pre-filtered to images. See [Customizing the filter panel](../../docs/content-advisor-detail-panel-customization.md#customizing-the-filter-panel).
+
 ### Launching the React App
 
 1. Make sure you have `npm` or `yarn` installed on your system.

@@ -186,6 +186,7 @@ For complete documentation on Assets Selectors — including full property refer
 | Customizations | Filters, i18n, theming, feature flags, repository switching | [Content Advisor Customizations](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/content-advisor-customization) |
 | Usage Examples | Additional framework- and scenario-specific snippets | [Content Advisor Examples](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-examples) |
 | Dynamic Media OpenAPI | Integrating with Dynamic Media Open APIs | [Integrate with Dynamic Media Open APIs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/asset-selector/asset-selector-integration/integrate-asset-selector-dynamic-media-open-api) |
+| Detail panel customization (limited availability) | Customizing the first tab of the Content Advisor detail panel with `infoPopoverMap`, plus the filter panel with `filterSchema` / `filterSchemaDefaults` | [Customizing the Content Advisor Detail Panel](./docs/content-advisor-detail-panel-customization.md) |
 
 ## Examples
 

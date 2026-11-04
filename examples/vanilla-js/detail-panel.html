@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>Content Advisor - Detail Panel Customization</title>
+    <link rel="stylesheet" href="index.css">
+    <script
+        src="https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/assets-selectors.js"></script>
+    <script defer src="filter-schema.js"></script>
+    <script defer src="detail-panel.js"></script>
+</head>
+
+<body class="content-advisors">
+    <div>
+        <h3>Content Advisor - Detail Panel Customization (<code>infoPopoverMap</code>)</h3>
+        <p>
+            Open either selector below, then use an asset's info action to open the detail panel. The first tab
+            (<strong>Info</strong>) is rendered from <code>detailPanelInfoPopoverMap</code> in
+            <code>detail-panel.js</code>.
+        </p>
+        <p>
+            Requires advisor mode and an <code>apiKey</code> that Adobe has enabled for this capability. See
+            <code>docs/content-advisor-detail-panel-customization.md</code>.
+        </p>
+        <p>
+            Runtime <code>apiKey</code>: <code id="api-key-value">(not provided)</code>.
+            Supply it via <code>?apiKey=&lt;your-key&gt;</code>; no key is hardcoded or persisted by this example.
+        </p>
+        <p id="detail-panel-error" role="alert" hidden></p>
+        <p>
+            The filter panel is customized too (<code>filterSchema</code>, <code>filterSchemaSource</code> and
+            <code>filterSchemaDefaults</code> in <code>filter-schema.js</code>). It opens pre-filtered to images.
+            Filter panel customization is not limited to enabled <code>apiKey</code>s.
+        </p>
+    </div>
+    <div>
+        <h4>Content Advisor</h4>
+        <button onclick="renderContentAdvisorWithCustomDetailPanel(false)">renderContentAdvisorWithAuthFlow (sync map)</button>
+    </div>
+    <div>
+        <button onclick="renderContentAdvisorWithCustomDetailPanel(true)">renderContentAdvisorWithAuthFlow (async map)</button>
+    </div>
+    <div>
+        <h4>Asset Selector with <code>featureSet: ['advisor']</code></h4>
+        <button onclick="renderAssetSelectorWithCustomDetailPanel(false)">renderAssetSelectorWithAuthFlow (sync map)</button>
+    </div>
+    <div>
+        <button onclick="renderAssetSelectorWithCustomDetailPanel(true)">renderAssetSelectorWithAuthFlow (async map)</button>
+    </div>
+    <div>
+        <button onclick="signOut()">(Sign Out)</button>
+    </div>
+    <div>
+        <h4>Last selection</h4>
+        <pre id="selection-output" style="max-height: 240px; overflow: auto;">(none)</pre>
+    </div>
+    <div>
+        <dialog id="content-advisor-dialog">
+            <div id="content-advisor" style="height: 100%; width: 100%;"></div>
+        </dialog>
+    </div>
+</body>
+
+</html>
