@@ -48,6 +48,17 @@ To launch the JavaScript app, follow these steps:
 3. If the user is signed in, the Content Advisor dialog will be rendered with assets.
 4. When you select an asset, the app will render the selected asset.
 
+### Detail panel customization example (detail-panel.html)
+
+> **Limited availability:** this only takes effect for integrations whose `apiKey` Adobe has enabled for detail panel customization.
+
+1. Once the app is launched, navigate to `http://localhost:8080/detail-panel.html?apiKey=<your-key>` with an Adobe-enabled key supplied at runtime. The page displays the key in use; neither mode falls back to the IMS client ID. Do not hardcode the key in source.
+2. Choose Content Advisor (`renderContentAdvisorWithAuthFlow`) or Asset Selector (`renderAssetSelectorWithAuthFlow`), each with sync and async map buttons. Asset Selector uses exactly `featureSet: ['advisor']` to match the customer configuration.
+3. Open an asset's details (info action). The first **Info** tab is rendered by `detailPanelInfoPopoverMap` in [`detail-panel.js`](./detail-panel.js).
+4. The filter panel is customized by [`filter-schema.js`](./filter-schema.js) (`filterSchema`, `filterSchemaSource`, `filterSchemaDefaults`), and Content Advisor opens pre-filtered to images. Filter panel customization works for every integration.
+
+See the [detail panel customization guide](../../docs/content-advisor-detail-panel-customization.md) for the full `infoPopoverMap` reference.
+
 Visit the following URL to test out the deployed example that is showcased in [integration.html][selectors-vanillajs-demo].
 
 [selectors-vanillajs-demo]: https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/integration/integration.html

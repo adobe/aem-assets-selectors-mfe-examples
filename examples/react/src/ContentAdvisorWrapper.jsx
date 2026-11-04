@@ -16,6 +16,20 @@ import React, { useContext } from "react";
 import { useDialogContainer } from "@adobe/react-spectrum";
 import { registerContentAdvisorAuthService as registerContentAdvisorAuthServiceInternal, ContentAdvisorWithAuthFlow } from "@assets/selectors";
 import { EnvironmentContext } from "./EnvironmentProvider";
+import { getDetailPanelCustomizationProps } from "./detailPanelInfoPopoverMap";
+import { getFilterSchemaCustomizationProps } from "./contentAdvisorFilterSchema";
+
+// Opt-in: customized Content Advisor detail panel (infoPopoverMap). Limited availability - only takes
+// effect for an apiKey Adobe has enabled. See docs/content-advisor-detail-panel-customization.md.
+const detailPanelCustomizationProps =
+    import.meta.env.VITE_ENABLE_DETAIL_PANEL_CUSTOMIZATION === 'true'
+        ? getDetailPanelCustomizationProps({ apiKey: import.meta.env.VITE_API_KEY })
+        : {};
+
+// Opt-in: customized filter panel (filterSchema, filterSchemaSource, filterSchemaDefaults).
+// Available to every integration. See contentAdvisorFilterSchema.js.
+const filterSchemaCustomizationProps =
+    import.meta.env.VITE_ENABLE_FILTER_SCHEMA_CUSTOMIZATION === 'true' ? getFilterSchemaCustomizationProps() : {};
 
 export const registerContentAdvisorAuthService = (imsAuthProps, changeEnvironment = false) => {
     if (imsAuthProps) {
@@ -28,6 +42,8 @@ export const ContentAdvisorWrapper = (props) => {
     const { imsAuthInfo } = useContext(EnvironmentContext);
 
     const contentAdvisorProps = {
+        ...detailPanelCustomizationProps,
+        ...filterSchemaCustomizationProps,
         ...props,
         onClose: () => {
             dialog.dismiss?.();

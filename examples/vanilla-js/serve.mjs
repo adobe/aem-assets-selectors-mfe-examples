@@ -91,7 +91,8 @@ server.listen(PORT, 'localhost', () => {
   console.log(`\n  Vanilla JS example running at:\n`);
   console.log(`    http://localhost:${PORT}/`);
   console.log(`    http://localhost:${PORT}/integration.html`);
-  console.log(`    http://localhost:${PORT}/dnd.html\n`);
+  console.log(`    http://localhost:${PORT}/dnd.html`);
+  console.log(`    http://localhost:${PORT}/detail-panel.html\n`);
   console.log(`  Using IMS Client ID: ${imsClientId.slice(0, 8)}...`);
   console.log(`  Using IMS Org:       ${imsOrg || '(none -- repo selector will show)'}\n`);
 });
