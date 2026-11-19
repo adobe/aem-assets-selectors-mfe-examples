@@ -1,4 +1,4 @@
-## Asset Selector -> Content Advisor
+## Asset Selector → Content Advisor
 
 > **Asset Selector has evolved into Content Advisor.** Adobe has introduced Content Advisor as the new recommended name and convention for what was previously known as Asset Selector. The `@assets/selectors` package and CDN URLs remain unchanged — this is a fully backwards-compatible transition. Existing integrations using `renderAssetSelector`, `registerAssetsSelectorsAuthService`, and `<AssetSelector />` continue to work without modification. For new integrations, we encourage adopting the updated conventions: `renderContentAdvisor`, `registerContentAdvisorAuthService`, and `<ContentAdvisor />`. [Learn more about integrating with Content Advisor on Experience League.](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/integrate-adobe-non-adobe-applications)
 
