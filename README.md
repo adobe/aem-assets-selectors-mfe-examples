@@ -1,6 +1,12 @@
-## Assets Selectors
+## Content Advisor
 
 > **Asset Selector has evolved into Content Advisor.** Adobe has introduced Content Advisor as the new recommended name and convention for what was previously known as Asset Selector. The `@assets/selectors` package and CDN URLs remain unchanged — this is a fully backwards-compatible transition. Existing integrations using `renderAssetSelector`, `registerAssetsSelectorsAuthService`, and `<AssetSelector />` continue to work without modification. For new integrations, we encourage adopting the updated conventions: `renderContentAdvisor`, `registerContentAdvisorAuthService`, and `<ContentAdvisor />`. [Learn more about integrating with Content Advisor on Experience League.](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/content-advisor/integrate-adobe-non-adobe-applications)
+
+## New - Browser Extension
+
+[![browser-extension](./docs/github-and-experience-league-promo.png)](https://chromewebstore.google.com/detail/aem-content-advisor/hgagfaikdinmneghfgjjocmfidmnadga)
+
+## Integrated Version
 
 Assets Selectors contains a collection of components such as ContentAdvisor (formerly AssetSelector) and DestinationSelector from [Adobe Experience Manager Assets as a Cloud Service][aem-cs-wiki] (AEM CS). These components follow the [Micro Frontend architecture][microfrontend-wiki] and are consumable in your application via convenient JavaScript APIs to search, browse, and retrieve digital assets available in the AEM CS repository.
 
@@ -16,7 +22,7 @@ This repository provides **runnable code examples** for integrating Assets Selec
 
 ## Contents
 
-- [Assets Selectors](#assets-selectors)
+- [Content Advisor](#content-advisor)
 - [What is this repository for](#what-is-this-repository-for)
 - [Contents](#contents)
 - [Installation](#installation)
